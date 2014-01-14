@@ -15,23 +15,44 @@ Apache's OpenNLP perceptron models in binary format.
 JSON-formatted string representing the annotated version of the unstructured text. Example JSON string:
 
 	{
-  		"sentences" : [ 
-  		 {
-    		"words" : [ "Microsoft", "Windows", "XP", "." ],
-    		"pos" : [ "NNP", "NNP", "NNP", "." ],
-    		"iob" : [ "B", "B", "O", "O" ],
-    		"domainLabels" : [ "sw.vendor", "sw.product", "O", "O" ],
-    		"domainScores" : [ 0.3083600176497029, 0.29496901049795676, 0.30469849374496444, 0.3035644073881222 ]
-  		 }, 
-  		 {
-    		"words" : [ "Apple", "Mac", "OS", "X", "." ],
-    		"pos" : [ "NNP", "NNP", "NNP", "NNP", "." ],
-    		"iob" : [ "B", "B", "I", "I", "O" ],
-    		"domainLabels" : [ "sw.vendor", "sw.product", "sw.product", "sw.product", "sw.version" ],
-    		"domainScores" : [ 0.3023481844622021, 0.2960099268790269, 0.29650331085403353, 0.29420049883757027, 0.278111912834388 ]
-  		 },
+  		"sentences" : [ {
+    		"sentence" : [ {
+      			"word" : "Microsoft",
+      			"pos" : "NNP",
+      			"iob" : "B",
+      			"domainLabel" : "sw.vendor",
+      			"domainScore" : 0.3083600176497029
+    		}, {
+      			"word" : "Windows",
+      			"pos" : "NNP",
+      			"iob" : "B",
+      			"domainLabel" : "sw.product",
+      			"domainScore" : 0.29496901049795676
+    		}, {
+      			"word" : "XP",
+      			"pos" : "NNP",
+      			"iob" : "O",
+      			"domainLabel" : "O",
+      			"domainScore" : 0.30469849374496444
+    		}, {
+     			 "word" : ".",
+      			"pos" : ".",
+      			"iob" : "O",
+      			"domainLabel" : "O",
+      			"domainScore" : 0.3035644073881222
+    		} ]
+  		}, {
+    		"sentence" : [ {
+      			"word" : "Apple",
+      			"pos" : "NNP",
+      			"iob" : "B",
+      			"domainLabel" : "sw.vendor",
+      			"domainScore" : 0.3023481844622021
+   			}, 
+   				...
+   			]
+  		},
   		 ...
-  		]
 	}
 
 

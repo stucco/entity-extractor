@@ -3,6 +3,7 @@ package gov.ornl.csed.csiir.sava.stucco;
 import gov.ornl.csed.csiir.sava.stucco.models.Context;
 import gov.ornl.csed.csiir.sava.stucco.models.Sentence;
 import gov.ornl.csed.csiir.sava.stucco.models.Sentences;
+import gov.ornl.csed.csiir.sava.stucco.models.Word;
 
 import java.io.DataInputStream;
 import java.io.File;
@@ -126,7 +127,8 @@ public class EntityExtractor {
 		Sentence sentence = new Sentence();
 		String[] tokens = tokenizer.tokenize(sent);
 		for (int i=0; i<tokens.length; i++) {
-			sentence.addWord(tokens[i]);
+			Word aWord = new Word(tokens[i]);
+			sentence.addWord(aWord);
 		}
 		return sentence;
 	}
@@ -140,14 +142,16 @@ public class EntityExtractor {
 	 * @return the Sentence instance with the addition of part of speech tags 
 	 */
 	public Sentence getPOS(Sentence sentence) {
-		List<String> wordList = sentence.getWordList();
+		List<String> wordList = sentence.getWordsAsStrings();
 		if (!wordList.isEmpty()) {
-			String[] words = new String[wordList.size()];
-			words = wordList.toArray(words);
+			String[] wordArray = new String[wordList.size()];
+			wordArray = wordList.toArray(wordArray);
 	
-			String[] posArray = posTagger.tag(words);
+			List<Word> words = sentence.getWordList();
+			String[] posArray = posTagger.tag(wordArray);
 			for (int i=0; i<posArray.length; i++) {
-				sentence.addPos(posArray[i]);
+				Word aWord = words.get(i);
+				aWord.setPos(posArray[i]);
 			}
 		}
 		else {
@@ -166,34 +170,37 @@ public class EntityExtractor {
 	 * @return the Sentence instance with the addition of I-O-B format tags
 	 */
 	public Sentence getIOB(Sentence sentence) {
-		List<String> words = sentence.getWordList();
-		List<String> pos = sentence.getPosList();
-		if ((!words.isEmpty()) && (!pos.isEmpty())) {
-			List<String> iobs;
-			for (int j=0; j<words.size(); j++) {
-				iobs = sentence.getIOBList();
-				Context context = new Context(words.get(j), pos.get(j), null);
+		List<Word> words = sentence.getWordList();
+		
+		if (!words.isEmpty()) {
+			for (int i=0; i<words.size(); i++) {
+				Word aWord = words.get(i);
+				Context context = new Context(aWord.getWord(), aWord.getPos(), null);
 				context.setHasTarget(false);
-				if (j-2 >= 0) {
-					context.setPPreviousIOB(words.get(j-2), pos.get(j-2), iobs.get(j-2));
+				if (i-2 >= 0) {
+					Word prevWord2 = words.get(i-2);
+					context.setPPreviousIOB(prevWord2.getWord(), prevWord2.getPos(), prevWord2.getIob());
 				}
 				else {
 					context.setPPreviousIOB(PREV_WORD, POS, IOB);
 				}
-				if (j-1 >= 0) {
-					context.setPreviousIOB(words.get(j-1), pos.get(j-1), iobs.get(j-1));
+				if (i-1 >= 0) {
+					Word prevWord = words.get(i-1);
+					context.setPreviousIOB(prevWord.getWord(), prevWord.getPos(), prevWord.getIob());
 				}
 				else {
 					context.setPreviousIOB(PREV_WORD, POS, IOB);
 				}
-				if (j+1 < words.size()) {
-					context.setNextWord(words.get(j+1), pos.get(j+1));
+				if (i+1 < words.size()) {
+					Word nextWord = words.get(i+1);
+					context.setNextWord(nextWord.getWord(), nextWord.getPos());
 				}
 				else {
 					context.setNextWord(NEXT_WORD, POS);
 				}
-				if (j+2 < words.size()) {
-					context.setNNextWord(words.get(j+2), pos.get(j+2));
+				if (i+2 < words.size()) {
+					Word nextWord2 = words.get(i+2);
+					context.setNNextWord(nextWord2.getWord(), nextWord2.getPos());
 				}
 				else {
 					context.setNNextWord(NEXT_WORD, POS);
@@ -205,7 +212,7 @@ public class EntityExtractor {
 				String[] contextArray = context.toString().split(" ");
 				double[] results = iobModel.eval(contextArray);
 				String iobLabel = iobModel.getBestOutcome(results);
-				sentence.addIOB(iobLabel);
+				aWord.setIob(iobLabel);
 			}
 		}
 		else {
@@ -225,37 +232,38 @@ public class EntityExtractor {
 	 * @return the Sentence instance with the addition of domain-specific labels
 	 */
 	public Sentence getLabels(Sentence sentence) {
-		List<String> words = sentence.getWordList();
-		List<String> iobs = sentence.getIOBList();
-		List<String> pos = sentence.getPosList();
+		List<Word> words = sentence.getWordList();
 		
-		if ((!words.isEmpty()) && (!pos.isEmpty()) && (!pos.isEmpty())) {
-			List<String> labels;
-			for (int j=0; j<words.size(); j++) {
-				labels = sentence.getDomainLabelList();
+		if (!words.isEmpty()) {
+			for (int i=0; i<words.size(); i++) {
+				Word aWord = words.get(i);
 				
-				Context context = new Context(words.get(j), pos.get(j), iobs.get(j), null);
+				Context context = new Context(aWord.getWord(), aWord.getPos(), aWord.getIob(), null);
 				context.setHasTarget(false);
-				if (j-2 >= 0) {
-					context.setPPreviousLabel(words.get(j-2), pos.get(j-2), iobs.get(j-2), labels.get(j-2));
+				if (i-2 >= 0) {
+					Word prevWord2 = words.get(i-2);
+					context.setPPreviousLabel(prevWord2.getWord(), prevWord2.getPos(), prevWord2.getIob(), prevWord2.getDomainLabel());
 				}
 				else {
 					context.setPPreviousLabel(PREV_WORD, POS, IOB, LABEL);
 				}
-				if (j-1 >= 0) {
-					context.setPreviousLabel(words.get(j-1), pos.get(j-1), iobs.get(j-1), labels.get(j-1));
+				if (i-1 >= 0) {
+					Word prevWord = words.get(i-1);
+					context.setPreviousLabel(prevWord.getWord(), prevWord.getPos(), prevWord.getIob(), prevWord.getDomainLabel());
 				}
 				else {
 					context.setPreviousLabel(PREV_WORD, POS, IOB, LABEL);
 				}
-				if (j+1 < words.size()) {
-					context.setNextIOB(words.get(j+1), pos.get(j+1), iobs.get(j+1));
+				if (i+1 < words.size()) {
+					Word nextWord = words.get(i+1);
+					context.setNextIOB(nextWord.getWord(), nextWord.getPos(), nextWord.getIob());
 				}
 				else {
 					context.setNextIOB(NEXT_WORD, POS, IOB);
 				}
-				if (j+2 < words.size()) {
-					context.setNNextIOB(words.get(j+2), pos.get(j+2), iobs.get(j+2));
+				if (i+2 < words.size()) {
+					Word nextWord2 = words.get(i+2);
+					context.setNNextIOB(nextWord2.getWord(), nextWord2.getPos(), nextWord2.getIob());
 				}
 				else {
 					context.setNNextIOB(NEXT_WORD, POS, IOB);
@@ -267,8 +275,8 @@ public class EntityExtractor {
 				String[] contextArray = context.toString().split(" ");
 				double[] results = domainModel.eval(contextArray);
 				String domainLabel = domainModel.getBestOutcome(results);
-				sentence.addDomainLabel(domainLabel);
-				sentence.addDomainScore(new Double(results[domainModel.getIndex(domainLabel)]));
+				aWord.setDomainLabel(domainLabel);
+				aWord.setDomainScore(results[domainModel.getIndex(domainLabel)]);
 			}
 		}
 		else {
