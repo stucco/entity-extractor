@@ -53,6 +53,7 @@ JSON-formatted string representing the annotated version of the unstructured tex
    			]
   		},
   		 ...
+  		]
 	}
 
 
