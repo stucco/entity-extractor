@@ -95,8 +95,7 @@ public class Word {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((domainLabel == null) ? 0 : domainLabel.hashCode());
+		result = prime * result + ((domainLabel == null) ? 0 : domainLabel.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(domainScore);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -120,8 +119,7 @@ public class Word {
 				return false;
 		} else if (!domainLabel.equals(other.domainLabel))
 			return false;
-		if (Double.doubleToLongBits(domainScore) != Double
-				.doubleToLongBits(other.domainScore))
+		if (domainScore != other.domainScore)
 			return false;
 		if (iob == null) {
 			if (other.iob != null)
