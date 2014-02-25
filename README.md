@@ -1,5 +1,5 @@
 # Entity Extraction
-Library to identify and extract domain-specific entities from unstructured text. This library makes use of Apache's OpenNLP software. See the [Javadocs] (https://github.com/stucco/entity-extractor/tree/master/doc) for more details.
+Library to identify and extract domain-specific entities from unstructured text. This library makes use of Apache's OpenNLP software. See the [Javadocs] (https://github.com/stucco/entity-extractor/tree/gh-pages) for more details.
 
 ## Input
 Apache's OpenNLP perceptron models in binary format.

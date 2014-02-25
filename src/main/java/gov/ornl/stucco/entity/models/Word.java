@@ -1,4 +1,4 @@
-package gov.ornl.csed.csiir.sava.stucco.models;
+package gov.ornl.stucco.entity.models;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,8 +1,9 @@
-package gov.ornl.csed.csiir.sava.stucco;
+package gov.ornl.stucco.entity;
 
-import gov.ornl.csed.csiir.sava.stucco.models.Sentence;
-import gov.ornl.csed.csiir.sava.stucco.models.Sentences;
-import gov.ornl.csed.csiir.sava.stucco.models.Word;
+import gov.ornl.stucco.entity.EntityExtractor;
+import gov.ornl.stucco.entity.models.Sentence;
+import gov.ornl.stucco.entity.models.Sentences;
+import gov.ornl.stucco.entity.models.Word;
 
 import java.util.Arrays;
 
