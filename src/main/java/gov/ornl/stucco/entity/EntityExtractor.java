@@ -59,12 +59,13 @@ public class EntityExtractor {
 	private static final String sentenceModelFile = "en-sent.bin";
 	private static final String posModelFile = "en-pos-perceptron.bin";
 	
+	//default perceptron model files in binary format
+	private static String iobModelFile = "test-IOB-Perceptron.bin";
+	private static String domainModelFile = "test-Domain-Perceptron.bin";
+	
 	private SentenceDetectorME sentenceDetector;
 	private SimpleTokenizer tokenizer;
 	private POSTaggerME posTagger;
-	//default perceptron model files in binary format
-	private String iobModelFile = "test-IOB-Perceptron.bin";
-	private String domainModelFile = "test-Domain-Perceptron.bin";
 	private PerceptronModel iobModel;
 	private PerceptronModel domainModel;
 	
@@ -76,14 +77,43 @@ public class EntityExtractor {
 	public EntityExtractor(String iobModelFile, String domainModelFile) throws Exception {
 		this.iobModelFile = iobModelFile;
 		this.domainModelFile = domainModelFile;
+		
+		tokenizer = SimpleTokenizer.INSTANCE;
 		try {
 			sentenceDetector = new SentenceDetectorME(new SentenceModel(EntityExtractor.class.getClassLoader().getResourceAsStream(sentenceModelFile)));
-			tokenizer = SimpleTokenizer.INSTANCE;
-			posTagger = new POSTaggerME(new POSModel(EntityExtractor.class.getClassLoader().getResourceAsStream(posModelFile)));
-			iobModel = (PerceptronModel) (new BinaryPerceptronModelReader(new File(iobModelFile))).getModel();
-			domainModel = (PerceptronModel) (new BinaryPerceptronModelReader(new File(domainModelFile))).getModel();
 		} catch (Exception e) {
-			throw e;
+			try {
+				sentenceDetector = new SentenceDetectorME(new SentenceModel(new File(sentenceModelFile)));
+			} catch (Exception ex) {
+				throw ex;
+			}
+		}
+		try {
+			posTagger = new POSTaggerME(new POSModel(EntityExtractor.class.getClassLoader().getResourceAsStream(posModelFile)));
+		} catch (Exception e) {
+			try {
+				posTagger = new POSTaggerME(new POSModel(new File(posModelFile)));
+			} catch (Exception ex) {
+				throw ex;
+			}
+		}
+		try {
+			iobModel = (PerceptronModel) (new BinaryPerceptronModelReader(new DataInputStream(EntityExtractor.class.getClassLoader().getResourceAsStream(iobModelFile)))).getModel();
+		} catch (Exception e) {
+			try {
+				iobModel = (PerceptronModel) (new BinaryPerceptronModelReader(new File(iobModelFile))).getModel();
+			} catch (Exception ex) {
+				throw ex;
+			}
+		}
+		try {
+			domainModel = (PerceptronModel) (new BinaryPerceptronModelReader(new DataInputStream(EntityExtractor.class.getClassLoader().getResourceAsStream(domainModelFile)))).getModel();
+		} catch (Exception e) {
+			try {
+				domainModel = (PerceptronModel) (new BinaryPerceptronModelReader(new File(domainModelFile))).getModel();
+			} catch (Exception ex) {
+				throw ex;
+			}
 		}
 	}
 	
@@ -93,15 +123,7 @@ public class EntityExtractor {
 	 * 
 	 */
 	public EntityExtractor() throws Exception {
-		try {
-			sentenceDetector = new SentenceDetectorME(new SentenceModel(EntityExtractor.class.getClassLoader().getResourceAsStream(sentenceModelFile)));
-			tokenizer = SimpleTokenizer.INSTANCE;
-			posTagger = new POSTaggerME(new POSModel(EntityExtractor.class.getClassLoader().getResourceAsStream(posModelFile)));
-			iobModel = (PerceptronModel) (new BinaryPerceptronModelReader(new DataInputStream(EntityExtractor.class.getClassLoader().getResourceAsStream(this.iobModelFile)))).getModel();
-			domainModel = (PerceptronModel) (new BinaryPerceptronModelReader(new DataInputStream(EntityExtractor.class.getClassLoader().getResourceAsStream(this.domainModelFile)))).getModel();
-		} catch (Exception e) {
-			throw e;
-		}
+		this(iobModelFile, domainModelFile);
 	}
 	
 	
