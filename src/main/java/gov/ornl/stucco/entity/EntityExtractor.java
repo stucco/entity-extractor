@@ -60,8 +60,8 @@ public class EntityExtractor {
 	private static final String posModelFile = "en-pos-perceptron.bin";
 	
 	//default perceptron model files in binary format
-	private static String iobModelFile = "test-IOB-Perceptron.bin";
-	private static String domainModelFile = "test-Domain-Perceptron.bin";
+	private static String iobModelFile = "test-IOB-perceptron.bin";
+	private static String domainModelFile = "test-Domain-perceptron.bin";
 	
 	private SentenceDetectorME sentenceDetector;
 	private SimpleTokenizer tokenizer;
@@ -74,9 +74,9 @@ public class EntityExtractor {
 	 * @param domainModelFile the domain label perceptron model file in binary format
 	 * @throws Exception if the model files cannot be read in
 	 */
-	public EntityExtractor(String iobModelFile, String domainModelFile) throws Exception {
-		this.iobModelFile = iobModelFile;
-		this.domainModelFile = domainModelFile;
+	public EntityExtractor(String iobFile, String domainFile) throws Exception {
+		iobModelFile = iobFile;
+		domainModelFile = domainFile;
 		
 		tokenizer = SimpleTokenizer.INSTANCE;
 		try {
