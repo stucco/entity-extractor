@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - oraclejdk7
+  - openjdk7
+after_success:
+  - wget https://raw.githubusercontent.com/stucco/test/master/rerun-test.sh
+  - chmod a+x ./rerun-test.sh
+  - ./rerun-test.sh
