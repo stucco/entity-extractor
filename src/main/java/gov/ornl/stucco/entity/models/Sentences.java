@@ -1,5 +1,7 @@
 package gov.ornl.stucco.entity.models;
 
+import gov.ornl.stucco.entity.models.Sentence;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class Sentences {
 	public Sentences(List<Sentence> sentences) {
 		this.sentenceList = sentences;
 	}
-
+	
 	@JsonGetter("sentences")
 	public List<Sentence> getSentenceList() {
 		return sentenceList;

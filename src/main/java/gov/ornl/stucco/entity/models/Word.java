@@ -16,14 +16,14 @@ public class Word {
 	
 	private String word;
 	private String pos;
-	private String iob;
+//	private String iob;
 	private String domainLabel;
 	private double domainScore;
 	
 	public Word() {
 		this.word = "";
 		this.pos = "";
-		this.iob = "";
+//		this.iob = "";
 		this.domainLabel = "";
 		this.domainScore = 0.0;
 	}
@@ -31,7 +31,7 @@ public class Word {
 	public Word(String word) {
 		this.word = word;
 		this.pos = "";
-		this.iob = "";
+//		this.iob = "";
 		this.domainLabel = "";
 		this.domainScore = 0.0;
 	}
@@ -39,7 +39,14 @@ public class Word {
 	public Word(String word, String pos, String iob, String domainLabel, double domainScore) {
 		this.word = word;
 		this.pos = pos;
-		this.iob = iob;
+//		this.iob = iob;
+		this.domainLabel = domainLabel;
+		this.domainScore = domainScore;
+	}
+	
+	public Word(String word, String pos, String domainLabel, double domainScore) {
+		this.word = word;
+		this.pos = pos;
 		this.domainLabel = domainLabel;
 		this.domainScore = domainScore;
 	}
@@ -60,13 +67,13 @@ public class Word {
 		this.pos = pos;
 	}
 
-	public String getIob() {
-		return iob;
-	}
-
-	public void setIob(String iob) {
-		this.iob = iob;
-	}
+//	public String getIob() {
+//		return iob;
+//	}
+//
+//	public void setIob(String iob) {
+//		this.iob = iob;
+//	}
 
 	public String getDomainLabel() {
 		return domainLabel;
@@ -86,7 +93,7 @@ public class Word {
 
 	@Override
 	public String toString() {
-		return "Word [word=" + word + ", pos=" + pos + ", iob=" + iob
+		return "Word [word=" + word + ", pos=" + pos /*+ ", iob=" + iob*/
 				+ ", domainLabel=" + domainLabel + ", domainScore="
 				+ domainScore + "]";
 	}
@@ -99,7 +106,7 @@ public class Word {
 		long temp;
 		temp = Double.doubleToLongBits(domainScore);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((iob == null) ? 0 : iob.hashCode());
+//		result = prime * result + ((iob == null) ? 0 : iob.hashCode());
 		result = prime * result + ((pos == null) ? 0 : pos.hashCode());
 		result = prime * result + ((word == null) ? 0 : word.hashCode());
 		return result;
@@ -121,11 +128,11 @@ public class Word {
 			return false;
 		if (domainScore != other.domainScore)
 			return false;
-		if (iob == null) {
-			if (other.iob != null)
-				return false;
-		} else if (!iob.equals(other.iob))
-			return false;
+//		if (iob == null) {
+//			if (other.iob != null)
+//				return false;
+//		} else if (!iob.equals(other.iob))
+//			return false;
 		if (pos == null) {
 			if (other.pos != null)
 				return false;

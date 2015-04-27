@@ -201,14 +201,14 @@ public class EntityExtractor {
 				context.setHasTarget(false);
 				if (i-2 >= 0) {
 					Word prevWord2 = words.get(i-2);
-					context.setPPreviousIOB(prevWord2.getWord(), prevWord2.getPos(), prevWord2.getIob());
+					context.setPPreviousIOB(prevWord2.getWord(), prevWord2.getPos(), null /*prevWord2.getIob()*/);
 				}
 				else {
 					context.setPPreviousIOB(PREV_WORD, POS, IOB);
 				}
 				if (i-1 >= 0) {
 					Word prevWord = words.get(i-1);
-					context.setPreviousIOB(prevWord.getWord(), prevWord.getPos(), prevWord.getIob());
+					context.setPreviousIOB(prevWord.getWord(), prevWord.getPos(), null /*prevWord.getIob()*/);
 				}
 				else {
 					context.setPreviousIOB(PREV_WORD, POS, IOB);
@@ -234,7 +234,7 @@ public class EntityExtractor {
 				String[] contextArray = context.toString().split(" ");
 				double[] results = iobModel.eval(contextArray);
 				String iobLabel = iobModel.getBestOutcome(results);
-				aWord.setIob(iobLabel);
+//				aWord.setIob(iobLabel);
 			}
 		}
 		else {
@@ -260,32 +260,32 @@ public class EntityExtractor {
 			for (int i=0; i<words.size(); i++) {
 				Word aWord = words.get(i);
 				
-				Context context = new Context(aWord.getWord(), aWord.getPos(), aWord.getIob(), null);
+				Context context = new Context(aWord.getWord(), aWord.getPos(), null /*aWord.getIob()*/, null);
 				context.setHasTarget(false);
 				if (i-2 >= 0) {
 					Word prevWord2 = words.get(i-2);
-					context.setPPreviousLabel(prevWord2.getWord(), prevWord2.getPos(), prevWord2.getIob(), prevWord2.getDomainLabel());
+					context.setPPreviousLabel(prevWord2.getWord(), prevWord2.getPos(), null /*prevWord2.getIob()*/, prevWord2.getDomainLabel());
 				}
 				else {
 					context.setPPreviousLabel(PREV_WORD, POS, IOB, LABEL);
 				}
 				if (i-1 >= 0) {
 					Word prevWord = words.get(i-1);
-					context.setPreviousLabel(prevWord.getWord(), prevWord.getPos(), prevWord.getIob(), prevWord.getDomainLabel());
+					context.setPreviousLabel(prevWord.getWord(), prevWord.getPos(), null /*prevWord.getIob()*/, prevWord.getDomainLabel());
 				}
 				else {
 					context.setPreviousLabel(PREV_WORD, POS, IOB, LABEL);
 				}
 				if (i+1 < words.size()) {
 					Word nextWord = words.get(i+1);
-					context.setNextIOB(nextWord.getWord(), nextWord.getPos(), nextWord.getIob());
+					context.setNextIOB(nextWord.getWord(), nextWord.getPos(), null /*nextWord.getIob()*/);
 				}
 				else {
 					context.setNextIOB(NEXT_WORD, POS, IOB);
 				}
 				if (i+2 < words.size()) {
 					Word nextWord2 = words.get(i+2);
-					context.setNNextIOB(nextWord2.getWord(), nextWord2.getPos(), nextWord2.getIob());
+					context.setNNextIOB(nextWord2.getWord(), nextWord2.getPos(), null /*nextWord2.getIob()*/);
 				}
 				else {
 					context.setNNextIOB(NEXT_WORD, POS, IOB);
