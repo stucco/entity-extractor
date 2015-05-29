@@ -9,13 +9,13 @@ Library to identify and label cyber-domain entities from unstructured text. This
 ## Output
 An Annotation object that represents the document as a map, where annotator classnames are keys. The document map includes the following values:
 
-Text: original raw text
-Sentences: list of sentences
-	Sentence: map representing one sentence
-		Token: word within the sentence
-		POSTag: part-of-speech tag
-		CyberEntity: cyber domain label for the token
-	ParseTree: sentence structure as a tree
+* Text: original raw text
+* Sentences: list of sentences
+  * Sentence: map representing one sentence
+    * Token: word within the sentence
+    * POSTag: part-of-speech tag
+    * CyberEntity: cyber domain label for the token
+  * ParseTree: sentence structure as a tree
 
 
 ## Usage
