@@ -1,71 +1,40 @@
 # Entity Extraction
-Library to identify and extract domain-specific entities from unstructured text. This library makes use of Apache's OpenNLP software. See the [Javadocs] (https://github.com/stucco/entity-extractor/tree/gh-pages) for more details.
+Library to identify and label cyber-domain entities from unstructured text. This library makes use of [Stanford's CoreNLP] (http://nlp.stanford.edu/software/corenlp.shtml) and [Apache's OpenNLP] (https://opennlp.apache.org) libraries.
 
 ## Input
-Apache's OpenNLP perceptron models in binary format.
-
-* en-sent.bin - built-in model file to detect sentence boundaries; downloaded from the [OpenNLP wiki] (http://opennlp.sourceforge.net/models-1.5)
-* en-pos-perceptron.bin - built-in model file to assign part of speech tags; downloaded from the [OpenNLP wiki] (http://opennlp.sourceforge.net/models-1.5)
-* test-IOB-perceptron.bin - built-in model file to assign I-O-B formatting tags; created by training a perceptron model on an [annotated cyber security corpus] (https://github.com/stucco/auto-labeled-corpus); used as the default model for testing
-* test-Domain-perceptron.bin - built-in model file used to label domain-specific entities; created by training a perceptron model on an [annotated cyber security corpus] (https://github.com/stucco/auto-labeled-corpus); used as the default model for testing
-* user-created perceptron model file in binary format that represents an I-O-B formatting model
-* user-created perceptron model file in binary format that represents a domain-specific entities model
+* User-created Apache OpenNLP perceptron model file in binary format that represents a cyber-domain entity model
+* Default CoreNLP models for tokenizing, part-of-speech tagging, sentence splitting, etc.
+* Text content of document to be annotated with cyber labels
 
 ## Output
-JSON-formatted string representing the annotated version of the unstructured text. Example JSON string:
+An Annotation object that represents the document as a map, where annotator classnames are keys. The document map includes the following values:
 
-	{
-  		"sentences" : [ {
-    		"sentence" : [ {
-      			"word" : "Microsoft",
-      			"pos" : "NNP",
-      			"iob" : "B",
-      			"domainLabel" : "sw.vendor",
-      			"domainScore" : 0.3083600176497029
-    		}, {
-      			"word" : "Windows",
-      			"pos" : "NNP",
-      			"iob" : "B",
-      			"domainLabel" : "sw.product",
-      			"domainScore" : 0.29496901049795676
-    		}, {
-      			"word" : "XP",
-      			"pos" : "NNP",
-      			"iob" : "O",
-      			"domainLabel" : "O",
-      			"domainScore" : 0.30469849374496444
-    		}, {
-     			 "word" : ".",
-      			"pos" : ".",
-      			"iob" : "O",
-      			"domainLabel" : "O",
-      			"domainScore" : 0.3035644073881222
-    		} ]
-  		}, {
-    		"sentence" : [ {
-      			"word" : "Apple",
-      			"pos" : "NNP",
-      			"iob" : "B",
-      			"domainLabel" : "sw.vendor",
-      			"domainScore" : 0.3023481844622021
-   			}, 
-   				...
-   			]
-  		},
-  		 ...
-  		]
-	}
+* Text: original raw text
+* Sentences: list of sentences
+  * Sentence: map representing one sentence
+    * Token: word within the sentence
+    * POSTag: part-of-speech tag
+    * CyberEntity: cyber domain label for the token
+  * ParseTree: sentence structure as a tree
 
 
 ## Usage
- 	EntityExtractor entityExtractor = new EntityExtractor("/path/to/IOB_perceptron_model.bin", "/path/to/Domain_perceptron_model.bin");
- 	String json = entityExtractor.getAnnotatedTextAsJson("Microsoft Windows XP. Apple Mac OS X.");
- 			
- 	//transform the JSON string into a Sentences instance
- 	ObjectMapper mapper = new ObjectMapper();
- 	Sentences sentences = mapper.readValue(json, Sentences.class);
+	EntityLabeler labeler = new EntityLabeler();
+	Annotation doc = labeler.getAnnotatedDoc("My Doc", exampleText);
+
+	List<CoreMap> sentences = doc.get(SentencesAnnotation.class);
+	for ( CoreMap sentence : sentences) {
+		for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
+			System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(PartOfSpeechAnnotation.class) + "\t" + token.get(CyberAnnotation.class));
+		}
+		
+		System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));			
+	}
+
+See CoreNLP's [JavaDocs] (http://nlp.stanford.edu/nlp/javadoc/javanlp/) and [Usage section] (http://nlp.stanford.edu/software/corenlp.shtml) for more information.
 
 ## Test
+TODO: Need to add functionality tests.
 	mvn test
 
 ## License

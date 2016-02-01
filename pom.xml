@@ -5,6 +5,17 @@
   <version>1.0.0</version>
   <dependencies>
   	<dependency>
+	    <groupId>edu.stanford.nlp</groupId>
+	    <artifactId>stanford-corenlp</artifactId>
+	    <version>3.4.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>edu.stanford.nlp</groupId>
+	    <artifactId>stanford-corenlp</artifactId>
+	    <version>3.4.1</version>
+	    <classifier>models</classifier>
+	</dependency>
+  	<dependency>
   		<groupId>org.apache.opennlp</groupId>
   		<artifactId>opennlp-tools</artifactId>
   		<version>1.5.3</version>
@@ -12,7 +23,7 @@
 	<dependency>
   		<groupId>com.fasterxml.jackson.core</groupId>
   		<artifactId>jackson-databind</artifactId>
-  		<version>2.2.2</version>
+  		<version>2.5.0</version>
 	</dependency>
 	<dependency>
         <groupId>junit</groupId>
@@ -24,12 +35,9 @@
   <build>
     <resources>
 		<resource>
-			<directory>src/main/resources/models</directory>
+			<directory>src/main/resources</directory>
 			<includes>
-				<include>en-sent.bin</include>
-				<include>en-pos-perceptron.bin</include>
-				<include>test-IOB-perceptron.bin</include>
-				<include>test-Domain-perceptron.bin</include>
+				<include>models/ORNL-Domain-perceptron.bin</include>
 			</includes>
 		</resource>
 	</resources>
