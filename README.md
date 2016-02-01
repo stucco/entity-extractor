@@ -27,11 +27,8 @@ An Annotation object that represents the document as a map, where annotator clas
 		for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
 			System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(PartOfSpeechAnnotation.class) + "\t" + token.get(CyberAnnotation.class));
 		}
-	
-		System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
-	
-		System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));
-		System.out.println("Semantic Graph:\n" + sentence.get(CollapsedCCProcessedDependenciesAnnotation.class));			
+		
+		System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));			
 	}
 
 See CoreNLP's [JavaDocs] (http://nlp.stanford.edu/nlp/javadoc/javanlp/) and [Usage section] (http://nlp.stanford.edu/software/corenlp.shtml) for more information.

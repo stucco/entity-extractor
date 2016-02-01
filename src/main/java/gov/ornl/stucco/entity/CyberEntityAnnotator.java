@@ -45,7 +45,7 @@ public class CyberEntityAnnotator implements Annotator {
 	public static final String POS = "_POS_";
 	public static final String LABEL = "O";
 	
-	private static String modelFilePath = "Cyber-perceptron.bin";
+	private static String modelFilePath = "models/ORNL-Domain-perceptron.bin";
 	private String cyberModelFile;
 	private PerceptronModel cyberModel;
 	private Map<String, CyberEntityType> cyberDictionary;
@@ -124,7 +124,7 @@ public class CyberEntityAnnotator implements Annotator {
 				
 				//set the combo context features (i.e. previous 2 labels and previous word with current word)
 				context.set2PreviousLabels();
-				context.setPreviousLabelAndWord();
+//				context.setPreviousLabelAndWord();
 				
 				
 				double[] results = cyberModel.eval(context.toArray());
@@ -140,6 +140,7 @@ public class CyberEntityAnnotator implements Annotator {
 					String subType = cyberLabel.substring(index + 1);
 					int sentenceIndex = token.sentIndex();
 					CoreMap sentence = annotation.get(SentencesAnnotation.class).get(sentenceIndex);
+					//token indexing starts at 1, while span indexing starts at 0
 					Span cyberSpan = new Span(token.index()-1, token.index());
 					
 					CyberEntityMention cyberMention = new CyberEntityMention(CyberEntityMention.makeUniqueId(), sentence, cyberSpan, cyberSpan, type, subType, null);

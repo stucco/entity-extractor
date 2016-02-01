@@ -10,7 +10,7 @@ public class CyberEntityMention extends EntityMention {
 
 	public CyberEntityMention(String objectId, CoreMap sentence, Span extentSpan, Span headSpan, String type, String subtype, String mentionType) {
 		super(objectId, sentence, extentSpan, headSpan, type, subtype, mentionType);
-		normalizeType();
+//		normalizeType();
 	}
 	
 	private void normalizeType() {

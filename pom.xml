@@ -35,9 +35,9 @@
   <build>
     <resources>
 		<resource>
-			<directory>src/main/resources/models</directory>
+			<directory>src/main/resources</directory>
 			<includes>
-				<include>Cyber-perceptron.bin</include>
+				<include>models/ORNL-Domain-perceptron.bin</include>
 			</includes>
 		</resource>
 	</resources>

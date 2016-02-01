@@ -53,6 +53,7 @@ public class EntityLabeler {
 	
 	
 	public Annotation getAnnotatedDoc(String title, String docText) {
+		System.err.println("Annotating '" + title + "'...");
 		annotatedDoc = new Annotation(docText);
 		pipeline.annotate(annotatedDoc);
 		return annotatedDoc;
@@ -67,20 +68,20 @@ public class EntityLabeler {
 		List<CoreMap> sentences = doc.get(SentencesAnnotation.class);
 		for ( CoreMap sentence : sentences) {
 			for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
-				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(PartOfSpeechAnnotation.class) + "\t" + token.get(CyberAnnotation.class));
+				System.out.println(token.index() + "\t" + token.get(TextAnnotation.class) + "\t" + token.get(PartOfSpeechAnnotation.class) + "\t" + token.get(CyberAnnotation.class));
 			}
 			
-			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
+			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class) );
 			
-			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));
-			System.out.println("Semantic Graph:\n" + sentence.get(CollapsedCCProcessedDependenciesAnnotation.class));			
+//			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));
+//			System.out.println("Semantic Graph:\n" + sentence.get(CollapsedCCProcessedDependenciesAnnotation.class));			
 		}
 		
-		Map<Integer,CorefChain> chainMap = doc.get(CorefChainAnnotation.class);
-		System.out.println("Coref Chains");
-		for (Integer key : chainMap.keySet()) {
-			System.out.println(key + "\t-->\t" + chainMap.get(key));
-		}
+//		Map<Integer,CorefChain> chainMap = doc.get(CorefChainAnnotation.class);
+//		System.out.println("Coref Chains");
+//		for (Integer key : chainMap.keySet()) {
+//			System.out.println(key + "\t-->\t" + chainMap.get(key));
+//		}
 		
 	}
 
