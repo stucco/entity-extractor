@@ -1,0 +1,3760 @@
+{
+    "result":[
+        {
+            "/common/topic/alias":[],
+            "id":"/en/aix_operating_system",
+            "name":"IBM AIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/amstrad_cpc",
+            "name":"Amstrad CPC",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/amigaos",
+            "name":"AmigaOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/bbc_micro",
+            "name":"BBC Micro",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Berkeley Unix",
+                "BSD"
+            ],
+            "id":"/en/berkeley_software_distribution",
+            "name":"Berkeley Software Distribution",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/beos",
+            "name":"BeOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/cygwin",
+            "name":"Cygwin",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "CBM64",
+                "CBM 64",
+                "C64"
+            ],
+            "id":"/en/commodore_64",
+            "name":"Commodore 64",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Disk Operating System"
+            ],
+            "id":"/en/dos",
+            "name":"DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Debian"
+            ],
+            "id":"/en/debian_gnu_linux",
+            "name":"Debian GNU/Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd",
+            "name":"FreeBSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "GNU's Not Unix"
+            ],
+            "id":"/en/gnu",
+            "name":"GNU",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gnu_hurd",
+            "name":"GNU Hurd",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/irix",
+            "name":"IRIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/linspire",
+            "name":"Linspire",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/multics",
+            "name":"Multics",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/microsoft_windows",
+            "name":"Microsoft Windows",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/minix",
+            "name":"MINIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Mandrake",
+                "Mandriva"
+            ],
+            "id":"/en/mandriva_linux",
+            "name":"Mandriva Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "MicroSoft Disk Operating System",
+                "MS DOS",
+                "Microsoft DOS",
+                "DOS",
+                "MSDOS"
+            ],
+            "id":"/en/ms-dos",
+            "name":"MS-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+            	"Mac"
+            ],
+            "id":"/en/mac_os",
+            "name":"Mac OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "OSX",
+                "Operating System X"
+            ],
+            "id":"/en/mac_os_x",
+            "name":"OS X",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/netbsd",
+            "name":"NetBSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/openbsd",
+            "name":"OpenBSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/os_2",
+            "name":"OS/2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/os_360",
+            "name":"OS/360",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "IEEE Std. 1003.1"
+            ],
+            "id":"/en/posix",
+            "name":"POSIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Sony Playstation",
+                "Playstation 1"
+            ],
+            "id":"/en/playstation",
+            "name":"PlayStation",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/plan_9_from_bell_labs",
+            "name":"Plan 9",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "PS3"
+            ],
+            "id":"/en/playstation_3",
+            "name":"PlayStation 3",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Red Hat",
+                "RedHat Linux"
+            ],
+            "id":"/en/red_hat_linux",
+            "name":"Red Hat Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/real-time_operating_system",
+            "name":"Real-time operating system",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/suse_linux",
+            "name":"SUSE Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/slackware",
+            "name":"Slackware",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sunos",
+            "name":"SunOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/transaction_processing_facility",
+            "name":"Transaction Processing Facility",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "UNIX\u00ae",
+                "UNIX"
+            ],
+            "id":"/en/unix",
+            "name":"Unix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/unix-like",
+            "name":"Unix-like",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "VAX-11/VMS",
+                "VAX/VMS",
+                "VMS"
+            ],
+            "id":"/en/openvms",
+            "name":"OpenVMS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_nt",
+            "name":"Windows NT",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Whistler",
+                "Windows eXPerience",
+                "Microsoft Windows XP",
+                "XP"
+            ],
+            "id":"/en/windows_xp",
+            "name":"Windows XP",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows NT 5"
+            ],
+            "id":"/en/windows_2000",
+            "name":"Windows 2000",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_95",
+            "name":"Windows 95",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/hp-ux",
+            "name":"HP-UX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/palm_os",
+            "name":"Palm OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "OSF/1",
+                "Digital Unix"
+            ],
+            "id":"/en/tru64_unix",
+            "name":"Tru64 UNIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/os-9",
+            "name":"OS-9",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/z_os",
+            "name":"z/OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/nextstep",
+            "name":"NeXTSTEP",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/java_platform_micro_edition",
+            "name":"Java Platform, Micro Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "CP/M operating system"
+            ],
+            "id":"/en/cp_m",
+            "name":"CP/M",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Solaris",
+                "Solaris Operating Environment"
+            ],
+            "id":"/en/solaris_operating_system",
+            "name":"Solaris Operating System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_x_server",
+            "name":"OS X Server",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/unicos",
+            "name":"UNICOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dnix",
+            "name":"DNIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ru_id/254445",
+            "name":"Darwin",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tinfoil_hat_linux",
+            "name":"Tinfoil Hat Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/rsx-11",
+            "name":"RSX-11",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gnu_mach",
+            "name":"GNU Mach",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/qnx",
+            "name":"QNX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tops-20",
+            "name":"TOPS-20",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_1_0",
+            "name":"Windows 1.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/rt-11",
+            "name":"RT-11",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_98",
+            "name":"Windows 98",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows Millennium Edition"
+            ],
+            "id":"/en/windows_me",
+            "name":"Windows ME",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/xenix",
+            "name":"Xenix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/psos",
+            "name":"pSOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/newos",
+            "name":"NewOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ru_id/195675",
+            "name":"Syllable Desktop",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Gentoo"
+            ],
+            "id":"/en/gentoo_linux",
+            "name":"Gentoo Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/l4_microkernel_family",
+            "name":"L4 microkernel family",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freedos",
+            "name":"FreeDOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc-dos",
+            "name":"IBM PC DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vxworks",
+            "name":"VxWorks",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/knoppix",
+            "name":"Knoppix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/menuetos",
+            "name":"MenuetOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_3_1x",
+            "name":"Windows 3.1x",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/risc_os",
+            "name":"RISC OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_3_0",
+            "name":"Windows 3.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/atheos",
+            "name":"AtheOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/cp_m_86",
+            "name":"CP/M-86",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/va_kernel",
+            "name":"VA Kernel",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/cisco_ios",
+            "name":"Cisco IOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_2_0",
+            "name":"Windows 2.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gnulinex",
+            "name":"gnuLinEx",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "QDOS"
+            ],
+            "id":"/en/qdos",
+            "name":"86-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ultrix",
+            "name":"Ultrix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_9",
+            "name":"Mac OS 9",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows .NET Server",
+                "Windows 2002 Server",
+                "Whistler Server",
+                "Windows 2003 Server"
+            ],
+            "id":"/en/windows_server_2003",
+            "name":"Windows Server 2003",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gp32",
+            "name":"GP32",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/amiga_unix",
+            "name":"Amiga Unix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_ce",
+            "name":"Windows CE",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/a_ux",
+            "name":"A/UX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/yellow_dog_linux",
+            "name":"Yellow Dog Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "i5/OS"
+            ],
+            "id":"/en/os_400",
+            "name":"IBM i",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/apple_dos",
+            "name":"Apple DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/os_8",
+            "name":"OS/8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ctss",
+            "name":"Compatible Time-Sharing System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/coherent",
+            "name":"Coherent",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/de_id/139507",
+            "name":"Apple SOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/morphos",
+            "name":"MorphOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/s60_platform",
+            "name":"S60",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/trustix",
+            "name":"Trustix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_x_v10_3",
+            "name":"Mac OS X Panther",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "DragonFly"
+            ],
+            "id":"/en/dragonfly_bsd",
+            "name":"DragonFly BSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/integer_basic",
+            "name":"Integer BASIC",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/rsts_e",
+            "name":"RSTS/E",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "VM/CMS"
+            ],
+            "id":"/en/vm",
+            "name":"VM",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/commodore_basic",
+            "name":"Commodore BASIC",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/msx_basic",
+            "name":"MSX BASIC",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "System 7",
+                "Big Bang"
+            ],
+            "id":"/en/mac_os_7",
+            "name":"Mac OS 7",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/oberon_operating_system",
+            "name":"Oberon",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/extremely_reliable_operating_system",
+            "name":"EROS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/reactos",
+            "name":"ReactOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/novell_netware",
+            "name":"NetWare",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mint",
+            "name":"MiNT",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/emutos",
+            "name":"EmuTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/banyan_vines",
+            "name":"Banyan VINES",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/damn_small_linux",
+            "name":"Damn Small Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sinclair_basic",
+            "name":"Sinclair BASIC",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_x_v10_2",
+            "name":"Mac OS X v10.2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/slax",
+            "name":"Slax",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/systemrescuecd",
+            "name":"SystemRescueCD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mepis",
+            "name":"MEPIS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ecos",
+            "name":"eCos",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_8",
+            "name":"MS/8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "System 6"
+            ],
+            "id":"/en/system_software_6",
+            "name":"System Software 6",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sprite_operating_system",
+            "name":"Sprite",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/userlinux",
+            "name":"UserLinux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/red_flag_linux",
+            "name":"Red Flag Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/yoper",
+            "name":"YOPER",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/psion_5",
+            "name":"Psion Series 5",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ja_id/1518519",
+            "name":"V",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_x_v10_1",
+            "name":"Mac OS X v10.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_x_v10_0",
+            "name":"Mac OS X v10.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ja/Inferno_$0028$30AA$30DA$30EC$30FC$30C6$30A3$30F3$30B0$30B7$30B9$30C6$30E0$0029",
+            "name":"Inferno",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_8",
+            "name":"Mac OS 8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tron_project",
+            "name":"TRON project",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/trs-dos",
+            "name":"TRS-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Quark_$0028kernel$0029",
+            "name":"Quark",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/qtopia",
+            "name":"Qt Extended",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tops-10",
+            "name":"TOPS-10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/hydrixos",
+            "name":"HydrixOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "OpenBeOS"
+            ],
+            "id":"/wikipedia/it_id/108731",
+            "name":"Haiku",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "RHEL"
+            ],
+            "id":"/en/red_hat_enterprise_linux",
+            "name":"Red Hat Enterprise Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ark_linux",
+            "name":"Ark Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/unixware",
+            "name":"UnixWare",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/berry_linux",
+            "name":"Berry Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sinclair_qdos",
+            "name":"Sinclair QDOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/unix_system_v",
+            "name":"UNIX System V",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pts-dos",
+            "name":"PTS-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_xp_professional_x64_edition",
+            "name":"Windows XP Professional x64 Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dos_360",
+            "name":"DOS/360 and successors",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "OSX"
+            ],
+            "id":"/en/mac_os_x_v10_4",
+            "name":"Mac OS X Tiger",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/white_box_enterprise_linux",
+            "name":"White Box Enterprise Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/arch_linux",
+            "name":"Arch Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pclinuxos",
+            "name":"PCLinuxOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gnu_netbsd",
+            "name":"GNU/NetBSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_xp_media_center_edition",
+            "name":"Windows XP Media Center Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_nt_4_0",
+            "name":"Windows NT 4.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/fr/Crux_Linux",
+            "name":"CRUX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/co-createlinux",
+            "name":"Co-CreateLinux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freedows_os",
+            "name":"Freedows OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/contiki",
+            "name":"Contiki",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/cray_operating_system",
+            "name":"Cray Operating System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/kurumin_linux",
+            "name":"Kurumin",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/smsq_e",
+            "name":"SMSQ/E",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/atari_tos",
+            "name":"Atari TOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/softlanding_linux_system",
+            "name":"Softlanding Linux System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/nokia_9210",
+            "name":"Nokia 9210 Communicator",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/alt_linux",
+            "name":"ALT Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/de_id/1252324",
+            "name":"Idris",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_nt_3_1",
+            "name":"Windows NT 3.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Ubuntu Linux"
+            ],
+            "id":"/en/ubuntu",
+            "name":"Ubuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/centos",
+            "name":"CentOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/hikarunix",
+            "name":"Hikarunix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/puppy_linux",
+            "name":"Puppy Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/newton_os",
+            "name":"Newton OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/veritos",
+            "name":"VeritOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/commodore_dos",
+            "name":"Commodore DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "BSDi",
+                "BSD/386"
+            ],
+            "id":"/en/bsd_os",
+            "name":"BSD/OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ja_id/222678",
+            "name":"MonaOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/FLEX_$0028operating_system$0029",
+            "name":"FLEX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/corel_linux",
+            "name":"Corel Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/k42",
+            "name":"K42",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/e_os",
+            "name":"E/OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_nt_4_0_embedded",
+            "name":"Windows NT 4.0 Embedded",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/opensolaris",
+            "name":"OpenSolaris",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/lunix",
+            "name":"LUnix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/stratus_vos",
+            "name":"Stratus VOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/wps-8",
+            "name":"WPS-8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freevms",
+            "name":"FreeVMS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/apple_pascal",
+            "name":"Apple Pascal",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/suse_linux_enterprise_desktop",
+            "name":"SUSE Linux Enterprise Desktop",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows Mobile PPC"
+            ],
+            "id":"/en/windows_mobile",
+            "name":"Windows Mobile",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "EXEC VIII"
+            ],
+            "id":"/en/exec_8",
+            "name":"UNIVAC EXEC 8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ja_id/430726",
+            "name":"MIPS RISC/os",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/fr_id/2981615",
+            "name":"Integrity",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/atari_dos",
+            "name":"Atari DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/eumel",
+            "name":"Eumel",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/firefly_bsd",
+            "name":"Firefly BSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/domain_os",
+            "name":"Domain/OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/interix",
+            "name":"Interix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/scientific_linux",
+            "name":"Scientific Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/native_oberon",
+            "name":"Native Oberon",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/bluebottle_os",
+            "name":"Bluebottle OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sco_openserver",
+            "name":"SCO OpenServer",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/kubuntu",
+            "name":"Kubuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vector_linux",
+            "name":"VectorLinux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/psion_3",
+            "name":"Psion Series 3",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/l3_microkernel",
+            "name":"L3 microkernel",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ps2_linux",
+            "name":"Linux for PlayStation 2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/lv/GEOS_$00288_bitu_oper$0113t$0101jsist$0113ma$0029",
+            "name":"GEOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc-ux",
+            "name":"PC-UX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_x_server_1_0",
+            "name":"Mac OS X Server 1.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/super-ux",
+            "name":"SUPER-UX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/spring_operating_system",
+            "name":"Spring",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/cray_time_sharing_system",
+            "name":"Cray Time Sharing System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Linux devices",
+                "Linux based devices"
+            ],
+            "id":"/en/linux_devices",
+            "name":"Linux-powered device",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Wheels_$0028operating_system$0029",
+            "name":"Wheels",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/openwrt",
+            "name":"OpenWrt",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/microempix",
+            "name":"MicroEmpix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_xp_64-bit_edition",
+            "name":"Windows XP 64-bit Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/hivemind",
+            "name":"HiveMind",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/smartos",
+            "name":"SmartOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/asianux",
+            "name":"Asianux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vanguard_microkernel",
+            "name":"Vanguard",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Minerva_$0028QDOS_reimplementation$0029",
+            "name":"Minerva",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/nukernel",
+            "name":"Nukernel",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mac_os_x_v10_5",
+            "name":"Mac OS X Leopard",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/rc_4000_multiprogramming_system",
+            "name":"RC 4000 Multiprogramming System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/foresight_linux",
+            "name":"Foresight Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dos_plus",
+            "name":"DOS Plus",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/singularity",
+            "name":"Singularity",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/jnode",
+            "name":"JNode",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gnu_dos",
+            "name":"GNU/DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/beos_r5",
+            "name":"BeOS R5",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/xinu",
+            "name":"Xinu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/itron_project",
+            "name":"ITRON project",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/caos_linux",
+            "name":"CAOS Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freertos",
+            "name":"FreeRTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/prex",
+            "name":"Prex",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/radix-50",
+            "name":"DEC Radix-50",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/alinux",
+            "name":"aLinux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Minislack"
+            ],
+            "id":"/en/zenwalk_linux",
+            "name":"Zenwalk",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Nokia Series 40"
+            ],
+            "id":"/en/nokia_series_40",
+            "name":"Series 40",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Longhorn Client"
+            ],
+            "id":"/en/windows_vista",
+            "name":"Windows Vista",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/frugalware",
+            "name":"Frugalware Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/uniflex",
+            "name":"UniFLEX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows Server \"Longhown\""
+            ],
+            "id":"/en/windows_server_longhorn",
+            "name":"Windows Server 2008",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dos_xl",
+            "name":"DOS XL",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/opensuse",
+            "name":"openSUSE",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/amiqnx",
+            "name":"AmiQNX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Maemo Platform"
+            ],
+            "id":"/en/maemo",
+            "name":"Maemo",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/osx86",
+            "name":"OSx86",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dg_ux",
+            "name":"DG/UX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/phoenix-rtos",
+            "name":"Phoenix-RTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_preinstallation_environment",
+            "name":"Windows Preinstallation Environment",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pardus",
+            "name":"Pardus",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/blag_linux_and_gnu",
+            "name":"BLAG Linux and GNU",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Ubuntu Lite",
+                "Ubuntulite"
+            ],
+            "id":"/en/ubuntu_lite",
+            "name":"U-lite",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Atomix_$0028operating_system$0029",
+            "name":"Atomix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freespire",
+            "name":"Freespire",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gp2x",
+            "name":"GP2X",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/suse_linux_enterprise_server",
+            "name":"SUSE Linux Enterprise Server",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/$039CnOS",
+            "name":"\u03bcnOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vaxeln",
+            "name":"VAXELN",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/venix",
+            "name":"Venix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/it_id/654644",
+            "name":"IX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/research_unix",
+            "name":"Research Unix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/xubuntu",
+            "name":"Xubuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/es/TRIX",
+            "name":"Trix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sinix",
+            "name":"SINIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pentoo",
+            "name":"Pentoo",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/acorn_mos",
+            "name":"Acorn MOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/goblinx",
+            "name":"GoblinX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Caixa Magica"
+            ],
+            "id":"/en/caixa_magica",
+            "name":"Caixa M\u00e1gica",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/annvix",
+            "name":"Annvix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sanos",
+            "name":"Sanos",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/coyotos",
+            "name":"Coyotos",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Cross Media Bar"
+            ],
+            "id":"/en/cross_media_bar",
+            "name":"XrossMediaBar",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "RR4"
+            ],
+            "id":"/en/sabayonlinux",
+            "name":"Sabayon Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ntoskrnl_exe",
+            "name":"ntoskrnl.exe",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/goobuntu",
+            "name":"Goobuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/catos",
+            "name":"CatOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/helenos",
+            "name":"HelenOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/demos",
+            "name":"DEMOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/kororaa",
+            "name":"Korora",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vine_linux",
+            "name":"Vine Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tud_os",
+            "name":"TUD:OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pintos",
+            "name":"Pintos",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/plurix",
+            "name":"Plurix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/capros",
+            "name":"CapROS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/interactive_unix",
+            "name":"Interactive Unix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tinykrnl",
+            "name":"TinyKRNL",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/xandros_server",
+            "name":"Xandros Server",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/hpbsd",
+            "name":"HPBSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mcnlive",
+            "name":"MCNLive",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/TUNIS",
+            "name":"TUNIS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/argante",
+            "name":"Argante",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/minix_3",
+            "name":"MINIX 3",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Auditor Security Collection"
+            ],
+            "id":"/en/backtrack",
+            "name":"BackTrack",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vps_vm",
+            "name":"VPS/VM",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dex4u",
+            "name":"DexOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/minix-vmd",
+            "name":"Minix-vmd",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/aurora_sparc_linux",
+            "name":"Aurora SPARC Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pikeos",
+            "name":"PikeOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/btron",
+            "name":"BTRON",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/rocks_cluster_distribution",
+            "name":"Rocks Cluster Distribution",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fluxbuntu",
+            "name":"Fluxbuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Linux",
+                "GNU+Linux"
+            ],
+            "id":"/en/linux",
+            "name":"GNU/Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/meikos",
+            "name":"MeikOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Nemesis_$0028operating_system$0029",
+            "name":"Nemesis",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/symbos",
+            "name":"SymbOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tuga",
+            "name":"Tuga",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dreamlinux",
+            "name":"Dreamlinux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vsta",
+            "name":"VSTa",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/hdos",
+            "name":"HDOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ru_id/1673683",
+            "name":"CDC SCOPE",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/linkat",
+            "name":"Linkat",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/elive",
+            "name":"Elive",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_xp_home_edition",
+            "name":"Windows XP Home Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_xp_professional",
+            "name":"Windows XP Professional",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/01xrh57",
+            "name":"Windows XP Tablet PC Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_xp_starter_edition",
+            "name":"Windows XP Starter Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_2000_datacenter_server",
+            "name":"Windows 2000 Datacenter Server",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_2000_advanced_server",
+            "name":"Windows 2000 Advanced Server",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_2000_server",
+            "name":"Windows 2000 Server",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_2000_professional",
+            "name":"Windows 2000 Professional",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_2000_advanced_server_limited_edition",
+            "name":"Windows 2000 Advanced Server Limited Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_1_25",
+            "name":"MS-DOS 1.25",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_2_0",
+            "name":"MS-DOS 2.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_3_0",
+            "name":"MS-DOS 3.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_4_0",
+            "name":"MS-DOS 4.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_5_0",
+            "name":"MS-DOS 5.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_6_0",
+            "name":"MS-DOS 6.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_7_0",
+            "name":"MS-DOS 7.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ms_dos_8_0",
+            "name":"MS-DOS 8.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_2000",
+            "name":"PC DOS 2000",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_7_0",
+            "name":"PC DOS 7.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_6_0",
+            "name":"PC DOS 6.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_5_0",
+            "name":"PC DOS 5.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_4_0",
+            "name":"PC DOS 4.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_3_3",
+            "name":"PC DOS 3.3",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_2_0",
+            "name":"PC DOS 2.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/pc_dos_1_0",
+            "name":"PC DOS 1.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/amiga_os_2_0",
+            "name":"Amiga OS 2.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fermi_linux",
+            "name":"Fermi Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mythdora",
+            "name":"MythDora",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/usix",
+            "name":"USIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/House_$0028operating_system$0029",
+            "name":"House",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/suse_linux_distributions",
+            "name":"SUSE Linux distributions",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/is_dos",
+            "name":"IS-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tr_dos",
+            "name":"TR-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/soft_hard_real_time_kernel",
+            "name":"Soft Hard Real-Time Kernel",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/linux_mint",
+            "name":"Linux Mint",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ru/CDC_NOS",
+            "name":"NOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sidux",
+            "name":"aptosid",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ubuntu_studio",
+            "name":"Ubuntu Studio",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/unix_ns",
+            "name":"Unix/NS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/osf_1",
+            "name":"OSF/1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_1_x",
+            "name":"FreeBSD 1.x",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_1_0",
+            "name":"FreeBSD 1.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_1_1",
+            "name":"FreeBSD 1.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_1_1_5",
+            "name":"FreeBSD 1.1.5",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_1_1_5_1",
+            "name":"FreeBSD 1.1.5.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_x",
+            "name":"FreeBSD 2.x",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_0",
+            "name":"FreeBSD 2.0",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_0_5",
+            "name":"FreeBSD 2.0.5",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_1",
+            "name":"FreeBSD 2.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_1_5",
+            "name":"FreeBSD 2.1.5",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_1_6",
+            "name":"FreeBSD 2.1.6",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_1_7",
+            "name":"FreeBSD 2.1.7",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_2",
+            "name":"FreeBSD 2.2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_2_1",
+            "name":"FreeBSD 2.2.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_2_2",
+            "name":"FreeBSD 2.2.2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_2_2_5",
+            "name":"FreeBSD 2.2.5",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "JOLIX"
+            ],
+            "id":"/en/386bsd",
+            "name":"386BSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_4_8",
+            "name":"FreeBSD 4.8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/4_3bsd_net_2",
+            "name":"4.3BSD NET/2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/freebsd_4_x",
+            "name":"FreeBSD 4.x",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "AutoCAD"
+            ],
+            "id":"/en/autocad",
+            "name":"Autocad",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fedora_7",
+            "name":"Fedora 7",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fedora_core_1",
+            "name":"Fedora Core 1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fedora_core_2",
+            "name":"Fedora Core 2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fedora_core_3",
+            "name":"Fedora Core 3",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fedora_core_4",
+            "name":"Fedora Core 4",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fedora_core_6",
+            "name":"Fedora Core 6",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_server",
+            "name":"Windows Server",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/msx_dos",
+            "name":"MSX-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Fedora Core"
+            ],
+            "id":"/en/fedora",
+            "name":"Fedora",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sam_linux",
+            "name":"SAM Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/talon_dsp_rtos",
+            "name":"Talon DSP RTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/de_id/2997683",
+            "name":"JX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/csi_dos",
+            "name":"CSI-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/bkunix",
+            "name":"BKUNIX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mnos",
+            "name":"MNOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/aros_research_operating_system",
+            "name":"AROS Research Operating System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ru_id/741719",
+            "name":"OZONE",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fmi_os",
+            "name":"FMI/OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Hydra_$0028operating_system$0029",
+            "name":"Hydra",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/kaneton",
+            "name":"Kaneton",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/amazon_elastic_compute_cloud",
+            "name":"Amazon Elastic Compute Cloud",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/mythbuntu",
+            "name":"Mythbuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "PlayStation 3 System Software"
+            ],
+            "id":"/en/playstation_3_system_software",
+            "name":"PlayStation 3 system software",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/GeckOS",
+            "name":"GeckOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ru_id/1558243",
+            "name":"Pilot",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_vista_home_basic",
+            "name":"Windows Vista Home Basic",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_vista_home_premium",
+            "name":"Windows Vista Home Premium",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_vista_business",
+            "name":"Windows Vista Business",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_vista_ultimate",
+            "name":"Windows Vista Ultimate",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/kolibrios",
+            "name":"KolibriOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/SPIN_$0028operating_system$0029",
+            "name":"SPIN",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "DOS/BATCH 11"
+            ],
+            "id":"/en/dec_batch_11_dos_11",
+            "name":"DEC BATCH-11/DOS-11",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dspnano_rtos",
+            "name":"DSPnano RTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Android OS"
+            ],
+            "id":"/en/gphone",
+            "name":"Android",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tss_8",
+            "name":"TSS-8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Test os"
+            ],
+            "id":"/en/test_os",
+            "name":"Test OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/share_operating_system",
+            "name":"SHARE Operating System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/symbian_os_9_1",
+            "name":"Symbian OS 9.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/02_7mg3",
+            "name":"TRAX",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/openmamba",
+            "name":"Openmamba",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dos_vs",
+            "name":"DOS/VS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/losethos",
+            "name":"LoseThos",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ibm_4690_os",
+            "name":"4690 Operating System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/phoenix_os",
+            "name":"Phoenix OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/chibios_rt",
+            "name":"ChibiOS/RT",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Es_$0028operating_system$0029",
+            "name":"es",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/enterprisebsd",
+            "name":"EnterpriseBSD",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "RSDOS"
+            ],
+            "id":"/en/disk_extended_color_basic",
+            "name":"Disk Extended Color Basic",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Geubuntu"
+            ],
+            "id":"/en/opengeu",
+            "name":"OpenGEU",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/de_id/4282247",
+            "name":"Pandora",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_mobile_smartphone",
+            "name":"Windows Mobile Smartphone",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/ru_id/125914",
+            "name":"Miraculix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tinyme",
+            "name":"TinyMe",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/it/Cosmos_$0028sistema_operativo$0029",
+            "name":"Cosmos",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/kayou",
+            "name":"Kayou",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/fusion_rtos",
+            "name":"Fusion RTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_server_2008_r2",
+            "name":"Windows Server 2008 R2",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "iPhone OS"
+            ],
+            "id":"/en/iphone_os",
+            "name":"iOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/blackberry_os",
+            "name":"BlackBerry OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/linpus_linux",
+            "name":"Linpus Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ensemble",
+            "name":"Ensemble",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sharpos",
+            "name":"SharpOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/newdos_80",
+            "name":"NewDos/80",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ubuntu_jeos",
+            "name":"Ubuntu JeOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/moblin_project",
+            "name":"Moblin",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/bertos",
+            "name":"BeRTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_vista_enterprise",
+            "name":"Windows Vista Enterprise",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/046cmbj",
+            "name":"Chrysalis",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Snow Leopard"
+            ],
+            "id":"/en/mac_os_x_v10_6",
+            "name":"Mac OS X Snow Leopard",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ubuntu_netbook_remix",
+            "name":"Ubuntu Netbook Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/berkeley_timesharing_system",
+            "name":"Berkeley Timesharing System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/es_id/1825612",
+            "name":"Midori",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/dc_osx",
+            "name":"DC/OSx",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Ubuntu Super Edition"
+            ],
+            "id":"/en/ubuntu_super_edition",
+            "name":"Super OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_server_2000",
+            "name":"Windows Server 2000",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/04g1mvy",
+            "name":"Ultimate Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_server_2008_standard_edition",
+            "name":"Windows Server 2008 Standard Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_server_2008_enterprise_edition",
+            "name":"Windows Server 2008 Enterprise Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_server_2008_datacenter_edition",
+            "name":"Windows Server 2008 Datacenter Edition",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_hpc_server_2008",
+            "name":"Windows HPC Server 2008",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_web_server_2008",
+            "name":"Windows Web Server 2008",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_storage_server_2008",
+            "name":"Windows Storage Server 2008",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_small_business_server_2008",
+            "name":"Windows Small Business Server 2008",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows Essential Business Server"
+            ],
+            "id":"/en/windows_essential_business_server_2008",
+            "name":"Windows Essential Business Server 2008",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_server_2008_for_itanium_based_systems",
+            "name":"Windows Server 2008 for Itanium-based Systems",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/gp2x_wiz",
+            "name":"GP2X Wiz",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/futureos",
+            "name":"FutureOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Ubuntu-Eee",
+                "Ubuntu Eee"
+            ],
+            "id":"/en/easy_peasy",
+            "name":"EasyPeasy",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Robot_Operating_System",
+            "name":"Robot Operating System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/amigaos_4",
+            "name":"AmigaOS 4",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "JUNOS"
+            ],
+            "id":"/en/junos",
+            "name":"Junos",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/04z_4t0",
+            "name":"Derrick",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Hoary Hedgehog",
+                "Kubuntu Hoary"
+            ],
+            "id":"/en/kubuntu_5_04",
+            "name":"Kubuntu 5.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Breezy Badger",
+                "Kubuntu Breezy"
+            ],
+            "id":"/en/kubuntu_5_10",
+            "name":"Kubuntu 5.10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Dapper",
+                "Kubuntu 6.06",
+                "Kubuntu Dapper Drake"
+            ],
+            "id":"/en/kubuntu_6_06_lts",
+            "name":"Kubuntu 6.06 LTS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Edgy",
+                "Kubuntu Edgy Eft"
+            ],
+            "id":"/en/kubuntu_6_10",
+            "name":"Kubuntu 6.10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Feisty Fawn",
+                "Kubuntu Feisty"
+            ],
+            "id":"/en/kubuntu_7_04",
+            "name":"Kubuntu 7.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Gutsy Gibbon",
+                "Kubuntu Gutsy"
+            ],
+            "id":"/en/kubuntu_7_10",
+            "name":"Kubuntu 7.10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Hardy Heron",
+                "Kubuntu Hardy"
+            ],
+            "id":"/en/kubuntu_8_04",
+            "name":"Kubuntu 8.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Intrepid Ibex",
+                "Kubuntu Intrepid"
+            ],
+            "id":"/en/kubuntu_8_10",
+            "name":"Kubuntu 8.10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Kubuntu Jaunty",
+                "Kubuntu Jaunty Jackalope"
+            ],
+            "id":"/en/kubuntu_9_04",
+            "name":"Kubuntu 9.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/vida_linux",
+            "name":"Vida Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "GOS"
+            ],
+            "id":"/wikipedia/pt_id/2703915",
+            "name":"gOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/xandros_desktop",
+            "name":"Xandros Desktop",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/052ts63",
+            "name":"Absolute",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Parted_Magic",
+            "name":"Parted Magic",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/linux_gamers",
+            "name":"linuX-gamers",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/whitix",
+            "name":"Whitix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Palm webOS",
+                "HP webOS"
+            ],
+            "id":"/en/palm_webos",
+            "name":"webOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/granular_linux",
+            "name":"Granular Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/m_dos",
+            "name":"MIDAS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/tinix",
+            "name":"Tinix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/jari_os",
+            "name":"Jari OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/05k5q8q",
+            "name":"Finder",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/everest_linux",
+            "name":"EVEREST Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Buddhabuntu"
+            ],
+            "id":"/en/ubuntu_buddhist_remix",
+            "name":"Ubuntu Buddhist Remix",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/derrick_operating_system",
+            "name":"Derrick Operating System",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/windows_mobile_standard",
+            "name":"Windows Mobile Standard",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/sabily",
+            "name":"Sabily",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows \"Vienna\"",
+                "Blackcomb",
+                "Vienna"
+            ],
+            "id":"/en/windows_vienna",
+            "name":"Windows 7",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Mobile Internet Experience"
+            ],
+            "id":"/en/mie_linux",
+            "name":"MIE Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/lubuntu",
+            "name":"Lubuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/google_chrome_os",
+            "name":"Google Chrome OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/zorin_os",
+            "name":"Zorin OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Central TRON"
+            ],
+            "id":"/en/ctron",
+            "name":"CTRON",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/075w9nv",
+            "name":"Ultimate",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Karmic Koala"
+            ],
+            "id":"/en/ubuntu_9_10",
+            "name":"Ubuntu 9.10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Lucid Linkx",
+                "Lucid Lynx"
+            ],
+            "id":"/en/ubuntu_10_04",
+            "name":"Ubuntu 10.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows Mobile 7",
+                "Windows Phone 7 Series",
+                "WP7",
+                "WP 7",
+                "WP"
+            ],
+            "id":"/en/windows_phone_7",
+            "name":"Windows Phone",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/ti89",
+            "name":"TI89",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/es_id/3632561",
+            "name":"MeeGo",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Symbian platform",
+                "Symbian OS"
+            ],
+            "id":"/en/symbian_platform",
+            "name":"Symbian",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0by064r",
+            "name":"Sirius RTOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Funtoo_Linux",
+            "name":"Funtoo Linux",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/OpenIndiana",
+            "name":"OpenIndiana",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Mageia",
+            "name":"Mageia",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/KDE_Software_Compilation",
+            "name":"KDE Software Compilation",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/BlackBerry_Tablet_OS",
+            "name":"BlackBerry Tablet OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Mac_OS_X_Lion",
+            "name":"Mac OS X Lion",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Chakra GNU/Linux"
+            ],
+            "id":"/wikipedia/es_id/4345491",
+            "name":"Chakra",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/CP-823$002FU",
+            "name":"CP-823/U",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Android 3.0",
+                "Android 3.2",
+                "Android 3.1"
+            ],
+            "id":"/m/0g9gc37",
+            "name":"Honeycomb",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0g9pn_f",
+            "name":"AD-75",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0g9pn_j",
+            "name":"RBM-1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0g9pn_m",
+            "name":"CP-V",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/RT-Thread",
+            "name":"RT-Thread",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Natty Narwhal"
+            ],
+            "id":"/m/0glhw5_",
+            "name":"Ubuntu 11.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0gljrc7",
+            "name":"Kubuntu 11.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0gljrcf",
+            "name":"Kubuntu 10.04",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0gljrcm",
+            "name":"Kubuntu 10.10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows Phone 7.5",
+                "Windows Phone Mango"
+            ],
+            "id":"/m/0gtwkxh",
+            "name":"Windows Phone 7.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/tr/Windows_8",
+            "name":"Windows 8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/VM$002F386",
+            "name":"VM/386",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Protogon",
+                "ReFS",
+                "Windows Server 8"
+            ],
+            "id":"/wikipedia/en_title/Windows_Server_2012",
+            "name":"Windows Server 2012",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Pinguy_OS",
+            "name":"Pinguy OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Oneiric Ocelot"
+            ],
+            "id":"/m/0gwn877",
+            "name":"Ubuntu 11.10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Boot 2 Gecko",
+                "Boot to Gecko"
+            ],
+            "id":"/wikipedia/en_title/Firefox_OS",
+            "name":"Firefox OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Z-DOS",
+            "name":"Z-DOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/ISIS_$0028operating_system$0029",
+            "name":"ISIS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Tizen",
+            "name":"Tizen",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "BBX"
+            ],
+            "id":"/wikipedia/en_title/BlackBerry_10",
+            "name":"BlackBerry 10",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Motorola Ice Cream Sandwich",
+                "Android 4.0 Ice Cream Sandwich",
+                "ICS"
+            ],
+            "id":"/m/0hj1f77",
+            "name":"Ice Cream Sandwich",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Ubuntu_TV",
+            "name":"Ubuntu TV",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0h_jfj5",
+            "name":"SMSall",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/OS_X_Mountain_Lion",
+            "name":"OS X Mountain Lion",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Windows 8 RT"
+            ],
+            "id":"/wikipedia/en_title/Windows_RT",
+            "name":"Windows RT",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/de_title/Microsoft_Windows_Phone_8",
+            "name":"Windows Phone 8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Jolla OS"
+            ],
+            "id":"/wikipedia/en_title/Sailfish_OS",
+            "name":"Sailfish OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/sv_id/1709546",
+            "name":"Yun OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "IOS 6"
+            ],
+            "id":"/wikipedia/en_title/IOS_6",
+            "name":"iOS 6",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Android 4.1 Jelly Bean",
+                "Android 4.2 Jelly Bean",
+                "Android Jelly Bean"
+            ],
+            "id":"/dataworld/freeq/job_0bdfebe4-1991-4e0f-ac9a-aaf1faaad0c5_var_en_wikipedia_org_wiki_Android_Jelly_Bean",
+            "name":"Jelly Bean",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0nd6nn1",
+            "name":"Key Lime Pie",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Windows_Phone_7",
+            "name":"Windows Phone 7",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Byzantium_$0028Linux_distribution$0029",
+            "name":"Byzantium",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Ubuntu Phone"
+            ],
+            "id":"/wikipedia/fr/Ubuntu_pour_t$00E9l$00E9phones",
+            "name":"Ubuntu Touch",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0pxm30z",
+            "name":"Windows 7 Professional,SP1, No Media, 64-bit, English",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0pxm318",
+            "name":"Windows 7 Ultimate,SP1, No Media, 64-bit, English",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0pxm31l",
+            "name":"Windows 7 Ultimate,SP1,w XP Mode, No Media, 64-bit, English",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0pxm31x",
+            "name":"Windows 7 Professional,SP1,w XP Mode,No Media, 64-bit, English",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0q2ttqf",
+            "name":"iOS 6.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0q3y_ys",
+            "name":"PetrOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0qz8mnb",
+            "name":"Linux Enterprise",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Vino_$0028operating_system$0029",
+            "name":"Vino",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/Nokia_Asha_platform",
+            "name":"Nokia Asha platform",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Aprendiendo de Jes\u00fas"
+            ],
+            "id":"/wikipedia/en_title/AdJ",
+            "name":"AdJ",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/wikipedia/en_title/IOS_7",
+            "name":"iOS 7",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_dcd9f76a-37dd-4fea-839a-12667be6999b_var_en_wikipedia_org_wiki_AriOS_$0028operating_system$0029",
+            "name":"AriOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_d93ac31a-6a7c-486e-8031-9d4d01eda818_var_en_wikipedia_org_wiki_SteamOS",
+            "name":"SteamOS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_b0d7a067-facc-4e55-b4dd-7b70bf896a60_var_en_wikipedia_org_wiki_Chitwanix_OS",
+            "name":"Chitwanix OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_b0a54d8c-dd03-4d3b-b32d-112bad0f98b5_var_en_wikipedia_org_wiki_Windows_8_1",
+            "name":"Windows 8.1",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Dell Solutions for Windows Migration and PC Deployment"
+            ],
+            "id":"/m/0zjl56b",
+            "name":"Windows 8-Dell Solutions for Windows Migration and PC Deployment",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_0639d072-afff-4aa5-9efd-7f111e4f4ea1_var_en_wikipedia_org_wiki_Tuk",
+            "name":"Tuk",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_7fd43a7b-9c7c-4e74-b2fc-d907ccbd7435_var_en_wikipedia_org_wiki_Meltemi_$0028operating_system$0029",
+            "name":"Meltemi",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/0_vxlwy",
+            "name":"iPhone OS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/en/cubuntu",
+            "name":"Cubuntu",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "Trusty Tahr",
+                "Ubuntu 14.04"
+            ],
+            "id":"/m/0109jz3d",
+            "name":"Ubuntu 14.04 LTS",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[
+                "iOS 8"
+            ],
+            "id":"/dataworld/freeq/job_801a7f7c-419a-49c8-8ef2-661da18ce98a_var_en_wikipedia_org_wiki_IOS_8",
+            "name":"iOS 8",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_801a7f7c-419a-49c8-8ef2-661da18ce98a_var_en_wikipedia_org_wiki_Synaptop",
+            "name":"Synaptop",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_7c0715be-1724-41bf-98de-b71e36cc3777_var_en_wikipedia_org_wiki_OS_X_10_10",
+            "name":"OS X Yosemite",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/dataworld/freeq/job_4ea5aeaf-1152-42ce-a752-e56f76310da0_var_en_wikipedia_org_wiki_Android_L",
+            "name":"Android L",
+            "type":"/computer/operating_system"
+        },
+        {
+            "/common/topic/alias":[],
+            "id":"/m/01146mng",
+            "name":"Firefox OS V1.1",
+            "type":"/computer/operating_system"
+        }
+    ]
+}

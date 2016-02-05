@@ -23,7 +23,7 @@
 	<dependency>
   		<groupId>com.fasterxml.jackson.core</groupId>
   		<artifactId>jackson-databind</artifactId>
-  		<version>2.5.0</version>
+  		<version>2.5.3</version>
 	</dependency>
 	<dependency>
         <groupId>junit</groupId>
@@ -38,6 +38,10 @@
 			<directory>src/main/resources</directory>
 			<includes>
 				<include>models/ORNL-Domain-perceptron.bin</include>
+				<include>lists/operating_system.json</include>
+				<include>lists/relevant_terms.txt</include>
+				<include>lists/software_developers.json</include>
+				<include>lists/software_info.json</include>
 			</includes>
 		</resource>
 	</resources>

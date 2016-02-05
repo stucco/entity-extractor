@@ -1,0 +1,179 @@
+MITM
+csrf
+xss
+CSRF
+Use-after-free
+XSS
+0day
+access
+account
+application
+arbitrary
+attack
+attacks
+attacked
+attacker
+attackers
+authenticate
+authenticated
+authentication
+authorization
+blocked
+brute-force
+bypass
+cleartext
+commands
+configuration
+crash
+credentials
+csrf
+ddos
+decrypt
+decrypted
+denial
+encrypt
+encrypted
+encryption
+execute
+exploit
+exposure
+fingerprinting
+forgery
+gain
+handlers
+hijack
+hook
+hook-handler
+HTTPS
+inject
+kernel
+kernel-mode
+local
+locale
+malware
+man-in-the-middle
+memory
+metacharacters
+overflow
+overflows
+overwrite
+password
+permission
+permissions
+plaintext
+privileges
+remote
+requests
+scripting
+sensitive
+signature-based
+signedness
+SSL
+symlink
+TLS
+truncation
+underflow
+underflows
+user-space
+xss
+zero-day
+integer underflow
+Integer underflows
+Race condition
+SQL commands
+SQL injection
+Use-after-free vulnerability
+access control
+access restrictions
+application crash
+arbitrary SQL
+arbitrary certificate
+arbitrary code
+arbitrary files
+arbitrary password
+authentication issues
+buffer error
+buffer overflow
+buffer overrun
+bypass authentication
+code injection
+complete control
+credentials management
+cross-site forgery
+cross-site request
+cross-site scripting
+cryptographic issues
+denial-of-service attack
+design error
+design errors
+dot dot
+finger printing
+format string
+gain privileges
+hard links
+infinite loop
+infinite loops
+information disclosure
+information leak
+inject code
+injection vulnerability
+input validation
+integer overflow
+key disclosure
+link following
+local users
+memory exhaustion
+memory leak
+memory leaks
+memory pressure
+modify query
+numeric error
+numeric errors
+path traversal
+potentially sensitive
+race condition
+race conditions
+remote attacker
+remote attackers
+replay attack
+resource management
+segmentation fault
+sensitive information
+sql injection
+symbolic links
+symlink attack
+transport layer security
+traversal vulnerability
+weak key
+web script
+Directory traversal vulnerability
+Multiple cross-site request
+SQL injection vulnerabilities
+SQL injection vulnerability
+arbitrary PHP code
+arbitrary SQL commands
+arbitrary web script
+buffer boundary error
+cross site request
+cross site scripting
+cross site forgery
+cross-site request forgery
+denial of service
+elevation of privilege
+execute arbitrary SQL
+execute arbitrary code
+execute arbitrary commands
+format string specifiers
+format string vulnerability
+gain administrative access
+hijack the authentication
+inject arbitrary code
+modify query logic
+obtain sensitive information
+os command injection
+remote authenticated users
+remote code execution
+resource management error
+resource management errors
+security feature bypass
+distributed denial of service

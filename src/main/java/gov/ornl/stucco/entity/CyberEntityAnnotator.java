@@ -33,11 +33,14 @@ public class CyberEntityAnnotator implements Annotator {
 	public static final Requirement CYBER_ENTITY_REQUIREMENT = new Requirement(STUCCO_CYBER_ENTITY);
 	
 	public enum CyberEntityType {
+		O,
 		SW_Vendor,
 		SW_Product,
+		SW_Version,
+		SW_Symbol,
 		VULN_MS,
 		VULN_Name,
-		VULN_Desc		
+		VULN_Desc //same as relevant term		
 	}
 	
 	public static final String PREV_WORD = "_PREVIOUS_";
@@ -48,7 +51,7 @@ public class CyberEntityAnnotator implements Annotator {
 	private static String modelFilePath = "models/ORNL-Domain-perceptron.bin";
 	private String cyberModelFile;
 	private PerceptronModel cyberModel;
-	private Map<String, CyberEntityType> cyberDictionary;
+//	private Map<String, CyberEntityType> cyberDictionary;
 	
 	
 	public CyberEntityAnnotator(String className) {
@@ -87,44 +90,7 @@ public class CyberEntityAnnotator implements Annotator {
 				Context context = new Context(word, pos);
 				
 				//if there is a previous word
-				if (p >= 0) {
-					CoreLabel previousToken = tokens.get(p);
-					context.setPreviousContext(previousToken.getString(TextAnnotation.class), previousToken.getString(PartOfSpeechAnnotation.class), previousToken.getString(CyberAnnotation.class));
-				}
-				else {
-					context.setPreviousContext(PREV_WORD, POS, LABEL);
-				}
-				
-				//if there are two previous words
-				if (q >= 0) {
-					CoreLabel pPreviousToken = tokens.get(q);
-					context.setPPreviousContext(pPreviousToken.getString(TextAnnotation.class), pPreviousToken.getString(PartOfSpeechAnnotation.class), pPreviousToken.getString(CyberAnnotation.class));
-				}
-				else {
-					context.setPPreviousContext(PREV_WORD, POS, LABEL);
-				}
-				
-				//if there is a next word
-				if (n < tokens.size()) {
-					CoreLabel nextToken = tokens.get(n);
-					context.setNextContext(nextToken.getString(TextAnnotation.class), nextToken.getString(PartOfSpeechAnnotation.class));
-				}
-				else {
-					context.setNextContext(NEXT_WORD, POS);
-				}
-				
-				//if there are two words after this one
-				if (m < tokens.size()) {
-					CoreLabel nNextToken = tokens.get(m);
-					context.setNNextContext(nNextToken.getString(TextAnnotation.class), nNextToken.getString(PartOfSpeechAnnotation.class));
-				}
-				else {
-					context.setNNextContext(NEXT_WORD, POS);
-				}
-				
-				//set the combo context features (i.e. previous 2 labels and previous word with current word)
-				context.set2PreviousLabels();
-//				context.setPreviousLabelAndWord();
+//TODO: fix this annotation to include new tandem labeling
 				
 				
 				double[] results = cyberModel.eval(context.toArray());
@@ -186,10 +152,13 @@ public class CyberEntityAnnotator implements Annotator {
 
 	@Override
 	public Set<Requirement> requires() {
-		return Annotator.TOKENIZE_SSPLIT_POS;
+		Set<Requirement> prerequisites = new ArraySet<Requirement>();
+//		prerequisites.addAll(Annotator.TOKENIZE_SSPLIT_POS);
+		prerequisites.add(CyberHeuristicAnnotator.CYBER_HEURISTICS_REQUIREMENT);
+		return Collections.unmodifiableSet(prerequisites);
 	}
 	
-	/**
+	  /**
 	   * The CyberAnnotation key for getting the STUCCO cyber label of a token.
 	   *
 	   * This key is set on token annotations.

@@ -18,6 +18,7 @@ import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
 import edu.stanford.nlp.util.CoreMap;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberAnnotation;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberEntityMentionsAnnotation;
+import gov.ornl.stucco.entity.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
 
 public class EntityLabeler {
 	public static final String PREV_WORD = "_PREVIOUS_";
@@ -43,8 +44,9 @@ public class EntityLabeler {
 	
 	
 	private void setProperties() {
-		nlpProps.setProperty("customAnnotatorClass.cyberentity", "gov.ornl.stucco.entity.CyberEntityAnnotator");
-		nlpProps.setProperty("annotators", "tokenize, ssplit, pos, cyberentity, lemma, ner, parse"/*, dcoref"*/);
+//		nlpProps.setProperty("customAnnotatorClass.cyberentity", "gov.ornl.stucco.entity.CyberEntityAnnotator");
+		nlpProps.setProperty("customAnnotatorClass.cyberheuristics", "gov.ornl.stucco.entity.CyberHeuristicAnnotator");
+		nlpProps.setProperty("annotators", "tokenize, ssplit, pos, cyberheuristics, lemma, ner, parse"/*, dcoref"*/);
 //		nlpProps.setProperty("ssplit.boundaryMultiTokenRegex", "/\\./, /[A-Z]\\w*/");
 //		nlpProps.setProperty("ssplit.boundaryTokenRegex", "/^\\.$/");
 //		nlpProps.setProperty("ssplit.boundariesToDiscard", "/^[a-z][A-Za-z0-9_]*/");
@@ -68,10 +70,10 @@ public class EntityLabeler {
 		List<CoreMap> sentences = doc.get(SentencesAnnotation.class);
 		for ( CoreMap sentence : sentences) {
 			for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
-				System.out.println(token.index() + "\t" + token.get(TextAnnotation.class) + "\t" + token.get(PartOfSpeechAnnotation.class) + "\t" + token.get(CyberAnnotation.class));
+				System.out.println(token.index() + "\t" + token.get(TextAnnotation.class) + "\t" + token.get(PartOfSpeechAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class));
 			}
 			
-			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class) );
+//			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class) );
 			
 //			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));
 //			System.out.println("Semantic Graph:\n" + sentence.get(CollapsedCCProcessedDependenciesAnnotation.class));			
