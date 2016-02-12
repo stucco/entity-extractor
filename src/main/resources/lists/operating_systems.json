@@ -349,7 +349,9 @@
             "type":"/computer/operating_system"
         },
         {
-            "/common/topic/alias":[],
+            "/common/topic/alias":[
+            	"Java ME"
+            ],
             "id":"/en/java_platform_micro_edition",
             "name":"Java Platform, Micro Edition",
             "type":"/computer/operating_system"

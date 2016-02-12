@@ -6,17 +6,15 @@ import java.util.Properties;
 import java.util.Set;
 
 import edu.stanford.nlp.ling.CoreAnnotation;
-import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
+import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.Annotator;
-import edu.stanford.nlp.pipeline.Annotator.Requirement;
 import edu.stanford.nlp.util.ArraySet;
 import edu.stanford.nlp.util.StringUtils;
-import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberAnnotation;
-import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberEntityType;
+import gov.ornl.stucco.entity.models.CyberEntityType;
 import gov.ornl.stucco.utils.FreebaseList;
 import gov.ornl.stucco.utils.ListLoader;
 
@@ -24,17 +22,15 @@ public class CyberHeuristicAnnotator implements Annotator {
 	public static final String STUCCO_CYBER_HEURISTICS = "cyberheuristics";
 	public static final Requirement CYBER_HEURISTICS_REQUIREMENT = new Requirement(STUCCO_CYBER_HEURISTICS);
 	
-//	public static final String LABEL = "O";
-//	
-//	public enum CyberEntityType {
-//		SW_Vendor,
-//		SW_Product,
-//		SW_Version,
-//		SW_Symbol,
-//		VULN_MS,
-//		VULN_Name,
-//		VULN_Desc //same as relevant term		
-//	}
+	public static final CyberEntityType O = new CyberEntityType();
+	public static final CyberEntityType SW_VENDOR = new CyberEntityType("software", "vendor");
+	public static final CyberEntityType SW_PRODUCT = new CyberEntityType("software", "product");
+	public static final CyberEntityType SW_VERSION = new CyberEntityType("software", "version");
+	public static final CyberEntityType SW_SYMBOL = new CyberEntityType("software", "symbol");
+	public static final CyberEntityType VULN_MS = new CyberEntityType("vulnerability", "ms");
+	public static final CyberEntityType VULN_NAME = new CyberEntityType("vulnerability", "name");
+	public static final CyberEntityType VULN_DESC = new CyberEntityType("vulnerability", "description");
+	public static final CyberEntityType VULN_CVE = new CyberEntityType("vulnerability", "cve");
 	
 	private static String swInfoList = "src/main/resources/lists/software_info.json";
 	private static String swDevList = "src/main/resources/lists/software_developers.json";
@@ -54,15 +50,15 @@ public class CyberHeuristicAnnotator implements Annotator {
 	public CyberHeuristicAnnotator(String className, Properties config) {
 		listFile = config.getProperty("swProducts", swInfoList);
 		System.err.println("Loading sw_products list from '" + listFile + "'");
-		swProductList = ListLoader.loadFreebaseList(listFile, CyberEntityType.SW_Product.toString());
+		swProductList = ListLoader.loadFreebaseList(listFile, SW_PRODUCT.toString());
 		
 		listFile = config.getProperty("swVendors", swDevList);
 		System.err.println("Loading sw_vendors list from '" + listFile + "'");
-		swVendorList = ListLoader.loadFreebaseList(listFile, CyberEntityType.SW_Vendor.toString());
+		swVendorList = ListLoader.loadFreebaseList(listFile, SW_VENDOR.toString());
 		
 		listFile = config.getProperty("swOS", osList);
 		System.err.println("Loading sw_products (os) list from '" + listFile + "'");
-		FreebaseList temp = ListLoader.loadFreebaseList(listFile, CyberEntityType.SW_Product.toString());
+		FreebaseList temp = ListLoader.loadFreebaseList(listFile, SW_PRODUCT.toString());
 		//os names are considered software products for now, so add them to the same list
 		if (temp != null) {
 			swProductList.addEntries(temp);
@@ -78,18 +74,19 @@ public class CyberHeuristicAnnotator implements Annotator {
 		System.err.println("Annotating with heuristic cyber labels ... ");
 		if (annotation.has(SentencesAnnotation.class)) {
 			List<CoreLabel> tokens = annotation.get(TokensAnnotation.class);
+			//TODO: try passes with bigrams and trigrams as well
 			for (CoreLabel token : tokens) {
 				if (swProductList.contains(token.get(TextAnnotation.class))) {
-					token.set(CyberHeuristicAnnotation.class, CyberEntityType.SW_Product);
+					token.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
 				}
 				else if (swVendorList.contains(token.get(TextAnnotation.class))) {
-					token.set(CyberHeuristicAnnotation.class, CyberEntityType.SW_Vendor);
+					token.set(CyberHeuristicAnnotation.class, SW_VENDOR);
 				}
 				else if (relevantTermsList.contains(token.get(TextAnnotation.class))) {
-					token.set(CyberHeuristicAnnotation.class, CyberEntityType.VULN_Desc);
+					token.set(CyberHeuristicAnnotation.class, VULN_DESC);
 				}
 				else {
-					token.set(CyberHeuristicAnnotation.class, CyberEntityType.O);
+					token.set(CyberHeuristicAnnotation.class, O);
 				}
 			}
 		}

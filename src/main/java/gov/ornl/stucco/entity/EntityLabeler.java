@@ -21,10 +21,10 @@ import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberEntityMentionsAnnotation
 import gov.ornl.stucco.entity.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
 
 public class EntityLabeler {
-	public static final String PREV_WORD = "_PREVIOUS_";
-	public static final String NEXT_WORD = "_NEXT_";
-	public static final String POS = "_POS_";
-	public static final String LABEL = "O";
+//	public static final String PREV_WORD = "_PREVIOUS_";
+//	public static final String NEXT_WORD = "_NEXT_";
+//	public static final String POS = "_POS_";
+//	public static final String LABEL = "O";
 		
 	private StanfordCoreNLP pipeline;
 	private Properties nlpProps;

@@ -27,27 +27,12 @@ import edu.stanford.nlp.util.ErasureUtils;
 import edu.stanford.nlp.util.StringUtils;
 import gov.ornl.stucco.entity.models.Context;
 import gov.ornl.stucco.entity.models.CyberEntityMention;
+import gov.ornl.stucco.entity.models.CyberEntityType;
 
 public class CyberEntityAnnotator implements Annotator {
 	public static final String STUCCO_CYBER_ENTITY = "cyberentity";
 	public static final Requirement CYBER_ENTITY_REQUIREMENT = new Requirement(STUCCO_CYBER_ENTITY);
-	
-	public enum CyberEntityType {
-		O,
-		SW_Vendor,
-		SW_Product,
-		SW_Version,
-		SW_Symbol,
-		VULN_MS,
-		VULN_Name,
-		VULN_Desc //same as relevant term		
-	}
-	
-	public static final String PREV_WORD = "_PREVIOUS_";
-	public static final String NEXT_WORD = "_NEXT_";
-	public static final String POS = "_POS_";
-	public static final String LABEL = "O";
-	
+
 	private static String modelFilePath = "models/ORNL-Domain-perceptron.bin";
 	private String cyberModelFile;
 	private PerceptronModel cyberModel;
@@ -96,14 +81,17 @@ public class CyberEntityAnnotator implements Annotator {
 				double[] results = cyberModel.eval(context.toArray());
 				String cyberLabel = cyberModel.getBestOutcome(results);
 				
-				//annotate the token with the new cyber label
-				token.set(CyberAnnotation.class, cyberLabel);
-				
-				//Create new EntityMentions or add to existing one
+				//TODO: train model with CyberEntityType labels and modify this to use CyberEntityType instead of String
 				if (cyberLabel.contains(".")) {
 					int index = cyberLabel.indexOf(".");
 					String type = cyberLabel.substring(0, index);
 					String subType = cyberLabel.substring(index + 1);
+					
+					CyberEntityType label = new CyberEntityType(type, subType);
+					//annotate the token with the new cyber label
+					token.set(CyberAnnotation.class, label);
+					
+					//Create new EntityMentions or add to existing one
 					int sentenceIndex = token.sentIndex();
 					CoreMap sentence = annotation.get(SentencesAnnotation.class).get(sentenceIndex);
 					//token indexing starts at 1, while span indexing starts at 0
@@ -163,9 +151,9 @@ public class CyberEntityAnnotator implements Annotator {
 	   *
 	   * This key is set on token annotations.
 	   */
-	  public static class CyberAnnotation implements CoreAnnotation<String> {
-	    public Class<String> getType() {
-	      return String.class;
+	  public static class CyberAnnotation implements CoreAnnotation<CyberEntityType> {
+	    public Class<CyberEntityType> getType() {
+	      return CyberEntityType.class;
 	    }
 	  }
 	  

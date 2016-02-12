@@ -13072,7 +13072,7 @@
             "id":"/en/less",
             "latest_release_date":"2008-01-02",
             "latest_version":[],
-            "name":"less",
+            "name":"Less",
             "type":"/computer/software"
         },
         {
@@ -13602,7 +13602,7 @@
             "id":"/en/vile",
             "latest_release_date":"2008-06-14",
             "latest_version":[],
-            "name":"vile",
+            "name":"Vile",
             "type":"/computer/software"
         },
         {
@@ -70583,7 +70583,7 @@
             "id":"/wikipedia/fr/Awesome_$0028logiciel$0029",
             "latest_release_date":"2008-12-12",
             "latest_version":[],
-            "name":"awesome",
+            "name":"Awesome",
             "type":"/computer/software"
         },
         {
@@ -83078,7 +83078,7 @@
             "id":"/wikipedia/it_id/1836937",
             "latest_release_date":null,
             "latest_version":[],
-            "name":"more",
+            "name":"More",
             "type":"/computer/software"
         },
         {
@@ -89034,7 +89034,7 @@
             "id":"/wikipedia/en_title/Most_$0028Unix$0029",
             "latest_release_date":"2007-09-09",
             "latest_version":[],
-            "name":"most",
+            "name":"Most",
             "type":"/computer/software"
         },
         {
@@ -98516,7 +98516,7 @@
             "id":"/wikipedia/ru/File_$0028Unix$0029",
             "latest_release_date":null,
             "latest_version":[],
-            "name":"file",
+            "name":"File",
             "type":"/computer/software"
         },
         {
@@ -99844,7 +99844,7 @@
             "id":"/wikipedia/en_title/Pack_$0028compression$0029",
             "latest_release_date":null,
             "latest_version":[],
-            "name":"pack",
+            "name":"Pack",
             "type":"/computer/software"
         },
         {
@@ -100740,7 +100740,9 @@
             "type":"/computer/software"
         },
         {
-            "/common/topic/alias":[],
+            "/common/topic/alias":[
+            	"JDK"
+            ],
             "/computer/software/compatible_oses":[
                 {
                     "operating_system":[
@@ -103892,6 +103894,50 @@
             "type":"/computer/software"
         },
         {
+            "/common/topic/alias":[
+                "Java SE",
+                "JDK"
+            ],
+            "/computer/software/compatible_oses":[
+                {
+                    "operating_system":[
+                        "Cross-platform"
+                    ]
+                }
+            ],
+            "developer":[
+                "Oracle Corporation"
+            ],
+            "first_released":null,
+            "id":"/en/java_platform_standard_edition",
+            "latest_release_date":null,
+            "latest_version":[],
+            "name":"Java Platform, Standard Edition",
+            "type":"/computer/software"
+        },
+        {
+            "/common/topic/alias":[
+                "Java SE Runtime Environment",
+                "JRE"
+            ],
+            "/computer/software/compatible_oses":[
+                {
+                    "operating_system":[
+                        "Cross-platform"
+                    ]
+                }
+            ],
+            "developer":[
+                "Oracle Corporation"
+            ],
+            "first_released":null,
+            "id":"/en/java_runtime_environment",
+            "latest_release_date":null,
+            "latest_version":[],
+            "name":"Java Runtime Environment",
+            "type":"/computer/software"
+        },
+        {
             "/common/topic/alias":[],
             "/computer/software/compatible_oses":[
                 {
@@ -104284,7 +104330,7 @@
             "id":"/wikipedia/ru_id/1926249",
             "latest_release_date":null,
             "latest_version":[],
-            "name":"patch",
+            "name":"Patch",
             "type":"/computer/software"
         },
         {
@@ -104617,7 +104663,7 @@
             "id":"/wikipedia/ja/Top_$0028UNIX$0029",
             "latest_release_date":null,
             "latest_version":[],
-            "name":"top",
+            "name":"Top",
             "type":"/computer/software"
         },
         {

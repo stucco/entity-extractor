@@ -1123,7 +1123,8 @@
         {
             "/common/topic/alias":[
                 "Ozark Holding Inc",
-                "ORACLE CORP"
+                "ORACLE CORP",
+				"Oracle"
             ],
             "id":"/en/oracle_corporation",
             "name":"Oracle Corporation",
