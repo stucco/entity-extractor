@@ -76,17 +76,85 @@ public class CyberHeuristicAnnotator implements Annotator {
 			List<CoreLabel> tokens = annotation.get(TokensAnnotation.class);
 			//TODO: try passes with bigrams and trigrams as well
 			for (CoreLabel token : tokens) {
-				if (swProductList.contains(token.get(TextAnnotation.class))) {
-					token.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
-				}
-				else if (swVendorList.contains(token.get(TextAnnotation.class))) {
+				if (swVendorList.contains(token.get(TextAnnotation.class))) {
 					token.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+				}
+				else if (swProductList.contains(token.get(TextAnnotation.class))) {
+					token.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
 				}
 				else if (relevantTermsList.contains(token.get(TextAnnotation.class))) {
 					token.set(CyberHeuristicAnnotation.class, VULN_DESC);
 				}
 				else {
 					token.set(CyberHeuristicAnnotation.class, O);
+				}
+			}
+			for (int i=0; i<tokens.size()-1; i++) {
+				CoreLabel token1 = tokens.get(i);
+				CoreLabel token2 = tokens.get(i+1);
+				String lookupPhrase =  token1.get(TextAnnotation.class) + " " + token2.get(TextAnnotation.class);
+				if (swProductList.contains(lookupPhrase)) {
+					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token1.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					}
+					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token2.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					}
+				}
+				else if (swVendorList.contains(lookupPhrase)) {
+					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token1.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					}
+					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token2.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					}
+				}
+				else if (relevantTermsList.contains(lookupPhrase)) {
+					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token1.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					}
+					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token2.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					}
+				}
+			}
+			for (int i=0; i<tokens.size()-2; i++) {
+				CoreLabel token1 = tokens.get(i);
+				CoreLabel token2 = tokens.get(i+1);
+				CoreLabel token3 = tokens.get(i+2);
+				String lookupPhrase =  token1.get(TextAnnotation.class) + " " + token2.get(TextAnnotation.class) + " " + token3.get(TextAnnotation.class);
+				if (swProductList.contains(lookupPhrase)) {
+					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token1.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					}
+					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token2.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					}
+					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token3.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					}
+				}
+				else if (swVendorList.contains(lookupPhrase)) {
+					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token1.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					}
+					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token2.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					}
+					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token3.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					}
+				}
+				else if (relevantTermsList.contains(lookupPhrase)) {
+					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token1.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					}
+					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token2.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					}
+					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
+						token3.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					}
 				}
 			}
 		}

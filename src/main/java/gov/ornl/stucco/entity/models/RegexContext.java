@@ -21,24 +21,7 @@ import gov.ornl.stucco.entity.RegexHeuristicLabeler;
 
 public class RegexContext {
 	
-	public enum ContextKey {
-		P2_Word,
-		P_Word,
-		Word,
-		N_Word,
-		N2_Word,
-		N3_Word,
-		N4_Word,
-		P2_Label,
-		P_Label,
-		Label,
-		N_Label,
-		N2_Label,
-		N3_Label,
-		N4_Label
-	}
-	
-	public enum LabelKey {
+	public enum WordKey {
 		P2_Word,
 		P_Word,
 		Word,
@@ -48,118 +31,41 @@ public class RegexContext {
 		N4_Word
 	}
 	
-	private static final int WORD_LABEL_INDEX = 6;
-	private static final int CURRENT_CORELABEL_INDEX = 2;
+	public enum LabelKey {
+		P2_Label,
+		P_Label,
+		Label,
+		N_Label,
+		N2_Label,
+		N3_Label,
+		N4_Label
+	}
 	
-	private Map<ContextKey, List<Pattern>> contextRegexMap;
-	private Map<LabelKey, CyberEntityType> contextLabelMap;
+	private Map<List<WordKey>, List<Pattern>> wordRegexMap;
+	private Map<LabelKey, Pattern> labelRegexMap;
 	
+	//Want it to match or not
+	private boolean match;
 	
 	public RegexContext() {
-		contextRegexMap = new HashMap<ContextKey, List<Pattern>>();
-		contextLabelMap = new HashMap<LabelKey, CyberEntityType>();
+		this(true);
+	}
+	
+	public RegexContext(boolean wantMatch) {
+		this.wordRegexMap = new HashMap<List<WordKey>, List<Pattern>>();
+		this.labelRegexMap = new HashMap<LabelKey, Pattern>();
+		this.match = wantMatch;
 	}
 	
 	
-	public void addRegex(ContextKey context, Pattern regex) {
-		List<Pattern> list = new ArrayList<Pattern>();
-		if (contextRegexMap.containsKey(context)) {
-			list = contextRegexMap.get(context);
-		}
-		if (list != null) {
-			list.add(regex);
-		}
-		
-		contextRegexMap.put(context, list);
-	}
 	
-	
-	public void addRegex(ContextKey context, List<Pattern> regexList) {
-		List<Pattern> list = new ArrayList<Pattern>();
-		if (contextRegexMap.containsKey(context)) {
-			list = contextRegexMap.get(context);
-		}
-		if (list != null) {
-			list.addAll(regexList);
-		}
-		
-		contextRegexMap.put(context, list);
-	}
-	
-	
-	public void addRegexMap(Map<ContextKey, List<Pattern>> newMap) {
-		contextRegexMap.putAll(newMap);
-	}
-
-	
-	public void addLabel(LabelKey context, CyberEntityType label) {
-		contextLabelMap.put(context, label);
-	}
-	
-	
-	public void addLabelMap(Map<LabelKey, CyberEntityType> labelMap) {
-		contextLabelMap.putAll(labelMap);
-	}
-	
-	
-	public boolean label(List<CoreLabel> tokensSpan) {
-
-		for (ContextKey key : contextRegexMap.keySet()) {
-			int index = key.ordinal();
-			List<Pattern> regexList = contextRegexMap.get(key);
-			CoreLabel token = null;
-			if (index <= WORD_LABEL_INDEX) {
-				token = tokensSpan.get(index);
-			}
-			else {
-				token = tokensSpan.get(index-WORD_LABEL_INDEX-1);
-			}
-			if (!token.equals(RegexHeuristicLabeler.EMPTY_CORELABEL)) {
-				String compareString = "";
-				if (index <= WORD_LABEL_INDEX) {
-					compareString = token.get(TextAnnotation.class);
-				}
-				else {
-					compareString = (token.get(CyberHeuristicAnnotation.class)).toString();
-				}
-				
-				boolean aMatch = false;
-				for (Pattern regex : regexList) {
-					if (regex.matcher(compareString).matches()) {
-						aMatch = true;
-						break;
-					}
-				}
-				
-				if (!aMatch) {
-					return false;
-				}
-			}
-		}
-		
-		//all keys match at least one corresponding regex, so label tokens
-		annotate(tokensSpan);
-		
-		return true;
-	}
-	
-	
-	private void annotate(List<CoreLabel> tokensSpan) {
-		for (LabelKey key : contextLabelMap.keySet()) {
-			int index = key.ordinal();
-			CoreLabel token = tokensSpan.get(index);
-			if (!token.equals(RegexHeuristicLabeler.EMPTY_CORELABEL)) {
-				token.set(CyberHeuristicAnnotation.class, contextLabelMap.get(key));
-			}
-		}
-	}
 	
 	
 	public static void main(String[] args) {
 		RegexContext rc = new RegexContext();
-		rc.addRegex(ContextKey.Word, RegexHeuristicLabeler.pattern0);
-		rc.addRegex(ContextKey.Label, RegexHeuristicLabeler.sw_product);
-		rc.addLabel(LabelKey.Word, CyberHeuristicAnnotator.SW_VERSION);
+//		rc.addRegex(ContextKey.Word, RegexHeuristicLabeler.pattern0);
+//		rc.addRegex(ContextKey.Label, RegexHeuristicLabeler.sw_product);
+//		rc.addLabel(LabelKey.Word, CyberHeuristicAnnotator.SW_VERSION);
 		
 		String exampleText = "Microsoft Windows 7 before SP1 has Oracle Java Runtime Environment cross-site scripting vulnerability in file.php (refer to CVE-2014-1234).";
 		EntityLabeler labeler = new EntityLabeler();
