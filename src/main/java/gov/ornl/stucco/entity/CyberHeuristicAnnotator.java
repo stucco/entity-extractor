@@ -1,5 +1,6 @@
 package gov.ornl.stucco.entity;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
@@ -41,6 +42,7 @@ public class CyberHeuristicAnnotator implements Annotator {
 	private FreebaseList swProductList;
 	private FreebaseList swVendorList;
 	private Set<String> relevantTermsList;
+	private RegexHeuristicLabeler regexLabeler;
 	
 	
 	public CyberHeuristicAnnotator(String className) {
@@ -67,6 +69,8 @@ public class CyberHeuristicAnnotator implements Annotator {
 		listFile = config.getProperty("vulnDesc", relTermsList);
 		System.err.println("Loading vuln_description list from '" + listFile + "'");
 		relevantTermsList = ListLoader.loadTextList(listFile);
+		
+		regexLabeler = new RegexHeuristicLabeler();
 	}
 
 	@Override
@@ -74,7 +78,6 @@ public class CyberHeuristicAnnotator implements Annotator {
 		System.err.println("Annotating with heuristic cyber labels ... ");
 		if (annotation.has(SentencesAnnotation.class)) {
 			List<CoreLabel> tokens = annotation.get(TokensAnnotation.class);
-			//TODO: try passes with bigrams and trigrams as well
 			for (CoreLabel token : tokens) {
 				if (swVendorList.contains(token.get(TextAnnotation.class))) {
 					token.set(CyberHeuristicAnnotation.class, SW_VENDOR);
@@ -156,6 +159,34 @@ public class CyberHeuristicAnnotator implements Annotator {
 						token3.set(CyberHeuristicAnnotation.class, VULN_DESC);
 					}
 				}
+			}
+			for (int i=0; i<tokens.size(); i++) {
+				List<CoreLabel> tokenSublist = new ArrayList<CoreLabel>();
+				if (i == 0) {
+					tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+					tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+					tokenSublist.addAll(tokens.subList(0, 5));
+				}
+				else if (i == 1) {
+					tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+					tokenSublist.addAll(tokens.subList(0, 6));
+				}
+				else {
+					tokenSublist.addAll(tokens.subList(i-2, (Math.min(tokens.size(),i+5))));
+					if (i == tokens.size()-1) {
+						tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+					}
+					if (i >= tokens.size()-2) {
+						tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+					}
+					if (i >= tokens.size()-3) {
+						tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+					}
+					if (i >= tokens.size()-4) {
+						tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+					}
+				}
+				regexLabeler.annotate(tokenSublist);
 			}
 		}
 	}

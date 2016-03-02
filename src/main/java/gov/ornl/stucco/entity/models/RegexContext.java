@@ -41,26 +41,297 @@ public class RegexContext {
 		N4_Label
 	}
 	
+	// Test a single- or multiple-word phrase against multiple patterns
+	//	The list of patterns represent an OR operation (i.e. the word/phrase is considered
+	//	a match if it matches pattern0 or pattern1 etc.)
+	//	The exception to this is if there are NOT patterns involved,
+	//	then all the patterns use AND.
 	private Map<List<WordKey>, List<Pattern>> wordRegexMap;
+	// Map defining which of the pattern(s) should match and which should not
+	//	This map corresponds to wordRegexMap's WordKeys key and pattern list
+	//	The default is false - this is NOT a notOp; the word(s) need to match the pattern
+	private Map<List<WordKey>, List<Boolean>> notOpMap;
+	// Test a word's cyber-domain label against a pattern
+	//	All key's must match their corresponding pattern to label the set of tokens
 	private Map<LabelKey, Pattern> labelRegexMap;
-	
-	//Want it to match or not
-	private boolean match;
-	
+	// Provide the word's cyber-domain label if it matches
+	//	all these pattern criteria
+	private Map<LabelKey, CyberEntityType> annotationMap;
+
 	public RegexContext() {
-		this(true);
-	}
-	
-	public RegexContext(boolean wantMatch) {
 		this.wordRegexMap = new HashMap<List<WordKey>, List<Pattern>>();
+		this.notOpMap = new HashMap<List<WordKey>, List<Boolean>>();
 		this.labelRegexMap = new HashMap<LabelKey, Pattern>();
-		this.match = wantMatch;
+		this.annotationMap = new HashMap<LabelKey, CyberEntityType>();
 	}
 	
 	
+	public Map<List<WordKey>, List<Pattern>> getWordRegexMap() {
+		return wordRegexMap;
+	}
+
+
+	public void setWordRegexMap(Map<List<WordKey>, List<Pattern>> wordRegexMap) {
+		this.wordRegexMap = wordRegexMap;
+		setDefaultNotOpMap();
+	}
 	
 	
+	public void addWordPatternLists(List<WordKey> keyList, List<Pattern> patternList) {
+		this.wordRegexMap.put(keyList, patternList);
+		setDefaultNotOpList(keyList, patternList);
+	}
 	
+	
+	public void addWordPatternList(WordKey key, List<Pattern> patternList) {
+		List<WordKey> keyList = new ArrayList<WordKey>();
+		keyList.add(key);
+		addWordPatternLists(keyList, patternList);
+	}
+	
+	
+	public void addWordPattern(WordKey key, Pattern pattern) {
+		List<WordKey> keyList = new ArrayList<WordKey>();
+		keyList.add(key);
+		List<Pattern> patternList = new ArrayList<Pattern>();
+		patternList.add(pattern);
+		addWordPatternLists(keyList, patternList);
+	}
+	
+	
+	public void addWordListPattern(List<WordKey> keyList, Pattern pattern) {
+		List<Pattern> patternList = new ArrayList<Pattern>();
+		patternList.add(pattern);
+		addWordPatternLists(keyList, patternList);
+	}
+
+
+	public Map<List<WordKey>, List<Boolean>> getNotOpMap() {
+		return notOpMap;
+	}
+
+	
+	public void setNotOpMap(Map<List<WordKey>, List<Boolean>> notOpMap) {
+		this.notOpMap = notOpMap;
+	}
+	
+	
+	public void addNotOpLists(List<WordKey> keyList, List<Boolean> notOpList) {
+		this.notOpMap.put(keyList, notOpList);
+	}
+	
+	
+	public void addPatternLists(List<WordKey> keyList, List<Pattern> patternList, List<Boolean> notOpList) {
+		this.wordRegexMap.put(keyList, patternList);
+		this.notOpMap.put(keyList, notOpList);
+	}
+
+
+	public Map<LabelKey, Pattern> getLabelRegexMap() {
+		return labelRegexMap;
+	}
+
+
+	public void setLabelRegexMap(Map<LabelKey, Pattern> labelRegexMap) {
+		this.labelRegexMap = labelRegexMap;
+	}
+
+	
+	public void addLabelRegex(LabelKey key, Pattern pattern) {
+		this.labelRegexMap.put(key, pattern);
+	}
+	
+
+	public Map<LabelKey, CyberEntityType> getHeuristicLabelMap() {
+		return annotationMap;
+	}
+
+
+	public void setHeuristicLabelMap(Map<LabelKey, CyberEntityType> cyberLabelMap) {
+		this.annotationMap = cyberLabelMap;
+	}
+	
+	
+	public void addHeuristicLabel(LabelKey key, CyberEntityType entity) {
+		this.annotationMap.put(key, entity);
+	}
+
+	
+	public void setDefaultNotOpList(List<WordKey> keyList, List<Pattern> patternList) {
+		List<Boolean> boolList = new ArrayList<Boolean>();
+		for (int i=0; i<patternList.size(); i++) {
+			boolList.add(Boolean.FALSE);
+		}
+		this.notOpMap.put(keyList, boolList);
+	}
+	
+	
+	public void setDefaultNotOpMap() {
+		for (List<WordKey> key : this.wordRegexMap.keySet()) {
+			setDefaultNotOpList(key, this.wordRegexMap.get(key));
+		}
+	}
+	
+	
+	public boolean evaluate(List<CoreLabel> tokens) {
+		for (List<WordKey> regexKeyList : wordRegexMap.keySet()) {
+			// obtain the index of the words to be used in this regex and gather the token instances
+			//	of the corresponding indices
+			int low, high;
+			low = high = regexKeyList.get(0).ordinal();
+			for (WordKey wk : regexKeyList) {
+				if (wk.ordinal() < low) {
+					low = wk.ordinal();
+				}
+				if (wk.ordinal() > high) {
+					high = wk.ordinal();
+				}
+			}
+			List<CoreLabel> sublist = tokens.subList(low, high+1);
+			// If one of the tokens is an EMPTY_CORELABEL,
+			//	then, this regex will not match
+			if (sublist.contains(RegexHeuristicLabeler.EMPTY_CORELABEL)) {
+				return false;
+			}
+			String compareString = getPhrase(sublist);
+			List<Boolean> notOpList = notOpMap.get(regexKeyList);
+			List<Pattern> patternList = wordRegexMap.get(regexKeyList);
+			// If this list of patterns includes a NOT pattern, then
+			//	treat as AND operations between
+			// Otherwise, treat pattern list as OR
+			if (notOpList.contains(Boolean.TRUE)) {
+				for (int i=0; i<patternList.size(); i++) {
+					Pattern pattern = patternList.get(i);
+					Boolean notOp = notOpList.get(i);
+					// If the pattern is not (!pattern) and the pattern does not match,
+					//		or the pattern is (!pattern) and the pattern does match,
+					//		then this set of tokens will NOT be labeled as defined
+					// Otherwise, keep checking
+					if (((!notOp.booleanValue()) && (!pattern.matcher(compareString).matches())) || ((notOp.booleanValue()) && (pattern.matcher(compareString).matches()))) {
+						// Not match
+						return false;
+					}
+				}
+			}
+			else {
+				boolean foundMatch = false;
+				for (int i=0; i<patternList.size(); i++) {
+					Pattern pattern = patternList.get(i);
+					if (pattern.matcher(compareString).matches()) {
+						foundMatch = true;
+						break;
+					}
+				}
+				if (!foundMatch) {
+					return false;
+				}
+			}
+		}
+		
+		//Now check the labelRegexMap
+		for (LabelKey key : labelRegexMap.keySet()) {
+			CoreLabel token = tokens.get(key.ordinal());
+			if (token.containsKey(CyberHeuristicAnnotation.class)) {
+				String compareString = token.get(CyberHeuristicAnnotation.class).toString();
+				// If the token's label is not labeled with the defined pattern,
+				//		then this set of tokens will NOT be labeled
+				// Otherwise, keep checking
+				if (!labelRegexMap.get(key).matcher(compareString).matches()) {
+					return false;
+				}
+			}
+			// If the current token is an EMPTY_CORELABEL, then this regex does not match
+			else {
+				return false;
+			}
+		}
+		
+		// Set of tokens match all defined patterns, so label as appropriate
+		annotate(tokens);
+		
+		return true;
+	}
+	
+	
+	private void annotate(List<CoreLabel> tokens) {
+		for (LabelKey key : annotationMap.keySet()) {
+			CoreLabel token = tokens.get(key.ordinal());
+			token.set(CyberHeuristicAnnotation.class, annotationMap.get(key));
+		}
+	}
+	
+	
+	private String getPhrase(List<CoreLabel> tokens) {
+		StringBuilder sb = new StringBuilder();
+		for (int i=0; i<tokens.size(); i++) {
+			CoreLabel token = tokens.get(i);
+			sb.append(token.getString(TextAnnotation.class));
+			if (i < tokens.size() - 1) {
+				sb.append(" ");
+			}
+		}
+		return sb.toString();
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "RegexContext [wordRegexMap=" + wordRegexMap + ", notOpMap="
+				+ notOpMap + ", labelRegexMap=" + labelRegexMap
+				+ ", annotationMap=" + annotationMap + "]";
+	}
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((annotationMap == null) ? 0 : annotationMap.hashCode());
+		result = prime * result
+				+ ((labelRegexMap == null) ? 0 : labelRegexMap.hashCode());
+		result = prime * result
+				+ ((notOpMap == null) ? 0 : notOpMap.hashCode());
+		result = prime * result
+				+ ((wordRegexMap == null) ? 0 : wordRegexMap.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RegexContext other = (RegexContext) obj;
+		if (annotationMap == null) {
+			if (other.annotationMap != null)
+				return false;
+		} else if (!annotationMap.equals(other.annotationMap))
+			return false;
+		if (labelRegexMap == null) {
+			if (other.labelRegexMap != null)
+				return false;
+		} else if (!labelRegexMap.equals(other.labelRegexMap))
+			return false;
+		if (notOpMap == null) {
+			if (other.notOpMap != null)
+				return false;
+		} else if (!notOpMap.equals(other.notOpMap))
+			return false;
+		if (wordRegexMap == null) {
+			if (other.wordRegexMap != null)
+				return false;
+		} else if (!wordRegexMap.equals(other.wordRegexMap))
+			return false;
+		return true;
+	}
+
+	
+
 	public static void main(String[] args) {
 		RegexContext rc = new RegexContext();
 //		rc.addRegex(ContextKey.Word, RegexHeuristicLabeler.pattern0);

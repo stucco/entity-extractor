@@ -64,7 +64,8 @@ public class EntityLabeler {
 
 	public static void main(String[] args) {
 //		String exampleText = "The software developer who inserted a major security flaw into OpenSSL 1.2.4.8, using the file foo/bar/blah.php has said the error was \"quite trivial\" despite the severity of its impact, according to a new report.  The Sydney Morning Herald published an interview today with Robin Seggelmann, who added the flawed code to OpenSSL, the world's most popular library for implementing HTTPS encryption in websites, e-mail servers, and applications. The flaw can expose user passwords and potentially the private key used in a website's cryptographic certificate (whether private keys are at risk is still being determined). This is a new paragraph about Apache Tomcat's latest update 7.0.1.";
-		String exampleText = "Microsoft Windows 7 before SP1 has Sun Java cross-site scripting vulnerability Java SE in Java EE Java ME file.php (refer to CVE-2014-1234).";
+//		String exampleText = "Microsoft Windows 7 before SP1 has Sun Java cross-site scripting vulnerability Java SE in Java EE Java ME file.php (refer to CVE-2014-1234).";
+		String exampleText = "Oracle has updated all supported versions prior to 8.8.";
 		EntityLabeler labeler = new EntityLabeler();
 		Annotation doc = labeler.getAnnotatedDoc("My Doc", exampleText);
 		
