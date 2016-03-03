@@ -25,6 +25,7 @@ import edu.stanford.nlp.util.ArraySet;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.ErasureUtils;
 import edu.stanford.nlp.util.StringUtils;
+import gov.ornl.stucco.entity.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
 import gov.ornl.stucco.entity.models.Context;
 import gov.ornl.stucco.entity.models.CyberEntityMention;
 import gov.ornl.stucco.entity.models.CyberEntityType;
@@ -67,14 +68,19 @@ public class CyberEntityAnnotator implements Annotator {
 		
 		if (annotation.has(SentencesAnnotation.class)) {
 			List<CoreLabel> tokens = annotation.get(TokensAnnotation.class);
-			for (int i=0, p=i-1, q=i-2, n=i+1, m=i+2; i<tokens.size(); i++, p++, q++, n++, m++) {
+			for (int i=0; i<tokens.size(); i++) {
 				CoreLabel token = tokens.get(i);
 				String word = token.get(TextAnnotation.class);
 				String pos = token.getString(PartOfSpeechAnnotation.class);
-				
-				Context context = new Context(word, pos);
-				
+				CyberEntityType heuristicLabel = token.get(CyberHeuristicAnnotation.class);
 				//if there is a previous word
+				String previousWord = Context.START_WORD;
+				if (i-1 >= 0) {
+					previousWord = tokens.get(i-1).get(TextAnnotation.class);
+				}
+				Context context = new Context(word, pos, heuristicLabel.toString(), previousWord);
+				
+				
 //TODO: fix this annotation to include new tandem labeling
 				
 				
