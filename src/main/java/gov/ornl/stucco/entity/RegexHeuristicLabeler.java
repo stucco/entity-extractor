@@ -150,6 +150,19 @@ public class RegexHeuristicLabeler {
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
+		// Line 53-56
+		regexContext.addHeuristicLabel(LabelKey.N3_Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		keyList.add(WordKey.N3_Word);
+		regexContext.addWordListPattern(keyList, pattern3);
+		regexContext.addLabelRegex(LabelKey.Label, sw_version);
+		regexContext.addLabelRegex(LabelKey.N3_Label, no_label);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
 		// Line 48-51
 		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
 		keyList = new ArrayList<WordKey>();
@@ -161,18 +174,6 @@ public class RegexHeuristicLabeler {
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
-		// Line 53-56
-		regexContext.addHeuristicLabel(LabelKey.N3_Label, CyberHeuristicAnnotator.SW_VERSION);
-		keyList = new ArrayList<WordKey>();
-		keyList.add(WordKey.N_Word);
-		keyList.add(WordKey.N2_Word);
-		keyList.add(WordKey.N3_Word);
-		regexContext.addWordListPattern(keyList, pattern3);
-		regexContext.addLabelRegex(LabelKey.Label, sw_version);
-		regexContext.addLabelRegex(LabelKey.N3_Label, no_label);
-		regexList.add(regexContext);
-		
-		regexContext = new RegexContext();
 		// Line 59-60
 		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_VERSION);
 		keyList = new ArrayList<WordKey>();
@@ -180,18 +181,6 @@ public class RegexHeuristicLabeler {
 		keyList.add(WordKey.N_Word);
 		regexContext.addWordListPattern(keyList, pattern5);
 		regexContext.addLabelRegex(LabelKey.Label, no_label);
-		regexList.add(regexContext);
-		
-		regexContext = new RegexContext();
-		// Line 61-66
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
-		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_VERSION);
-		regexContext.addHeuristicLabel(LabelKey.P2_Label, CyberHeuristicAnnotator.SW_VERSION);
-		keyList = new ArrayList<WordKey>();
-		keyList.add(WordKey.P2_Word);
-		keyList.add(WordKey.P_Word);
-		keyList.add(WordKey.Word);
-		regexContext.addWordListPattern(keyList, pattern6);
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
@@ -213,6 +202,18 @@ public class RegexHeuristicLabeler {
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
+		// Line 61-66
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.P2_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.P2_Word);
+		keyList.add(WordKey.P_Word);
+		keyList.add(WordKey.Word);
+		regexContext.addWordListPattern(keyList, pattern6);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
 		// Line 70-73
 		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
 		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_VERSION);
@@ -229,6 +230,23 @@ public class RegexHeuristicLabeler {
 		keyList.add(WordKey.Word);
 		regexContext.addWordListPattern(keyList, pattern11);
 		regexContext.addLabelRegex(LabelKey.P_Label, sw_product);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 105-117
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		List<Pattern> patternList = new ArrayList<Pattern>();
+		patternList.add(pattern13);
+		patternList.add(pattern14);
+		regexContext.addWordPatternLists(keyList, patternList);
+		regexContext.addLabelRegex(LabelKey.Label, no_label);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		regexContext.addWordListPattern(keyList, pattern3);
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
@@ -254,57 +272,9 @@ public class RegexHeuristicLabeler {
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
-		// Line 105-117
-		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
-		keyList = new ArrayList<WordKey>();
-		keyList.add(WordKey.Word);
-		keyList.add(WordKey.N_Word);
-		List<Pattern> patternList = new ArrayList<Pattern>();
-		patternList.add(pattern13);
-		patternList.add(pattern14);
-		regexContext.addWordPatternLists(keyList, patternList);
-		regexContext.addLabelRegex(LabelKey.Label, no_label);
-		keyList = new ArrayList<WordKey>();
-		keyList.add(WordKey.N_Word);
-		keyList.add(WordKey.N2_Word);
-		regexContext.addWordListPattern(keyList, pattern3);
-		regexList.add(regexContext);
-		
-		regexContext = new RegexContext();
-		// Line 105-117
-		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
-		keyList = new ArrayList<WordKey>();
-		keyList.add(WordKey.Word);
-		keyList.add(WordKey.N_Word);
-		patternList = new ArrayList<Pattern>();
-		patternList.add(pattern13);
-		patternList.add(pattern14);
-		regexContext.addWordPatternLists(keyList, patternList);
-		regexContext.addLabelRegex(LabelKey.Label, no_label);
-		keyList = new ArrayList<WordKey>();
-		keyList.add(WordKey.N_Word);
-		keyList.add(WordKey.N2_Word);
-		keyList.add(WordKey.N3_Word);
-		regexContext.addWordListPattern(keyList, pattern3);
-		regexList.add(regexContext);
-		
-		regexContext = new RegexContext();
 		// Line 119-123
 		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
 		regexContext.addWordPattern(WordKey.Word, pattern16);
-		regexList.add(regexContext);
-		
-		regexContext = new RegexContext();
-		// Line 127-133
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
-		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_VERSION);
-		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
-		keyList = new ArrayList<WordKey>();
-		keyList.add(WordKey.Word);
-		keyList.add(WordKey.N_Word);
-		keyList.add(WordKey.N2_Word);
-		regexContext.addWordListPattern(keyList, pattern17);
-		regexContext.addLabelRegex(LabelKey.P_Label, sw_version);
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
@@ -319,6 +289,19 @@ public class RegexHeuristicLabeler {
 		keyList.add(WordKey.N2_Word);
 		regexContext.addWordListPattern(keyList, pattern17);
 		regexContext.addLabelRegex(LabelKey.P2_Label, sw_version);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 127-133
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		regexContext.addWordListPattern(keyList, pattern17);
+		regexContext.addLabelRegex(LabelKey.P_Label, sw_version);
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();

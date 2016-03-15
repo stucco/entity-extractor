@@ -44,9 +44,9 @@ public class EntityLabeler {
 	
 	
 	private void setProperties() {
-//		nlpProps.setProperty("customAnnotatorClass.cyberentity", "gov.ornl.stucco.entity.CyberEntityAnnotator");
+		nlpProps.setProperty("customAnnotatorClass.cyberentity", "gov.ornl.stucco.entity.CyberEntityAnnotator");
 		nlpProps.setProperty("customAnnotatorClass.cyberheuristics", "gov.ornl.stucco.entity.CyberHeuristicAnnotator");
-		nlpProps.setProperty("annotators", "tokenize, ssplit, pos, cyberheuristics, lemma, ner, parse"/*, dcoref"*/);
+		nlpProps.setProperty("annotators", "tokenize, ssplit, pos, cyberheuristics, cyberentity, lemma, ner, parse"/*, dcoref"*/);
 //		nlpProps.setProperty("ssplit.boundaryMultiTokenRegex", "/\\./, /[A-Z]\\w*/");
 //		nlpProps.setProperty("ssplit.boundaryTokenRegex", "/^\\.$/");
 //		nlpProps.setProperty("ssplit.boundariesToDiscard", "/^[a-z][A-Za-z0-9_]*/");

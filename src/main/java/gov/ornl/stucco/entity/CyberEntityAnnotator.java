@@ -73,59 +73,67 @@ public class CyberEntityAnnotator implements Annotator {
 				String word = token.get(TextAnnotation.class);
 				String pos = token.getString(PartOfSpeechAnnotation.class);
 				CyberEntityType heuristicLabel = token.get(CyberHeuristicAnnotation.class);
-				//if there is a previous word
-				String previousWord = Context.START_WORD;
-				if (i-1 >= 0) {
-					previousWord = tokens.get(i-1).get(TextAnnotation.class);
+				CyberEntityType label = CyberHeuristicAnnotator.O;
+				// Check if it's in the token map based on the training data
+				
+				
+				// Use the heuristic label if not "O"
+				if (!heuristicLabel.equals(CyberHeuristicAnnotator.O)) {
+					label = heuristicLabel;
 				}
-				Context context = new Context(word, pos, heuristicLabel.toString(), previousWord);
+				// Otherwise, evaluate the context in the MEM (Apache OpenNLP)
+				else {
+					//if there is a previous word
+					String previousWord = Context.START_WORD;
+					if (i-1 >= 0) {
+						previousWord = tokens.get(i-1).get(TextAnnotation.class);
+					}
+					Context context = new Context(word, pos, heuristicLabel.toString(), previousWord);
+					double[] results = cyberModel.eval(context.toArray());
+					String cyberLabel = cyberModel.getBestOutcome(results);
+					if (cyberLabel.contains(".")) {
+						int index = cyberLabel.indexOf(".");
+						String type = cyberLabel.substring(0, index);
+						String subType = cyberLabel.substring(index + 1);
+						label = new CyberEntityType(type, subType);
+					}
+				}
 				
-				
-//TODO: fix this annotation to include new tandem labeling
-				
-				
-				double[] results = cyberModel.eval(context.toArray());
-				String cyberLabel = cyberModel.getBestOutcome(results);
-				
-				//TODO: train model with CyberEntityType labels and modify this to use CyberEntityType instead of String
-				if (cyberLabel.contains(".")) {
-					int index = cyberLabel.indexOf(".");
-					String type = cyberLabel.substring(0, index);
-					String subType = cyberLabel.substring(index + 1);
-					
-					CyberEntityType label = new CyberEntityType(type, subType);
+				if (label != null) {				
 					//annotate the token with the new cyber label
 					token.set(CyberAnnotation.class, label);
 					
-					//Create new EntityMentions or add to existing one
-					int sentenceIndex = token.sentIndex();
-					CoreMap sentence = annotation.get(SentencesAnnotation.class).get(sentenceIndex);
-					//token indexing starts at 1, while span indexing starts at 0
-					Span cyberSpan = new Span(token.index()-1, token.index());
-					
-					CyberEntityMention cyberMention = new CyberEntityMention(CyberEntityMention.makeUniqueId(), sentence, cyberSpan, cyberSpan, type, subType, null);
-					
-					//Add this EntityMentions to the list for its corresponding sentence
-					List<CyberEntityMention> sentEntityList = entityMentionsMap.get(Integer.valueOf(sentenceIndex));
-					if (sentEntityList == null) {
-						sentEntityList = new ArrayList<CyberEntityMention>();
-					}
-					
-					if (sentEntityList.size() > 1) {
-						CyberEntityMention latestCyberMention = sentEntityList.get(sentEntityList.size()-1);
-						if (latestCyberMention.labelEquals(cyberMention, true)) {
-							latestCyberMention.getHead().expandToInclude(cyberSpan);
+					if (!label.equals(CyberHeuristicAnnotator.O)) {
+						//Create new EntityMentions or add to existing one
+						int sentenceIndex = token.sentIndex();
+						CoreMap sentence = annotation.get(SentencesAnnotation.class).get(sentenceIndex);
+						//token indexing starts at 1, while span indexing starts at 0
+						Span cyberSpan = new Span(token.index()-1, token.index());
+						
+						CyberEntityMention cyberMention = new CyberEntityMention(CyberEntityMention.makeUniqueId(), sentence, cyberSpan, cyberSpan, label.getCyberType(), label.getCyberSubType(), null);
+						
+						//Add this EntityMentions to the list for its corresponding sentence
+						List<CyberEntityMention> sentEntityList = entityMentionsMap.get(Integer.valueOf(sentenceIndex));
+						if (sentEntityList == null) {
+							sentEntityList = new ArrayList<CyberEntityMention>();
+						}
+						
+						if (sentEntityList.size() > 1) {
+							CyberEntityMention latestCyberMention = sentEntityList.get(sentEntityList.size()-1);
+							if ((latestCyberMention.labelEquals(cyberMention, true)) && (cyberSpan.start() == latestCyberMention.getHeadTokenEnd())) {
+								latestCyberMention.getHead().expandToInclude(cyberSpan);
+							}
+							else {
+								sentEntityList.add(cyberMention);
+							}
 						}
 						else {
 							sentEntityList.add(cyberMention);
 						}
+						
+						//update the sentence's EntityMention list
+						entityMentionsMap.put(Integer.valueOf(sentenceIndex), sentEntityList);
 					}
-					else {
-						sentEntityList.add(cyberMention);
-					}
-					
-					//update the sentence's EntityMention list
-					entityMentionsMap.put(Integer.valueOf(sentenceIndex), sentEntityList);
 				}
 				
 			}

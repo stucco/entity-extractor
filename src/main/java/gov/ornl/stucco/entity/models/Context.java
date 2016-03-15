@@ -150,20 +150,10 @@ public class Context {
 		for (Predicate pred : Context.regexMap.keySet()) {
 			Pattern regex = Context.regexMap.get(pred);
 			if (pred.getPredicateLabel().startsWith("regex_")) {
-				if (regex.matcher(currentWord).matches()) {
-					contextMap.put(pred, Boolean.toString(true));
-				}
-				else {
-					contextMap.put(pred, Boolean.toString(false));
-				}
+				contextMap.put(pred, Boolean.toString(regex.matcher(currentWord).matches()));
 			}
 			else {
-				if (regex.matcher(previousWord).matches()) {
-					contextMap.put(pred, Boolean.toString(true));
-				}
-				else {
-					contextMap.put(pred, Boolean.toString(false));
-				}
+				contextMap.put(pred, Boolean.toString(regex.matcher(previousWord).matches()));
 			}
 		}
 	}
