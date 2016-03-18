@@ -37,7 +37,7 @@ public class RegexHeuristicLabeler {
 	public static Pattern pattern15 = Pattern.compile("JavaVM");
 	public static Pattern pattern16 = Pattern.compile("\b[bB]eta|[aA]lpha\b");
 	public static Pattern pattern17 = Pattern.compile("^service pack [0-9]$",Pattern.CASE_INSENSITIVE);
-	public static Pattern pattern18 = Pattern.compile("^Java [A-Z]");
+	public static Pattern pattern18 = Pattern.compile("^[jJ]ava [A-Z]");
 	public static Pattern pattern19 = Pattern.compile("CVE-[0-9]{4}-[0-9]{4}");
 	public static Pattern pattern20 = Pattern.compile("MS[0-9]{2}-[0-9]{3}");
 	public static Pattern pattern21 = Pattern.compile("^[0-9\\-._]+$");
@@ -47,7 +47,7 @@ public class RegexHeuristicLabeler {
 	public static Pattern pattern25 = Pattern.compile("^([a-zA-Z0-9.\\-_/]+\\.[a-zA-Z0-9]{1,4})$");
 	public static Pattern pattern26 = Pattern.compile("\\.com|\\.org|\\.net|\\.mobi$");
 	public static Pattern pattern27 = Pattern.compile("[a-z]\\.[A-Z]");
-	public static Pattern pattern28 = Pattern.compile("^[A-Z]+ (component|plugin|plug-in)");
+	public static Pattern pattern28 = Pattern.compile("^[A-Z]+( [A-Z]+)? (component|plugin|plug-in)");
 	public static Pattern pattern29 = Pattern.compile("^Oracle [A-Z]+");
 	public static Pattern pattern30 = Pattern.compile("^WebKit$");
 	public static Pattern pattern31 = Pattern.compile("^, and$");
@@ -244,7 +244,7 @@ public class RegexHeuristicLabeler {
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
-		// Line 97-101 & 108 & 112
+		// Line 97-101 & 108 & 112 & 124-126
 		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
 		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_VERSION);
 		keyList = new ArrayList<WordKey>();
@@ -290,7 +290,226 @@ public class RegexHeuristicLabeler {
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
-		// Line
+		// Line 119 - 123
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addWordPattern(WordKey.Word, pattern16);
+		regexContext.addLabelRegex(LabelKey.Label, no_label);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 127 & 132-136
+		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		regexContext.addWordListPattern(keyList, pattern17);
+		regexContext.addLabelRegex(LabelKey.P2_Label, sw_version);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 127-131
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		regexContext.addWordListPattern(keyList, pattern17);
+		regexContext.addLabelRegex(LabelKey.P_Label, sw_version);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 138-139
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.VULN_CVE);
+		regexContext.addWordPattern(WordKey.Word, pattern19);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 143-144
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.VULN_MS);
+		regexContext.addWordPattern(WordKey.Word, pattern20);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 169-179 & 183-193 & 248-258 & 269-279
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N3_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		keyList.add(WordKey.N3_Word);
+		regexContext.addWordListPattern(keyList, pattern8);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 197-205 & 209-217 & 222-230 & 235-243
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		regexContext.addWordListPattern(keyList, pattern10);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 263-264
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addWordPattern(WordKey.Word, pattern12);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 284-295
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N3_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N4_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		keyList.add(WordKey.N3_Word);
+		keyList.add(WordKey.N4_Word);
+		regexContext.addWordListPattern(keyList, pattern8);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 300-311
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N2_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N3_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N4_Label, CyberHeuristicAnnotator.SW_VERSION);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		keyList.add(WordKey.N2_Word);
+		keyList.add(WordKey.N3_Word);
+		keyList.add(WordKey.N4_Word);
+		regexContext.addWordListPattern(keyList, pattern9);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 316-317
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addWordPattern(WordKey.Word, pattern15);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 333-339
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		regexContext.addWordListPattern(keyList, pattern18);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 343-353 & 354-361 & 362-368
+		regexContext.addHeuristicLabel(LabelKey.P2_Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.P2_Word);
+		keyList.add(WordKey.P_Word);
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		regexContext.addWordListPattern(keyList, pattern22);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 369-370
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addWordPattern(WordKey.Word, pattern4);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 375-379
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.P2_Word);
+		keyList.add(WordKey.P_Word);
+		keyList.add(WordKey.Word);
+		regexContext.addWordListPattern(keyList, pattern23);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 375-383
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		regexContext.addWordListPattern(keyList, pattern24);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 385-389
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addWordPattern(WordKey.Word, pattern25);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		patternList = new ArrayList<Pattern>();
+		patternList.add(pattern26);
+		patternList.add(pattern27);
+		List<Boolean> notOpList = new ArrayList<Boolean>();
+		notOpList.add(Boolean.TRUE);
+		notOpList.add(Boolean.TRUE);
+		regexContext.addPatternLists(keyList, patternList, notOpList);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 393-404
+		regexContext.addHeuristicLabel(LabelKey.P2_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.P2_Word);
+		keyList.add(WordKey.P_Word);
+		keyList.add(WordKey.Word);
+		regexContext.addWordListPattern(keyList, pattern28);
+		regexContext.addLabelRegex(LabelKey.P2_Label, no_label);
+		regexContext.addLabelRegex(LabelKey.P_Label, no_label);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 393-404
+		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.P_Word);
+		keyList.add(WordKey.Word);
+		regexContext.addWordListPattern(keyList, pattern28);
+		regexContext.addLabelRegex(LabelKey.P_Label, no_label);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
+		// Line 431- 447
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VENDOR);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		keyList = new ArrayList<WordKey>();
+		keyList.add(WordKey.Word);
+		keyList.add(WordKey.N_Word);
+		regexContext.addWordListPattern(keyList, pattern29);
+		regexContext.addLabelRegex(LabelKey.N_Label, no_label);
+		regexList.add(regexContext);
+
+		regexContext = new RegexContext();
+		// Line 450-451
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
+		regexContext.addWordPattern(WordKey.Word, pattern30);
+		regexList.add(regexContext);
 		
 	}
 	

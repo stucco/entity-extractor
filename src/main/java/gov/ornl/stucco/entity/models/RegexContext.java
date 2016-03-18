@@ -48,9 +48,9 @@ public class RegexContext {
 	//	then all the patterns use AND.
 	private Map<List<WordKey>, List<Pattern>> wordRegexMap;
 	// Map defining which of the pattern(s) should match and which should not
-	//	This map corresponds to wordRegexMap's WordKeys key and pattern list
+	//	This map corresponds to wordRegexMap's Pattern list
 	//	The default is false - this is NOT a notOp; the word(s) need to match the pattern
-	private Map<List<WordKey>, List<Boolean>> notOpMap;
+	private Map<List<Pattern>, List<Boolean>> notOpMap;
 	// Test a word's cyber-domain label against a pattern
 	//	All key's must match their corresponding pattern to label the set of tokens
 	private Map<LabelKey, Pattern> labelRegexMap;
@@ -60,7 +60,7 @@ public class RegexContext {
 
 	public RegexContext() {
 		this.wordRegexMap = new HashMap<List<WordKey>, List<Pattern>>();
-		this.notOpMap = new HashMap<List<WordKey>, List<Boolean>>();
+		this.notOpMap = new HashMap<List<Pattern>, List<Boolean>>();
 		this.labelRegexMap = new HashMap<LabelKey, Pattern>();
 		this.annotationMap = new HashMap<LabelKey, CyberEntityType>();
 	}
@@ -79,7 +79,7 @@ public class RegexContext {
 	
 	public void addWordPatternLists(List<WordKey> keyList, List<Pattern> patternList) {
 		this.wordRegexMap.put(keyList, patternList);
-		setDefaultNotOpList(keyList, patternList);
+		setDefaultNotOpList(patternList);
 	}
 	
 	
@@ -106,24 +106,24 @@ public class RegexContext {
 	}
 
 
-	public Map<List<WordKey>, List<Boolean>> getNotOpMap() {
+	public Map<List<Pattern>, List<Boolean>> getNotOpMap() {
 		return notOpMap;
 	}
 
 	
-	public void setNotOpMap(Map<List<WordKey>, List<Boolean>> notOpMap) {
+	public void setNotOpMap(Map<List<Pattern>, List<Boolean>> notOpMap) {
 		this.notOpMap = notOpMap;
 	}
 	
 	
 	public void addNotOpLists(List<WordKey> keyList, List<Boolean> notOpList) {
-		this.notOpMap.put(keyList, notOpList);
+		this.notOpMap.put(this.wordRegexMap.get(keyList), notOpList);
 	}
 	
 	
 	public void addPatternLists(List<WordKey> keyList, List<Pattern> patternList, List<Boolean> notOpList) {
 		this.wordRegexMap.put(keyList, patternList);
-		this.notOpMap.put(keyList, notOpList);
+		this.notOpMap.put(patternList, notOpList);
 	}
 
 
@@ -157,18 +157,18 @@ public class RegexContext {
 	}
 
 	
-	public void setDefaultNotOpList(List<WordKey> keyList, List<Pattern> patternList) {
+	public void setDefaultNotOpList(List<Pattern> patternList) {
 		List<Boolean> boolList = new ArrayList<Boolean>();
 		for (int i=0; i<patternList.size(); i++) {
 			boolList.add(Boolean.FALSE);
 		}
-		this.notOpMap.put(keyList, boolList);
+		this.notOpMap.put(patternList, boolList);
 	}
 	
 	
 	public void setDefaultNotOpMap() {
-		for (List<WordKey> key : this.wordRegexMap.keySet()) {
-			setDefaultNotOpList(key, this.wordRegexMap.get(key));
+		for (List<Pattern> key : this.wordRegexMap.values()) {
+			setDefaultNotOpList(key);
 		}
 	}
 	
