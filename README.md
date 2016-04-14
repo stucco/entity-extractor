@@ -1,6 +1,21 @@
 # Entity Extraction
 Library to identify and label cyber-domain entities from unstructured text. This library makes use of [Stanford's CoreNLP] (http://nlp.stanford.edu/software/corenlp.shtml) and [Apache's OpenNLP] (https://opennlp.apache.org) libraries.
 
+## Entity Types
+* Software
+	* Vendor
+	* Product
+	* Version
+* File
+	* Name
+* Function
+	* Name
+* Vulnerability
+	* Name
+	* Description
+	* CVE
+	* MS
+
 ## Input
 * User-created Apache OpenNLP perceptron model file in binary format that represents a cyber-domain entity model
 * Default CoreNLP models for tokenizing, part-of-speech tagging, sentence splitting, etc.
