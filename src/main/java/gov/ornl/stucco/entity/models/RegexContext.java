@@ -194,8 +194,8 @@ public class RegexContext {
 				return false;
 			}
 			String compareString = getPhrase(sublist);
-			List<Boolean> notOpList = notOpMap.get(regexKeyList);
 			List<Pattern> patternList = wordRegexMap.get(regexKeyList);
+			List<Boolean> notOpList = notOpMap.get(patternList);
 			// If this list of patterns includes a NOT pattern, then
 			//	treat as AND operations between
 			// Otherwise, treat pattern list as OR
@@ -360,7 +360,7 @@ public class RegexContext {
 					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.VULN_DESC);
 				}
 				else if (word.equalsIgnoreCase("file.php")) {
-					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.SW_SYMBOL);
+					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.FILE_NAME);
 				}
 				else if (word.equalsIgnoreCase("CVE-2014-1234")) {
 					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.VULN_CVE);

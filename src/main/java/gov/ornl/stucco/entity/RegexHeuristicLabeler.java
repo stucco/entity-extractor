@@ -20,7 +20,7 @@ public class RegexHeuristicLabeler {
 	public static CoreLabel EMPTY_CORELABEL = new CoreLabel();
 	
 	public static Pattern pattern0 = Pattern.compile("[0-9x.\\-]");
-	public static Pattern pattern1 = Pattern.compile("^(before|through) [0-9x.\\-]");
+	public static Pattern pattern1 = Pattern.compile("^(before|through) [0-9x.\\-]+");
 	public static Pattern pattern2 = Pattern.compile("[0-9x.][0-9x.\\-]* and earlier$");
 	public static Pattern pattern3 = Pattern.compile("^([,]|and) (and )?[0-9]$");
 	public static Pattern pattern4 = Pattern.compile("\\(\\)$");
@@ -51,6 +51,8 @@ public class RegexHeuristicLabeler {
 	public static Pattern pattern29 = Pattern.compile("^Oracle [A-Z]+");
 	public static Pattern pattern30 = Pattern.compile("^WebKit$");
 	public static Pattern pattern31 = Pattern.compile("^, and$");
+	//TODO: regex pattern for object::function "function" (i.e. windows function call)
+	//TODO: example CVE-2013-3661 "The EPATHOBJ::bFlatten function in win32k.sys in Microsoft Windows XP SP2 and SP3..."
 	
 	public static List<Pattern> patternList0 = new ArrayList<Pattern>() {{
 		add(Pattern.compile("^[0-9]+(\\.|x)+[0-9a-zA-Z\\-.]{1,}$"));
@@ -70,7 +72,8 @@ public class RegexHeuristicLabeler {
 	public static Pattern sw_product = Pattern.compile(CyberHeuristicAnnotator.SW_PRODUCT.toString());
 	public static Pattern sw_vendor = Pattern.compile(CyberHeuristicAnnotator.SW_VENDOR.toString());
 	public static Pattern sw_version = Pattern.compile(CyberHeuristicAnnotator.SW_VERSION.toString());
-	public static Pattern sw_symbol = Pattern.compile(CyberHeuristicAnnotator.SW_SYMBOL.toString());
+	public static Pattern sw_file = Pattern.compile(CyberHeuristicAnnotator.FILE_NAME.toString());
+	public static Pattern sw_function = Pattern.compile(CyberHeuristicAnnotator.FUNCTION_NAME.toString());
 	public static Pattern vuln_ms = Pattern.compile(CyberHeuristicAnnotator.VULN_MS.toString());
 	public static Pattern vuln_cve = Pattern.compile(CyberHeuristicAnnotator.VULN_CVE.toString());
 	public static Pattern vuln_name = Pattern.compile(CyberHeuristicAnnotator.VULN_NAME.toString());
@@ -87,6 +90,7 @@ public class RegexHeuristicLabeler {
 	public void annotate(List<CoreLabel> tokenSublist) {
 		for (RegexContext regex : regexList) {
 			if (regex.evaluate(tokenSublist)) {
+				System.out.println("Match " + tokenSublist + " on \n" + regex.toString());
 				break;
 			}
 		}
@@ -100,13 +104,6 @@ public class RegexHeuristicLabeler {
 		System.err.println("Loading regular expresions ...");
 		// All these instances are ported from averaged_perceptron/comparison-code/preprocessing-code/regex_ad_hoc_tagger.py
 		RegexContext regexContext = new RegexContext();
-		// Lines 27-28
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
-		regexContext.addWordPatternList(WordKey.Word, patternList0);
-		regexContext.addLabelRegex(LabelKey.Label, no_label);
-		regexList.add(regexContext);
-		
-		regexContext = new RegexContext();
 		// Line 30-34
 		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
 		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_VERSION);
@@ -439,6 +436,13 @@ public class RegexHeuristicLabeler {
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
+		// Lines 27-28
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_VERSION);
+		regexContext.addWordPatternList(WordKey.Word, patternList0);
+		regexContext.addLabelRegex(LabelKey.Label, no_label);
+		regexList.add(regexContext);
+		
+		regexContext = new RegexContext();
 		// Line 316-317
 		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_PRODUCT);
 		regexContext.addWordPattern(WordKey.Word, pattern15);
@@ -456,10 +460,10 @@ public class RegexHeuristicLabeler {
 		
 		regexContext = new RegexContext();
 		// Line 343-353 & 354-361 & 362-368
-		regexContext.addHeuristicLabel(LabelKey.P2_Label, CyberHeuristicAnnotator.SW_SYMBOL);
-		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.SW_SYMBOL);
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
-		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addHeuristicLabel(LabelKey.P2_Label, CyberHeuristicAnnotator.FUNCTION_NAME);
+		regexContext.addHeuristicLabel(LabelKey.P_Label, CyberHeuristicAnnotator.FUNCTION_NAME);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.FUNCTION_NAME);
+		regexContext.addHeuristicLabel(LabelKey.N_Label, CyberHeuristicAnnotator.FUNCTION_NAME);
 		keyList = new ArrayList<WordKey>();
 		keyList.add(WordKey.P2_Word);
 		keyList.add(WordKey.P_Word);
@@ -470,13 +474,13 @@ public class RegexHeuristicLabeler {
 		
 		regexContext = new RegexContext();
 		// Line 369-370
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.FUNCTION_NAME);
 		regexContext.addWordPattern(WordKey.Word, pattern4);
 		regexList.add(regexContext);
 		
 		regexContext = new RegexContext();
 		// Line 375-379
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.FILE_NAME);
 		keyList = new ArrayList<WordKey>();
 		keyList.add(WordKey.P2_Word);
 		keyList.add(WordKey.P_Word);
@@ -486,7 +490,7 @@ public class RegexHeuristicLabeler {
 		
 		regexContext = new RegexContext();
 		// Line 375-383
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.FILE_NAME);
 		keyList = new ArrayList<WordKey>();
 		keyList.add(WordKey.Word);
 		keyList.add(WordKey.N_Word);
@@ -495,14 +499,15 @@ public class RegexHeuristicLabeler {
 		
 		regexContext = new RegexContext();
 		// Line 385-389
-		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.SW_SYMBOL);
-		regexContext.addWordPattern(WordKey.Word, pattern25);
+		regexContext.addHeuristicLabel(LabelKey.Label, CyberHeuristicAnnotator.FILE_NAME);
 		keyList = new ArrayList<WordKey>();
 		keyList.add(WordKey.Word);
 		patternList = new ArrayList<Pattern>();
+		patternList.add(pattern25);
 		patternList.add(pattern26);
 		patternList.add(pattern27);
 		List<Boolean> notOpList = new ArrayList<Boolean>();
+		notOpList.add(Boolean.FALSE);
 		notOpList.add(Boolean.TRUE);
 		notOpList.add(Boolean.TRUE);
 		regexContext.addPatternLists(keyList, patternList, notOpList);
@@ -576,7 +581,7 @@ public class RegexHeuristicLabeler {
 					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.VULN_DESC);
 				}
 				else if (word.equalsIgnoreCase("file.php")) {
-					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.SW_SYMBOL);
+					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.FILE_NAME);
 				}
 				else if (word.equalsIgnoreCase("CVE-2014-1234")) {
 					token.set(CyberHeuristicAnnotation.class, CyberHeuristicAnnotator.VULN_CVE);

@@ -19,11 +19,12 @@
   		<groupId>org.apache.opennlp</groupId>
   		<artifactId>opennlp-tools</artifactId>
   		<version>1.5.3</version>
+  		<!-- <version>1.6.0</version> -->
 	</dependency>
 	<dependency>
   		<groupId>com.fasterxml.jackson.core</groupId>
   		<artifactId>jackson-databind</artifactId>
-  		<version>2.5.3</version>
+  		<version>2.7.0</version>
 	</dependency>
 	<dependency>
         <groupId>junit</groupId>

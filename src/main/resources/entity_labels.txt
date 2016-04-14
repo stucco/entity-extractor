@@ -1,0 +1,13 @@
+* Software
+	Product
+	Vendor
+	Version
+* File
+	Name
+* Function
+	Name
+* Vulnerability
+	Description
+	Name
+	CVE
+	MS

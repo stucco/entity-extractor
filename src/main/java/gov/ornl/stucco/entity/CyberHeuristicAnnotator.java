@@ -24,19 +24,20 @@ public class CyberHeuristicAnnotator implements Annotator {
 	public static final Requirement CYBER_HEURISTICS_REQUIREMENT = new Requirement(STUCCO_CYBER_HEURISTICS);
 	
 	public static final CyberEntityType O = new CyberEntityType();
-	public static final CyberEntityType SW_VENDOR = new CyberEntityType("software", "vendor");
-	public static final CyberEntityType SW_PRODUCT = new CyberEntityType("software", "product");
-	public static final CyberEntityType SW_VERSION = new CyberEntityType("software", "version");
-	public static final CyberEntityType SW_SYMBOL = new CyberEntityType("software", "symbol");
-	public static final CyberEntityType VULN_MS = new CyberEntityType("vulnerability", "ms");
-	public static final CyberEntityType VULN_NAME = new CyberEntityType("vulnerability", "name");
-	public static final CyberEntityType VULN_DESC = new CyberEntityType("vulnerability", "description");
-	public static final CyberEntityType VULN_CVE = new CyberEntityType("vulnerability", "cve");
+	public static final CyberEntityType SW_VENDOR = new CyberEntityType("sw", "vendor");
+	public static final CyberEntityType SW_PRODUCT = new CyberEntityType("sw", "product");
+	public static final CyberEntityType SW_VERSION = new CyberEntityType("sw", "version");
+	public static final CyberEntityType FILE_NAME = new CyberEntityType("file", "name");
+	public static final CyberEntityType FUNCTION_NAME = new CyberEntityType("function", "name");
+	public static final CyberEntityType VULN_MS = new CyberEntityType("vuln", "ms");
+	public static final CyberEntityType VULN_NAME = new CyberEntityType("vuln", "name");
+	public static final CyberEntityType VULN_DESC = new CyberEntityType("vuln", "description");
+	public static final CyberEntityType VULN_CVE = new CyberEntityType("vuln", "cve");
 	
-	private static String swInfoList = "src/main/resources/lists/software_info.json";
-	private static String swDevList = "src/main/resources/lists/software_developers.json";
-	private static String osList = "src/main/resources/lists/operating_systems.json";
-	private static String relTermsList = "src/main/resources/lists/relevant_terms.txt";
+	private static String swInfoList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/software_info.json";
+	private static String swDevList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/software_developers.json";
+	private static String osList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/operating_systems.json";
+	private static String relTermsList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/relevant_terms.txt";
 	
 	private String listFile;
 	private FreebaseList swProductList;
