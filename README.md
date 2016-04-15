@@ -17,9 +17,11 @@ Library to identify and label cyber-domain entities from unstructured text. This
 	* MS
 
 ## Input
-* User-created Apache OpenNLP perceptron model file in binary format that represents a cyber-domain entity model
-* Default CoreNLP models for tokenizing, part-of-speech tagging, sentence splitting, etc.
+* Trained Apache OpenNLP perceptron model file in binary format that represents a cyber-domain entity model
+* Default CoreNLP models for tokenizing, part-of-speech tagging, sentence splitting, and parse-tree building
 * Text content of document to be annotated with cyber labels
+* Predefined heuristics, including known-entity lists and regular expressions
+* Mapping of tokens (i.e. words or punctuation) to a unique label, if found during training
 
 ## Output
 An Annotation object that represents the document as a map, where annotator classnames are keys. The document map includes the following values:
@@ -31,7 +33,6 @@ An Annotation object that represents the document as a map, where annotator clas
     * POSTag: part-of-speech tag
     * CyberEntity: cyber domain label for the token
   * ParseTree: sentence structure as a tree
-
 
 ## Usage
 	EntityLabeler labeler = new EntityLabeler();
@@ -46,7 +47,7 @@ An Annotation object that represents the document as a map, where annotator clas
 		System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));			
 	}
 
-See CoreNLP's [JavaDocs] (http://nlp.stanford.edu/nlp/javadoc/javanlp/) and [Usage section] (http://nlp.stanford.edu/software/corenlp.shtml) for more information.
+See CoreNLP's [JavaDocs] (http://nlp.stanford.edu/nlp/javadoc/javanlp/), [Usage section] (http://nlp.stanford.edu/software/corenlp.shtml), or OpenNLP's [JavaDocs] (https://opennlp.apache.org/documentation/1.6.0/apidocs/opennlp-tools/index.html) for more information.
 
 ## Test
 TODO: Need to add functionality tests.
