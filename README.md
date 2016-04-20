@@ -49,11 +49,6 @@ An Annotation object that represents the document as a map, where annotator clas
 
 See CoreNLP's [JavaDocs] (http://nlp.stanford.edu/nlp/javadoc/javanlp/), [Usage section] (http://nlp.stanford.edu/software/corenlp.shtml), or OpenNLP's [JavaDocs] (https://opennlp.apache.org/documentation/1.6.0/apidocs/opennlp-tools/index.html) for more information.
 
-## Test
-TODO: Need to add functionality tests.
-	
-	mvn test
-
 ## License
 This software is freely distributable under the terms of the MIT License.
 
