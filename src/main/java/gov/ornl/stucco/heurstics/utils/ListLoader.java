@@ -1,4 +1,4 @@
-package gov.ornl.stucco.utils;
+package gov.ornl.stucco.heurstics.utils;
 
 import java.io.BufferedReader;
 import java.io.File;

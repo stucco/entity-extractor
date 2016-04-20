@@ -1,4 +1,4 @@
-package gov.ornl.stucco.entity;
+package gov.ornl.stucco.entity.heuristics;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,9 +16,14 @@ import edu.stanford.nlp.pipeline.Annotator;
 import edu.stanford.nlp.util.ArraySet;
 import edu.stanford.nlp.util.StringUtils;
 import gov.ornl.stucco.entity.models.CyberEntityType;
-import gov.ornl.stucco.utils.FreebaseList;
-import gov.ornl.stucco.utils.ListLoader;
+import gov.ornl.stucco.heurstics.utils.FreebaseList;
+import gov.ornl.stucco.heurstics.utils.ListLoader;
+import gov.ornl.stucco.heurstics.utils.TokenCyberLabelMap;
 
+/**
+ * This is the annotator in the pipeline that uses heuristics to label the cyber domain entities.
+ *
+ */
 public class CyberHeuristicAnnotator implements Annotator {
 	public static final String STUCCO_CYBER_HEURISTICS = "cyberheuristics";
 	public static final Requirement CYBER_HEURISTICS_REQUIREMENT = new Requirement(STUCCO_CYBER_HEURISTICS);
@@ -34,20 +39,22 @@ public class CyberHeuristicAnnotator implements Annotator {
 	public static final CyberEntityType VULN_DESC = new CyberEntityType("vuln", "description");
 	public static final CyberEntityType VULN_CVE = new CyberEntityType("vuln", "cve");
 	
-	private static String swInfoList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/software_info.json";
-	private static String swDevList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/software_developers.json";
-	private static String osList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/operating_systems.json";
-	private static String relTermsList = "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/lists/relevant_terms.txt";
+	private static String swInfoList = "dictionaries/software_info.json";
+	private static String swDevList = "dictionaries/software_developers.json";
+	private static String osList = "dictionaries/operating_systems.json";
+	private static String relTermsList = "dictionaries/relevant_terms.txt";
+	private static String labelMapPath = "dictionaries/token_label_map.ser";
 	
 	private String listFile;
 	private FreebaseList swProductList;
 	private FreebaseList swVendorList;
 	private Set<String> relevantTermsList;
+	private TokenCyberLabelMap labelMap;
 	private RegexHeuristicLabeler regexLabeler;
 	
 	
 	public CyberHeuristicAnnotator(String className) {
-		this(className, StringUtils.argsToProperties("-swProducts", swInfoList, "-swVendors", swDevList, "-swOS", osList, "-vulnDesc", relTermsList));
+		this(className, StringUtils.argsToProperties("-swProducts", swInfoList, "-swVendors", swDevList, "-swOS", osList, "-vulnDesc", relTermsList, "-labelMap", labelMapPath));
 	}
 	
 	public CyberHeuristicAnnotator(String className, Properties config) {
@@ -71,6 +78,10 @@ public class CyberHeuristicAnnotator implements Annotator {
 		System.err.println("Loading vuln_description list from '" + listFile + "'");
 		relevantTermsList = ListLoader.loadTextList(listFile);
 		
+		listFile = config.getProperty("labelMap", labelMapPath);
+		labelMap = new TokenCyberLabelMap();
+		labelMap.loadMap(listFile);
+		
 		regexLabeler = new RegexHeuristicLabeler();
 	}
 
@@ -78,6 +89,7 @@ public class CyberHeuristicAnnotator implements Annotator {
 	public void annotate(Annotation annotation) {
 		System.err.println("Annotating with heuristic cyber labels ... ");
 		if (annotation.has(SentencesAnnotation.class)) {
+			//Known entities heuristics
 			List<CoreLabel> tokens = annotation.get(TokensAnnotation.class);
 			for (CoreLabel token : tokens) {
 				if (swVendorList.contains(token.get(TextAnnotation.class))) {
@@ -160,7 +172,9 @@ public class CyberHeuristicAnnotator implements Annotator {
 						token3.set(CyberHeuristicAnnotation.class, VULN_DESC);
 					}
 				}
-			}
+			}			
+			
+			//Regex heuristics
 			for (int i=0; i<tokens.size(); i++) {
 				List<CoreLabel> tokenSublist = new ArrayList<CoreLabel>();
 				if (i == 0) {
@@ -188,6 +202,14 @@ public class CyberHeuristicAnnotator implements Annotator {
 					}
 				}
 				regexLabeler.annotate(tokenSublist);
+			}
+			
+			//Token-to-unique-label map check
+			for (CoreLabel token : tokens) {
+				if ((token.get(CyberHeuristicAnnotation.class).equals(O)) && (labelMap.contains(token.get(TextAnnotation.class)))) {
+					CyberEntityType uniqueLabel = labelMap.getLabel(token.get(TextAnnotation.class));
+					token.set(CyberHeuristicAnnotation.class, uniqueLabel);
+				}
 			}
 		}
 	}

@@ -1,7 +1,10 @@
 package gov.ornl.stucco.entity.models;
 
-public class CyberEntityType {
-	
+import java.io.Serializable;
+
+public class CyberEntityType implements Serializable {
+
+	private static final long serialVersionUID = 2L;
 	private String cyberType;
 	private String cyberSubType;
 	

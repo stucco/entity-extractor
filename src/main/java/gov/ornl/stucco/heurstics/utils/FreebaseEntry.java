@@ -1,4 +1,4 @@
-package gov.ornl.stucco.utils;
+package gov.ornl.stucco.heurstics.utils;
 
 import java.io.Serializable;
 import java.util.List;

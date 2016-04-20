@@ -86,6 +86,7 @@ Use-after-free vulnerability
 access control
 access restrictions
 application crash
+arbitrary Javascript
 arbitrary SQL
 arbitrary certificate
 arbitrary code
@@ -150,6 +151,7 @@ Directory traversal vulnerability
 Multiple cross-site request
 SQL injection vulnerabilities
 SQL injection vulnerability
+arbitrary Javascript code
 arbitrary PHP code
 arbitrary SQL commands
 arbitrary web script
@@ -163,6 +165,7 @@ elevation of privilege
 execute arbitrary SQL
 execute arbitrary code
 execute arbitrary commands
+execute Javascript code
 format string specifiers
 format string vulnerability
 gain administrative access

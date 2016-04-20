@@ -1,19 +1,20 @@
-package gov.ornl.stucco.entity;
+package gov.ornl.stucco.entity.heuristics;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
+import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.util.CoreMap;
-import gov.ornl.stucco.entity.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
-import gov.ornl.stucco.entity.models.RegexContext;
-import gov.ornl.stucco.entity.models.RegexContext.LabelKey;
-import gov.ornl.stucco.entity.models.RegexContext.WordKey;
+import gov.ornl.stucco.entity.EntityLabeler;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
+import gov.ornl.stucco.entity.heuristics.models.RegexContext;
+import gov.ornl.stucco.entity.heuristics.models.RegexContext.LabelKey;
+import gov.ornl.stucco.entity.heuristics.models.RegexContext.WordKey;
 
 public class RegexHeuristicLabeler {
 	
@@ -54,7 +55,10 @@ public class RegexHeuristicLabeler {
 	//TODO: regex pattern for object::function "function" (i.e. windows function call)
 	//TODO: example CVE-2013-3661 "The EPATHOBJ::bFlatten function in win32k.sys in Microsoft Windows XP SP2 and SP3..."
 	
-	public static List<Pattern> patternList0 = new ArrayList<Pattern>() {{
+	public static final List<Pattern> patternList0 = new ArrayList<Pattern>() {
+		private static final long serialVersionUID = 1L;
+
+	{
 		add(Pattern.compile("^[0-9]+(\\.|x)+[0-9a-zA-Z\\-.]{1,}$"));
 		add(Pattern.compile("^[0-9.x]{2,}\\.+-[0-9a-zA-Z.]+$"));
 		add(Pattern.compile("^[0-9.x]+\\.?[a-zA-Z.]+$"));
@@ -90,7 +94,6 @@ public class RegexHeuristicLabeler {
 	public void annotate(List<CoreLabel> tokenSublist) {
 		for (RegexContext regex : regexList) {
 			if (regex.evaluate(tokenSublist)) {
-				System.out.println("Match " + tokenSublist + " on \n" + regex.toString());
 				break;
 			}
 		}

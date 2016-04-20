@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import opennlp.perceptron.BinaryPerceptronModelReader;
-import opennlp.perceptron.PerceptronModel;
+import opennlp.tools.ml.perceptron.BinaryPerceptronModelReader;
+import opennlp.tools.ml.perceptron.PerceptronModel;
 import edu.stanford.nlp.ie.machinereading.structure.Span;
 import edu.stanford.nlp.ling.CoreAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
@@ -25,19 +25,24 @@ import edu.stanford.nlp.util.ArraySet;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.ErasureUtils;
 import edu.stanford.nlp.util.StringUtils;
-import gov.ornl.stucco.entity.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
 import gov.ornl.stucco.entity.models.Context;
 import gov.ornl.stucco.entity.models.CyberEntityMention;
 import gov.ornl.stucco.entity.models.CyberEntityType;
 
+/**
+ * This annotator is the second cyber-related annotator in the pipeline. This annotator uses the maximum entropy model to evaluate and label the
+ * previously-unlabeled tokens.
+ *
+ */
 public class CyberEntityAnnotator implements Annotator {
 	public static final String STUCCO_CYBER_ENTITY = "cyberentity";
 	public static final Requirement CYBER_ENTITY_REQUIREMENT = new Requirement(STUCCO_CYBER_ENTITY);
 
-	private static String modelFilePath = "models/ORNL-Domain-perceptron.bin";
+	private static String modelFilePath = "models/ORNL-perceptron.bin";
 	private String cyberModelFile;
 	private PerceptronModel cyberModel;
-//	private Map<String, CyberEntityType> cyberDictionary;
 	
 	
 	public CyberEntityAnnotator(String className) {
@@ -74,10 +79,8 @@ public class CyberEntityAnnotator implements Annotator {
 				String pos = token.getString(PartOfSpeechAnnotation.class);
 				CyberEntityType heuristicLabel = token.get(CyberHeuristicAnnotation.class);
 				CyberEntityType label = CyberHeuristicAnnotator.O;
-				// Check if it's in the token map based on the training data
-				
-				
-				// Use the heuristic label if not "O"
+
+				// Use the heuristic label, if not "O"
 				if (!heuristicLabel.equals(CyberHeuristicAnnotator.O)) {
 					label = heuristicLabel;
 				}

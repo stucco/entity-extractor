@@ -51,6 +51,7 @@ See CoreNLP's [JavaDocs] (http://nlp.stanford.edu/nlp/javadoc/javanlp/), [Usage 
 
 ## Test
 TODO: Need to add functionality tests.
+	
 	mvn test
 
 ## License
