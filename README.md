@@ -23,6 +23,21 @@ Library to identify and label cyber-domain entities from unstructured text. This
 * Predefined heuristics, including known-entity lists and regular expressions
 * Mapping of tokens (i.e. words or punctuation) to a unique label, if found during training
 
+## Process
+1. Use the CoreNLP library to tokenize, part-of-speech tag, and build the parse trees of the document's text.
+2. Check the tokens (i.e. words and punctuation) against lists of known entities such as Google's Freebase data sets. If the token is found, label it appropriately.
+3. Attempt to match a token, or set of tokens against regular expressions. If a match is found, then label the token, or set of tokens.
+4. Check token against the token-to-unique-label map and label appropriately, if found.
+5. If the token is still unlabeled, generate features/context for the token, and evaluate them against the maximum entropy model (MEM) to determine the label with the highest probability.
+
+### Features / Context Used
+* Token (word or punctuation to be labeled)
+* Prefix (first 6 characters of token)
+* Suffix (last 6 characters of token)
+* Part of speech tag
+* Match current token against a set of regular expressions
+* Match pervious token against a set of regular expressions
+
 ## Output
 An Annotation object that represents the document as a map, where annotator classnames are keys. The document map includes the following values:
 
