@@ -6,6 +6,7 @@ import gov.ornl.stucco.entity.models.CyberEntityType;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -76,18 +77,24 @@ public class TokenCyberLabelMap implements Serializable {
 	@SuppressWarnings("unchecked")
 	public void loadMap(String mapFile) {
 		try {
-			FileInputStream inStream = new FileInputStream(mapFile);
+			InputStream inStream = TokenCyberLabelMap.class.getClassLoader().getResourceAsStream(mapFile);
 			ObjectInputStream objStream = new ObjectInputStream(inStream);
 			labelMap = ((HashMap<String, CyberEntityType>) objStream.readObject());
 			objStream.close();
 			inStream.close();
 			System.err.println("Token-to-Label map loaded from '" + mapFile + "'");
-		} catch (IOException ex) {
-			System.err.println("WARNING: Token-to-Label map could not be loaded from '" + mapFile + "'");
-			ex.printStackTrace();
-		} catch (ClassNotFoundException clex) {
-			System.err.println("WARNING: Token-to-Label map could not be loaded from '" + mapFile + "'");
-			clex.printStackTrace();
+		} catch (Exception e) {
+			try {
+				FileInputStream inStream = new FileInputStream(mapFile);
+				ObjectInputStream objStream = new ObjectInputStream(inStream);
+				labelMap = ((HashMap<String, CyberEntityType>) objStream.readObject());
+				objStream.close();
+				inStream.close();
+				System.err.println("Token-to-Label map loaded from '" + mapFile + "'");
+			} catch (Exception ex) {
+				System.err.println("WARNING: Token-to-Label map could not be loaded from '" + mapFile + "'");
+				ex.printStackTrace();
+			}
 		}
 	}
 	

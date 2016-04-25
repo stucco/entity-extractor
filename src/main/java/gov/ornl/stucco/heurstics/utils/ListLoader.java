@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,16 +18,23 @@ public class ListLoader {
 	private static ObjectMapper mapper = new ObjectMapper();
 
 	public static FreebaseList loadFreebaseList(String listFile, String listType) {
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
+		mapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
+		
 		FreebaseList freebaseList = null;
 		try {
-			InputStream inputStream = new FileInputStream(new File(listFile));
-			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-			mapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
-			mapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
+			InputStream inputStream = ListLoader.class.getClassLoader().getResourceAsStream(listFile);
 			freebaseList = mapper.readValue(inputStream, FreebaseList.class);
 			freebaseList.setListType(listType);
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			try {
+				InputStream inputStream = new FileInputStream(new File(listFile));
+				freebaseList = mapper.readValue(inputStream, FreebaseList.class);
+				freebaseList.setListType(listType);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return freebaseList;
@@ -35,17 +43,25 @@ public class ListLoader {
 	public static Set<String> loadTextList(String textFile) {
 		Set<String> textList = new HashSet<String>();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(new File(textFile)));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(ListLoader.class.getClassLoader().getResourceAsStream(textFile)));
 			String term = reader.readLine();
 			while (term != null) {
 				textList.add(term);
 				term = reader.readLine();
 			}
 			reader.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			try {
+				BufferedReader reader = new BufferedReader(new FileReader(new File(textFile)));
+				String term = reader.readLine();
+				while (term != null) {
+					textList.add(term);
+					term = reader.readLine();
+				}
+				reader.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	
 		return textList;
