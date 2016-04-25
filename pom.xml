@@ -3,6 +3,11 @@
   <groupId>gov.ornl.stucco</groupId>
   <artifactId>entity-extractor</artifactId>
   <version>1.0.0</version>
+  <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.test.skip>true</maven.test.skip>
+  	<main.class>gov.ornl.stucco.entity.EntityLabeler</main.class>
+  </properties>
   <dependencies>
   	<dependency>
 	    <groupId>edu.stanford.nlp</groupId>
@@ -38,7 +43,7 @@
 			<directory>src/main/resources</directory>
 			<includes>
 				<include>models/ORNL-perceptron.bin</include>
-				<include>dictionaries/operating_system.json</include>
+				<include>dictionaries/operating_systems.json</include>
 				<include>dictionaries/relevant_terms.txt</include>
 				<include>dictionaries/software_developers.json</include>
 				<include>dictionaries/software_info.json</include>
@@ -67,6 +72,25 @@
                   </execution>
             </executions>
 		</plugin>
+		<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <includeProjectDependencies>true</includeProjectDependencies>
+          <includePluginDependencies>false</includePluginDependencies>
+          <classpathScope>compile</classpathScope>
+          <mainClass>${main.class}</mainClass>
+        </configuration>
+      </plugin>
      </plugins>
    </build>
 </project>
