@@ -184,5 +184,27 @@ public class CyberEntityAnnotator implements Annotator {
 	      return ErasureUtils.uncheckedCast(List.class);
 	    }
 	  }
+	  
+	  /**
+	   * The CyberConfidenceAnnotation key for getting the set of probabilities that a token should be labeled a particular label.
+	   *
+	   * This key is set on the token annotations.
+	   */
+	  public static class CyberConfidenceAnnotation implements CoreAnnotation<double[]> {
+	    public Class<double[]> getType() {
+	      return double[].class;
+	    }
+	  }
+	  
+	  /**
+	   * The CyberLabelsAnnotation key for getting the set of possible labels for the document.
+	   *
+	   * This key is set on the document-level.
+	   */
+	  public static class CyberLabelsAnnotation implements CoreAnnotation<String[]> {
+	    public Class<String[]> getType() {
+	      return String[].class;
+	    }
+	  }
 
 }

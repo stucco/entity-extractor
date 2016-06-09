@@ -3,6 +3,8 @@ package gov.ornl.stucco.entity.heuristics.models;
 import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
 import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicMethodAnnotation;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.HEURISTIC_METHOD;
 import gov.ornl.stucco.entity.heuristics.RegexHeuristicLabeler;
 import gov.ornl.stucco.entity.models.CyberEntityType;
 
@@ -250,6 +252,7 @@ public class RegexContext {
 		for (LabelKey key : annotationMap.keySet()) {
 			CoreLabel token = tokens.get(key.ordinal());
 			token.set(CyberHeuristicAnnotation.class, annotationMap.get(key));
+			token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.REGEX);
 		}
 	}
 	

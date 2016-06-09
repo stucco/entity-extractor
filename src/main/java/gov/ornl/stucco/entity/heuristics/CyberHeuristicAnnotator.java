@@ -28,6 +28,14 @@ public class CyberHeuristicAnnotator implements Annotator {
 	public static final String STUCCO_CYBER_HEURISTICS = "cyberheuristics";
 	public static final Requirement CYBER_HEURISTICS_REQUIREMENT = new Requirement(STUCCO_CYBER_HEURISTICS);
 	
+	
+	// Heuristic methods used to date
+	public static enum HEURISTIC_METHOD {
+		DICTIONARY,		// list of known entities
+		REGEX,			// regular expressions
+		TRAINING_MAP	// map created during training for tokens with recurring unique labels
+	};
+	
 	public static final CyberEntityType O = new CyberEntityType();
 	public static final CyberEntityType SW_VENDOR = new CyberEntityType("sw", "vendor");
 	public static final CyberEntityType SW_PRODUCT = new CyberEntityType("sw", "product");
@@ -94,12 +102,15 @@ public class CyberHeuristicAnnotator implements Annotator {
 			for (CoreLabel token : tokens) {
 				if (swVendorList.contains(token.get(TextAnnotation.class))) {
 					token.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 				}
 				else if (swProductList.contains(token.get(TextAnnotation.class))) {
 					token.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 				}
 				else if (relevantTermsList.contains(token.get(TextAnnotation.class))) {
 					token.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 				}
 				else {
 					token.set(CyberHeuristicAnnotation.class, O);
@@ -112,25 +123,31 @@ public class CyberHeuristicAnnotator implements Annotator {
 				if (swProductList.contains(lookupPhrase)) {
 					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token1.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 				}
 				else if (swVendorList.contains(lookupPhrase)) {
 					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token1.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 				}
 				else if (relevantTermsList.contains(lookupPhrase)) {
 					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token1.set(CyberHeuristicAnnotation.class, VULN_DESC);
+						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, VULN_DESC);
+						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 				}
 			}
@@ -142,34 +159,43 @@ public class CyberHeuristicAnnotator implements Annotator {
 				if (swProductList.contains(lookupPhrase)) {
 					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token1.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token3.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+						token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 				}
 				else if (swVendorList.contains(lookupPhrase)) {
 					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token1.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token3.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+						token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 				}
 				else if (relevantTermsList.contains(lookupPhrase)) {
 					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token1.set(CyberHeuristicAnnotation.class, VULN_DESC);
+						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, VULN_DESC);
+						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token3.set(CyberHeuristicAnnotation.class, VULN_DESC);
+						token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
 				}
 			}			
@@ -209,6 +235,7 @@ public class CyberHeuristicAnnotator implements Annotator {
 				if ((token.get(CyberHeuristicAnnotation.class).equals(O)) && (labelMap.contains(token.get(TextAnnotation.class)))) {
 					CyberEntityType uniqueLabel = labelMap.getLabel(token.get(TextAnnotation.class));
 					token.set(CyberHeuristicAnnotation.class, uniqueLabel);
+					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.TRAINING_MAP);
 				}
 			}
 		}
@@ -225,13 +252,24 @@ public class CyberHeuristicAnnotator implements Annotator {
 	}
 
 	/**
-	 * The CyberAnnotation key for getting the STUCCO cyber label of a token.
+	 * The CyberHeuristicAnnotation key for getting the STUCCO cyber heuristic label of a token.
 	 *
 	 * This key is set on token annotations.
 	 */
 	public static class CyberHeuristicAnnotation implements CoreAnnotation<CyberEntityType> {
 		public Class<CyberEntityType> getType() {
 			return CyberEntityType.class;
+		}
+	}
+	
+	/**
+	 * The CyberHeuristicMethodAnnotation key for getting the STUCCO cyber heuristic method that labeled a token.
+	 *
+	 * This key is set on token annotations.
+	 */
+	public static class CyberHeuristicMethodAnnotation implements CoreAnnotation<gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.HEURISTIC_METHOD> {
+		public Class<gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.HEURISTIC_METHOD> getType() {
+			return gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.HEURISTIC_METHOD.class;
 		}
 	}
 }

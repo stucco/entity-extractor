@@ -9,10 +9,11 @@ import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
-import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
 import edu.stanford.nlp.util.CoreMap;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberAnnotation;
-import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberEntityMentionsAnnotation;
+import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberConfidenceAnnotation;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicMethodAnnotation;
 
 public class EntityLabeler {
 		
@@ -46,6 +47,17 @@ public class EntityLabeler {
 		pipeline.annotate(annotatedDoc);
 		return annotatedDoc;
 	}
+	
+	
+	public static void serializeAnnotatedDoc(Annotation annotatedDoc) {
+		
+	}
+	
+	
+	public static Annotation deserializeAnnotatedDoc(String objectPath) {
+		
+		return null;
+	}
 
 
 	public static void main(String[] args) {
@@ -58,12 +70,12 @@ public class EntityLabeler {
 		List<CoreMap> sentences = doc.get(SentencesAnnotation.class);
 		for ( CoreMap sentence : sentences) {
 			for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
-				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class));
+				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class) + "\t" + token.get(CyberHeuristicMethodAnnotation.class) + "\t" + token.get(CyberConfidenceAnnotation.class));
 			}
 			
-			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
+//			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
 			
-			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
+//			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
 		}
 		
 	}
