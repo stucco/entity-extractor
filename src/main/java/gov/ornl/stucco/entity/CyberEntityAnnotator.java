@@ -71,6 +71,15 @@ public class CyberEntityAnnotator implements Annotator {
 		System.err.println("Annotating with cyber labels ... ");
 		Map<Integer, List<CyberEntityMention>> entityMentionsMap = new HashMap<Integer, List<CyberEntityMention>>();
 		
+		// Add an annotation of the possible labels according to the MEM
+		int numLabels = cyberModel.getNumOutcomes();
+		String[] possibleLabels = new String[numLabels];
+		for (int i=0; i<numLabels; i++) {
+			possibleLabels[i] = cyberModel.getOutcome(i);
+		}
+		annotation.set(CyberLabelsAnnotation.class, possibleLabels);
+		
+		
 		if (annotation.has(SentencesAnnotation.class)) {
 			List<CoreLabel> tokens = annotation.get(TokensAnnotation.class);
 			for (int i=0; i<tokens.size(); i++) {
@@ -100,6 +109,8 @@ public class CyberEntityAnnotator implements Annotator {
 						String subType = cyberLabel.substring(index + 1);
 						label = new CyberEntityType(type, subType);
 					}
+					// Add annotation of the probabilities of all labels for this token
+					token.set(CyberConfidenceAnnotation.class, results);
 				}
 				
 				if (label != null) {				

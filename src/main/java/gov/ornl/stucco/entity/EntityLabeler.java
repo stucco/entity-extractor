@@ -1,7 +1,14 @@
 package gov.ornl.stucco.entity;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.Properties;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
@@ -9,9 +16,11 @@ import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
 import edu.stanford.nlp.util.CoreMap;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberAnnotation;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberConfidenceAnnotation;
+import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberEntityMentionsAnnotation;
 import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
 import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicMethodAnnotation;
 
@@ -41,6 +50,11 @@ public class EntityLabeler {
 	}
 	
 	
+	/**
+	 * @param title of the document to be annotated
+	 * @param docText the raw text version of the document
+	 * @return Annotation object representing the annotated document
+	 */
 	public Annotation getAnnotatedDoc(String title, String docText) {
 		System.err.println("Annotating '" + title + "'...");
 		annotatedDoc = new Annotation(docText);
@@ -49,14 +63,76 @@ public class EntityLabeler {
 	}
 	
 	
-	public static void serializeAnnotatedDoc(Annotation annotatedDoc) {
+	/**
+	 * @param annotatedDoc the annotated representation of the document
+	 * @param title the title of the document to be used in the name of the serialized file
+	 * @param source the source of the document to be used in the name of the serialized file
+	 * @param dirPath the directory path to use to save the serialized file
+	 */
+	public static void serializeAnnotatedDoc(Annotation annotatedDoc, String title, String source, String dirPath) {
+		//Check that this dirPath is a directory
+		File dir = new File(dirPath);
 		
+		StringBuilder sb = new StringBuilder(dirPath);
+		if (sb.charAt(sb.length()-1) != '/') {
+			sb.append("/");
+		}
+		StringBuilder filenameBuilder = new StringBuilder();
+		filenameBuilder.append(source);
+		filenameBuilder.append("__");
+		filenameBuilder.append(title);
+		filenameBuilder.append(".ser.gz");
+		String filename = filenameBuilder.toString().replaceAll(" ", "_");
+		sb.append(filename);
+		
+		System.err.println("Serializing '" + filename + "'...");
+		
+		if (dir.exists() && dir.isDirectory()) {
+			try {
+				FileOutputStream outFile = new FileOutputStream(sb.toString(), false);
+				GZIPOutputStream gzipStream = new GZIPOutputStream(outFile);
+				ObjectOutputStream oos = new ObjectOutputStream(gzipStream);
+				oos.writeObject(annotatedDoc);
+				oos.flush();
+				oos.close();
+				gzipStream.close();
+				outFile.close();
+			} catch (Exception e) {
+				System.err.println("ERROR: Could not write serialized annotation for '" + sb.toString() + "'.");
+				e.printStackTrace();
+			}
+			
+		}
+		else {
+			System.err.println("Path '" + dirPath + "' must be a directory.");
+		}
 	}
 	
 	
 	public static Annotation deserializeAnnotatedDoc(String objectPath) {
+		System.err.println("Deserializing '" + objectPath + "'...");
+		Annotation annotatedDoc = null;
+		File annotationFile = new File(objectPath);
 		
-		return null;
+		if (annotationFile.exists() && annotationFile.isFile()) {
+			try {
+				FileInputStream inFile = new FileInputStream(objectPath);
+				GZIPInputStream gzipStream = new GZIPInputStream(inFile);
+				ObjectInputStream ois = new ObjectInputStream(gzipStream);
+				annotatedDoc = (Annotation) ois.readObject();
+				ois.close();
+				gzipStream.close();
+				inFile.close();
+			} catch (Exception e) {
+				System.err.println("ERROR: Could not deserialized annotation for '" + objectPath + "'.");
+				e.printStackTrace();
+			}
+		}
+		else {
+			System.err.println("Annotation object file '" + objectPath + "' doesn't exist, or is not a file.");
+		}
+		
+		return annotatedDoc;
 	}
 
 
@@ -70,14 +146,47 @@ public class EntityLabeler {
 		List<CoreMap> sentences = doc.get(SentencesAnnotation.class);
 		for ( CoreMap sentence : sentences) {
 			for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
-				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class) + "\t" + token.get(CyberHeuristicMethodAnnotation.class) + "\t" + token.get(CyberConfidenceAnnotation.class));
+				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class));
+				if (token.containsKey(CyberHeuristicMethodAnnotation.class)) {
+					System.out.println("\t" + token.get(CyberHeuristicMethodAnnotation.class));
+				}
+				if (token.containsKey(CyberConfidenceAnnotation.class)) {
+					double[] probabilities = token.get(CyberConfidenceAnnotation.class);
+					for (int i=0; i<probabilities.length; i++) {
+						System.out.print(probabilities[i] + ", ");
+					}
+				}
+				System.out.println();
 			}
 			
-//			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
+			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
 			
-//			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
+			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
 		}
 		
+		EntityLabeler.serializeAnnotatedDoc(doc, "My Doc", "Krebs", "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources");
+		
+		Annotation deserDoc = EntityLabeler.deserializeAnnotatedDoc("/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/Krebs__My_Doc.ser.gz");
+		sentences = deserDoc.get(SentencesAnnotation.class);
+		for ( CoreMap sentence : sentences) {
+			for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
+				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class));
+				if (token.containsKey(CyberHeuristicMethodAnnotation.class)) {
+					System.out.println("\t" + token.get(CyberHeuristicMethodAnnotation.class));
+				}
+				if (token.containsKey(CyberConfidenceAnnotation.class)) {
+					double[] probabilities = token.get(CyberConfidenceAnnotation.class);
+					for (int i=0; i<probabilities.length; i++) {
+						System.out.print(probabilities[i] + ", ");
+					}
+				}
+				System.out.println();
+			}
+			
+			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
+			
+			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
+		}
 	}
 
 }
