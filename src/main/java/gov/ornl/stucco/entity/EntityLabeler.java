@@ -163,30 +163,34 @@ public class EntityLabeler {
 			
 			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
 		}
-		
-		EntityLabeler.serializeAnnotatedDoc(doc, "My Doc", "Krebs", "/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources");
-		
-		Annotation deserDoc = EntityLabeler.deserializeAnnotatedDoc("/Users/k5y/Documents/Projects/STUCCO/Workspace/entity-extractor/src/main/resources/Krebs__My_Doc.ser.gz");
-		sentences = deserDoc.get(SentencesAnnotation.class);
-		for ( CoreMap sentence : sentences) {
-			for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
-				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class));
-				if (token.containsKey(CyberHeuristicMethodAnnotation.class)) {
-					System.out.println("\t" + token.get(CyberHeuristicMethodAnnotation.class));
-				}
-				if (token.containsKey(CyberConfidenceAnnotation.class)) {
-					double[] probabilities = token.get(CyberConfidenceAnnotation.class);
-					for (int i=0; i<probabilities.length; i++) {
-						System.out.print(probabilities[i] + ", ");
-					}
-				}
-				System.out.println();
-			}
-			
-			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
-			
-			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
+		String docDir = "/stucco/docs/";
+		File dir = new File(docDir);
+		if (!dir.exists()) {
+			dir.mkdir();
 		}
+		EntityLabeler.serializeAnnotatedDoc(doc, "My Doc", "Krebs", docDir);
+		
+		Annotation deserDoc = EntityLabeler.deserializeAnnotatedDoc(docDir+"Krebs__My_Doc.ser.gz");
+//		sentences = deserDoc.get(SentencesAnnotation.class);
+//		for ( CoreMap sentence : sentences) {
+//			for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
+//				System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class));
+//				if (token.containsKey(CyberHeuristicMethodAnnotation.class)) {
+//					System.out.println("\t" + token.get(CyberHeuristicMethodAnnotation.class));
+//				}
+//				if (token.containsKey(CyberConfidenceAnnotation.class)) {
+//					double[] probabilities = token.get(CyberConfidenceAnnotation.class);
+//					for (int i=0; i<probabilities.length; i++) {
+//						System.out.print(probabilities[i] + ", ");
+//					}
+//				}
+//				System.out.println();
+//			}
+//			
+//			System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
+//			
+//			System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
+//		}
 	}
 
 }
