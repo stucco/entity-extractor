@@ -206,11 +206,21 @@ public class CyberHeuristicAnnotator implements Annotator {
 				if (i == 0) {
 					tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
 					tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
-					tokenSublist.addAll(tokens.subList(0, 5));
+					tokenSublist.addAll(tokens.subList(0, (Math.min(tokens.size(),5))));
+					if (tokens.size() < 5) {
+						for (int k=0; k<5-tokens.size(); k++) {
+							tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+						}
+					}
 				}
 				else if (i == 1) {
 					tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
-					tokenSublist.addAll(tokens.subList(0, 6));
+					tokenSublist.addAll(tokens.subList(0, (Math.min(tokens.size(),6))));
+					if (tokens.size() < 6) {
+						for (int k=0; k<6-tokens.size(); k++) {
+							tokenSublist.add(RegexHeuristicLabeler.EMPTY_CORELABEL);
+						}
+					}
 				}
 				else {
 					tokenSublist.addAll(tokens.subList(i-2, (Math.min(tokens.size(),i+5))));
