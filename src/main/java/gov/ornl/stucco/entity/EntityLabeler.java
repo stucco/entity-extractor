@@ -46,7 +46,7 @@ public class EntityLabeler {
 	private void setProperties() {
 		nlpProps.setProperty("customAnnotatorClass.cyberentity", "gov.ornl.stucco.entity.CyberEntityAnnotator");
 		nlpProps.setProperty("customAnnotatorClass.cyberheuristics", "gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator");
-		nlpProps.setProperty("annotators", "tokenize, ssplit, pos, cyberheuristics, cyberentity, lemma, ner, parse");
+		nlpProps.setProperty("annotators", "tokenize, ssplit, pos, cyberheuristics, cyberentity, lemma, ner, parse, depparse, dcoref");
 	}
 	
 	
