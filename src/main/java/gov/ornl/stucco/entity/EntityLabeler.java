@@ -1,8 +1,11 @@
 package gov.ornl.stucco.entity;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
@@ -16,6 +19,8 @@ import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.semgraph.SemanticGraph;
+import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation;
 import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
 import edu.stanford.nlp.util.CoreMap;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberAnnotation;
@@ -137,6 +142,12 @@ public class EntityLabeler {
 
 
 	public static void main(String[] args) {
+		
+		
+		annotateSomeSamples();
+		System.exit(0);
+		
+		
 //		String exampleText = "The software developer who inserted a major security flaw into OpenSSL 1.2.4.8, using the file foo/bar/blah.php has said the error was \"quite trivial\" despite the severity of its impact, according to a new report.  The Sydney Morning Herald published an interview today with Robin Seggelmann, who added the flawed code to OpenSSL, the world's most popular library for implementing HTTPS encryption in websites, e-mail servers, and applications. The flaw can expose user passwords and potentially the private key used in a website's cryptographic certificate (whether private keys are at risk is still being determined). This is a new paragraph about Apache Tomcat's latest update 7.0.1.";
 		String exampleText = "Microsoft Windows 7 before SP1 has Sun Java cross-site scripting vulnerability Java SE in file.php (refer to CVE-2014-1234).";
 //		String exampleText = "Oracle DBRM has vulnerability in ABCD plug-in via abcd.1234 (found on abcd.com).";
@@ -193,4 +204,123 @@ public class EntityLabeler {
 //		}
 	}
 
+	public static void annotateSomeSamples() 
+	{
+//		String exampleText = "The software developer who inserted a major security flaw into OpenSSL 1.2.4.8, using the file foo/bar/blah.php has said the error was \"quite trivial\" despite the severity of its impact, according to a new report.  The Sydney Morning Herald published an interview today with Robin Seggelmann, who added the flawed code to OpenSSL, the world's most popular library for implementing HTTPS encryption in websites, e-mail servers, and applications. The flaw can expose user passwords and potentially the private key used in a website's cryptographic certificate (whether private keys are at risk is still being determined). This is a new paragraph about Apache Tomcat's latest update 7.0.1.";
+//		String exampleText = "Microsoft Windows 7 before SP1 has Sun Java cross-site scripting vulnerability Java SE in file.php (refer to CVE-2014-1234).";
+//		String exampleText = "Oracle DBRM has vulnerability in ABCD plug-in via abcd.1234 (found on abcd.com).";
+		EntityLabeler labeler = new EntityLabeler();
+		
+		
+		//File directory = new File("/Users/p5r/git/relation-bootstrap/DataFiles/Training/EntityExtractedSerialized/");
+		File directory = new File("/Users/p5r/Downloads/sergztexts/");
+		for(File f : directory.listFiles())
+		{
+			if(!f.getName().endsWith(".ser.gz"))
+				continue;
+			
+			
+			String exampleText = getExampleTextFromSerGzAlreadyExtracted(f);
+			
+			
+			Annotation doc = labeler.getAnnotatedDoc("My Doc", exampleText);
+		
+			List<CoreMap> sentences = doc.get(SentencesAnnotation.class);
+			for ( CoreMap sentence : sentences) {
+				for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
+					System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class));
+					if (token.containsKey(CyberHeuristicMethodAnnotation.class)) {
+						System.out.println("\t" + token.get(CyberHeuristicMethodAnnotation.class));
+					}
+					if (token.containsKey(CyberConfidenceAnnotation.class)) {
+						double[] probabilities = token.get(CyberConfidenceAnnotation.class);
+						for (int i=0; i<probabilities.length; i++) {
+							System.out.print(probabilities[i] + ", ");
+						}
+					}
+					System.out.println();
+				}
+			
+				//System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
+			
+				//System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));	
+				
+				//SemanticGraph dependencies = sentence.get(CollapsedCCProcessedDependenciesAnnotation.class);
+				//System.out.println("Dependencies:\n" + dependencies);
+			}
+			String docDir = "/Users/p5r/Downloads/newsergztexts/";
+			File dir = new File(docDir);
+			if (!dir.exists()) {
+				dir.mkdir();
+			}
+			EntityLabeler.serializeAnnotatedDoc(doc, f.getName(), "sergz", docDir);
+		
+//			Annotation deserDoc = EntityLabeler.deserializeAnnotatedDoc(docDir+"Krebs__My_Doc.ser.gz");
+//			sentences = deserDoc.get(SentencesAnnotation.class);
+//			for ( CoreMap sentence : sentences) {
+//				for ( CoreLabel token : sentence.get(TokensAnnotation.class)) {
+//					System.out.println(token.get(TextAnnotation.class) + "\t" + token.get(CyberAnnotation.class) + "\t" + token.get(CyberHeuristicAnnotation.class));
+//					if (token.containsKey(CyberHeuristicMethodAnnotation.class)) {
+//						System.out.println("\t" + token.get(CyberHeuristicMethodAnnotation.class));
+//					}
+//					if (token.containsKey(CyberConfidenceAnnotation.class)) {
+//						double[] probabilities = token.get(CyberConfidenceAnnotation.class);
+//						for (int i=0; i<probabilities.length; i++) {
+//							System.out.print(probabilities[i] + ", ");
+//						}
+//					}
+//					System.out.println();
+//				}
+//			
+//				System.out.println("Entities:\n" + sentence.get(CyberEntityMentionsAnnotation.class));
+//			
+//				System.out.println("Parse Tree:\n" + sentence.get(TreeAnnotation.class));		
+//			}
+		}
+	}
+	
+	private static String getExampleTextFromSerGz(File f)
+	{
+		String result = "";
+		
+			Annotation deserDoc = EntityLabeler.deserializeAnnotatedDoc(f.getAbsolutePath());
+			List<CoreMap> sentences = deserDoc.get(SentencesAnnotation.class);
+			for (int sentencenum = 0; sentencenum < sentences.size(); sentencenum++) 
+			{
+				CoreMap sentence = sentences.get(sentencenum);
+				
+				List<CoreLabel> labels = sentence.get(TokensAnnotation.class);
+				
+			 	for (int i = 0; i < labels.size(); i++) 
+			 	{
+			 		CoreLabel token = labels.get(i);
+			 		String tokenstring = token.get(TextAnnotation.class);
+			 		result += " " + tokenstring;
+			 	}
+			 	result = result.trim() + "\n";
+			}
+			
+		return result;
+	}
+	
+	private static String getExampleTextFromSerGzAlreadyExtracted(File f)
+	{
+		String result = "";
+		
+		try
+		{
+			BufferedReader in = new BufferedReader(new FileReader(f));
+			String line;
+			while((line = in.readLine()) != null)
+				result += line + "\n";
+			in.close();
+		}catch(IOException e)
+		{
+			System.out.println(e);
+			e.printStackTrace();
+			System.exit(3);
+		}
+			
+		return result;
+	}
 }
