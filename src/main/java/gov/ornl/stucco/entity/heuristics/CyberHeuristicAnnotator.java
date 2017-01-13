@@ -99,106 +99,78 @@ public class CyberHeuristicAnnotator implements Annotator {
 		if (annotation.has(SentencesAnnotation.class)) {
 			//Known entities heuristics
 			List<CoreLabel> tokens = annotation.get(TokensAnnotation.class);
-			for (CoreLabel token : tokens) {
-				if (swVendorList.contains(token.get(TextAnnotation.class))) {
-					token.set(CyberHeuristicAnnotation.class, SW_VENDOR);
-					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-				}
-				else if (swProductList.contains(token.get(TextAnnotation.class))) {
-					token.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
-					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-				}
-				else if (relevantTermsList.contains(token.get(TextAnnotation.class))) {
-					token.set(CyberHeuristicAnnotation.class, VULN_DESC);
-					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-				}
-				else {
-					token.set(CyberHeuristicAnnotation.class, O);
-				}
-			}
-			for (int i=0; i<tokens.size()-1; i++) {
-				CoreLabel token1 = tokens.get(i);
-				CoreLabel token2 = tokens.get(i+1);
-				String lookupPhrase =  token1.get(TextAnnotation.class) + " " + token2.get(TextAnnotation.class);
-				if (swProductList.contains(lookupPhrase)) {
-					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token1.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
-						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token2.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
-						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-				}
-				else if (swVendorList.contains(lookupPhrase)) {
-					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token1.set(CyberHeuristicAnnotation.class, SW_VENDOR);
-						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token2.set(CyberHeuristicAnnotation.class, SW_VENDOR);
-						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-				}
-				else if (relevantTermsList.contains(lookupPhrase)) {
-					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token1.set(CyberHeuristicAnnotation.class, VULN_DESC);
-						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token2.set(CyberHeuristicAnnotation.class, VULN_DESC);
-						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-				}
-			}
 			for (int i=0; i<tokens.size()-2; i++) {
 				CoreLabel token1 = tokens.get(i);
 				CoreLabel token2 = tokens.get(i+1);
 				CoreLabel token3 = tokens.get(i+2);
 				String lookupPhrase =  token1.get(TextAnnotation.class) + " " + token2.get(TextAnnotation.class) + " " + token3.get(TextAnnotation.class);
 				if (swProductList.contains(lookupPhrase)) {
-					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+					token1.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+					token2.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+					token3.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+				}
+				else if (swVendorList.contains(lookupPhrase)) {
+					token1.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+					token2.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+					token3.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+				}
+				else if (relevantTermsList.contains(lookupPhrase)) {
+					token1.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+					token2.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+					token3.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+				}
+			}
+			for (int i=0; i<tokens.size()-1; i++) {
+				CoreLabel token1 = tokens.get(i);
+				CoreLabel token2 = tokens.get(i+1);
+				if (!token2.containsKey(CyberHeuristicAnnotation.class)) {
+					String lookupPhrase =  token1.get(TextAnnotation.class) + " " + token2.get(TextAnnotation.class);
+					if (swProductList.contains(lookupPhrase)) {
 						token1.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
 						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
 						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
-					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token3.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
-						token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-				}
-				else if (swVendorList.contains(lookupPhrase)) {
-					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+					else if (swVendorList.contains(lookupPhrase)) {
 						token1.set(CyberHeuristicAnnotation.class, SW_VENDOR);
 						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, SW_VENDOR);
 						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
-					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token3.set(CyberHeuristicAnnotation.class, SW_VENDOR);
-						token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-				}
-				else if (relevantTermsList.contains(lookupPhrase)) {
-					if (token1.get(CyberHeuristicAnnotation.class).equals(O)) {
+					else if (relevantTermsList.contains(lookupPhrase)) {
 						token1.set(CyberHeuristicAnnotation.class, VULN_DESC);
 						token1.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
-					if (token2.get(CyberHeuristicAnnotation.class).equals(O)) {
 						token2.set(CyberHeuristicAnnotation.class, VULN_DESC);
 						token2.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
 					}
-					if (token3.get(CyberHeuristicAnnotation.class).equals(O)) {
-						token3.set(CyberHeuristicAnnotation.class, VULN_DESC);
-						token3.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
-					}
 				}
-			}			
+			}
+			for (CoreLabel token : tokens) {
+				if (swVendorList.contains(token.get(TextAnnotation.class))) {
+					token.set(CyberHeuristicAnnotation.class, SW_VENDOR);
+					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+				}
+				else if ((!token.containsKey(CyberHeuristicAnnotation.class)) && (swProductList.contains(token.get(TextAnnotation.class)))) {
+					token.set(CyberHeuristicAnnotation.class, SW_PRODUCT);
+					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+				}
+				else if ((!token.containsKey(CyberHeuristicAnnotation.class)) && (relevantTermsList.contains(token.get(TextAnnotation.class)))) {
+					token.set(CyberHeuristicAnnotation.class, VULN_DESC);
+					token.set(CyberHeuristicMethodAnnotation.class, HEURISTIC_METHOD.DICTIONARY);
+				}
+				else if ((!token.containsKey(CyberHeuristicAnnotation.class))) {
+					token.set(CyberHeuristicAnnotation.class, O);
+				}
+			}
 			
 			//Regex heuristics
 			for (int i=0; i<tokens.size(); i++) {

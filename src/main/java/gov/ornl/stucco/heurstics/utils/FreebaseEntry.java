@@ -1,6 +1,7 @@
 package gov.ornl.stucco.heurstics.utils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -32,8 +33,8 @@ public class FreebaseEntry implements Serializable {
 	}
 
 	@JsonSetter("/common/topic/alias")
-	public void setAliases(List<String> aliases) {
-		this.aliases = aliases;
+	public void setAliases(List<String> newAliases) {
+		this.aliases = newAliases;
 	}
 	
 	public void addAlias(String newAlias) {
@@ -41,12 +42,15 @@ public class FreebaseEntry implements Serializable {
 	}
 	
 	public boolean contains(String value) {
-		
-		if (value.equals((String)name)) {
+		if ((value != null) && (name != null) && (value.equalsIgnoreCase(name))) {
 			return true;
 		}
-		else if (aliases.contains(value)) {
-			return true;
+		else if (value != null) {
+			for (String alias : this.aliases) {
+				if (value.equalsIgnoreCase(alias)) {
+					return true;
+				}
+			}
 		}
 		
 		return false;

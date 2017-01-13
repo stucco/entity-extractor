@@ -20,6 +20,18 @@ public class CyberEntityType implements Serializable {
 	public String getCyberType() {
 		return cyberType;
 	}
+	
+	public String getFullCyberType() {
+		if (cyberType.equalsIgnoreCase("sw")) {
+			return "software";
+		}
+		else if (cyberType.equalsIgnoreCase("vuln")) {
+			return "vulnerability";
+		}
+		else {
+			return cyberType;
+		}
+	}
 
 	public void setCyberType(String cyberType) {
 		this.cyberType = cyberType;

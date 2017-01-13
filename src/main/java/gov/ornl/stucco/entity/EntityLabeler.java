@@ -21,6 +21,7 @@ import edu.stanford.nlp.util.CoreMap;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberAnnotation;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberConfidenceAnnotation;
 import gov.ornl.stucco.entity.CyberEntityAnnotator.CyberEntityMentionsAnnotation;
+import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator;
 import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicAnnotation;
 import gov.ornl.stucco.entity.heuristics.CyberHeuristicAnnotator.CyberHeuristicMethodAnnotation;
 
